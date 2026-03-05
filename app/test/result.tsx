@@ -65,7 +65,7 @@ export default function ResultScreen() {
         <Text style={[styles.errorText, { color: colors.error }]}>
           {t('result.loadError')}
         </Text>
-        <ShareCard iqScore={0} onRetake={() => router.replace('/(tabs)/home')} />
+        <ShareCard result={null} onRetake={() => router.replace('/(tabs)/home')} />
       </View>
     );
   }
@@ -139,7 +139,7 @@ export default function ResultScreen() {
       {/* Share + Retake */}
       <View style={styles.section}>
         <ShareCard
-          iqScore={result.iqScore}
+          result={result}
           onRetake={() => router.replace('/test/select-mode')}
         />
       </View>

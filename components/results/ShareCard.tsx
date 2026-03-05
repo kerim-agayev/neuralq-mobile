@@ -1,24 +1,30 @@
-import React from 'react';
-import { View, Text, StyleSheet, Alert } from 'react-native';
-import { useThemeColors } from '../../theme';
+import React, { useState } from 'react';
+import { View, StyleSheet } from 'react-native';
+import Toast from 'react-native-toast-message';
 import { useTranslation } from 'react-i18next';
 import Button from '../ui/Button';
+import { shareResult } from '../../utils/shareResult';
+import { TestResult } from '../../types';
 
 interface ShareCardProps {
-  iqScore: number;
+  result: TestResult | null;
   onRetake: () => void;
 }
 
-export default function ShareCard({ iqScore, onRetake }: ShareCardProps) {
-  const colors = useThemeColors();
+export default function ShareCard({ result, onRetake }: ShareCardProps) {
   const { t } = useTranslation();
+  const [sharing, setSharing] = useState(false);
 
-  const handleShare = () => {
-    Alert.alert(
-      'Share',
-      `My IQ score is ${iqScore}! Test yours on NeuralQ.`,
-      [{ text: 'OK' }],
-    );
+  const handleShare = async () => {
+    if (!result) return;
+    setSharing(true);
+    try {
+      await shareResult(result);
+    } catch {
+      Toast.show({ type: 'error', text1: t('common.error') });
+    } finally {
+      setSharing(false);
+    }
   };
 
   return (
@@ -29,6 +35,8 @@ export default function ShareCard({ iqScore, onRetake }: ShareCardProps) {
         variant="outline"
         size="lg"
         style={styles.button}
+        loading={sharing}
+        disabled={!result}
       />
       <Button
         title={t('result.retake')}
