@@ -1,0 +1,112 @@
+{
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "حدث خطأ ما",
+    "retry": "إعادة المحاولة",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "done": "تم",
+    "next": "التالي",
+    "back": "رجوع",
+    "skip": "تخطي",
+    "ok": "حسناً",
+    "goBack": "العودة",
+    "noData": "لا توجد بيانات"
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "logout": "تسجيل الخروج",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "username": "اسم المستخدم",
+    "age": "العمر",
+    "country": "البلد",
+    "alreadyHaveAccount": "لديك حساب بالفعل؟",
+    "dontHaveAccount": "ليس لديك حساب؟",
+    "loginError": "بريد إلكتروني أو كلمة مرور غير صحيحة",
+    "registerError": "فشل التسجيل",
+    "logoutConfirm": "هل أنت متأكد من تسجيل الخروج?",
+    "selectCountry": "اختر بلدك",
+    "searchCountry": "ابحث عن بلد..."
+  },
+  "onboarding": {
+    "slide1Title": "اكتشف معدل ذكائك",
+    "slide1Desc": "أجرِ اختباراً مصمماً علمياً واكتشف إمكاناتك المعرفية",
+    "slide2Title": "تنافس عالمياً",
+    "slide2Desc": "صنّف نفسك بين الملايين حول العالم",
+    "slide3Title": "اختر لغتك",
+    "slide3Desc": "اختر لغتك المفضلة للبدء",
+    "getStarted": "ابدأ"
+  },
+  "home": {
+    "welcome": "مرحباً بعودتك",
+    "startTest": "ابدأ اختبار الذكاء",
+    "lastResult": "آخر نتيجة",
+    "noResults": "لم تُجرِ أي اختبار بعد",
+    "streak": "سلسلة يومية",
+    "coins": "عملات Neural",
+    "firstTestHint": "أجرِ أول اختبار ذكاء لرؤية النتائج هنا"
+  },
+  "test": {
+    "selectMode": "اختر وضع الاختبار",
+    "arcade": "الوضع السريع",
+    "arcadeDesc": "تحدٍّ ذهني سريع وممتع",
+    "fullAnalysis": "تحليل معرفي كامل",
+    "fullAnalysisDesc": "تقييم معرفي مفصّل",
+    "preparingQuestions": "جاري تحضير الأسئلة...",
+    "question": "سؤال",
+    "of": "من",
+    "timeUp": "انتهى الوقت!",
+    "streak": "سلسلة",
+    "submitting": "جاري إرسال النتائج...",
+    "quitTitle": "مغادرة الاختبار؟",
+    "quitMessage": "سيتم فقدان تقدمك. هل أنت متأكد؟",
+    "quit": "مغادرة الاختبار",
+    "networkError": "خطأ في الشبكة. تم حفظ إجابتك."
+  },
+  "result": {
+    "yourIQ": "معدل ذكائك",
+    "iqScore": "درجة الذكاء",
+    "celebrityMatch": "تفكيرك يشبه",
+    "cognitiveAge": "العمر المعرفي",
+    "categories": "تفصيل الفئات",
+    "spatial": "مكاني",
+    "logic": "منطق",
+    "verbal": "لفظي",
+    "memory": "ذاكرة",
+    "speed": "سرعة",
+    "notAvailable": "غير متاح",
+    "globalRank": "الترتيب العالمي",
+    "countryRank": "ترتيب البلد",
+    "share": "مشاركة النتيجة",
+    "retake": "إجراء اختبار آخر",
+    "percentile": "المئوي",
+    "calculating": "جاري حساب نتائجك...",
+    "loadError": "تعذر تحميل النتائج"
+  },
+  "leaderboard": {
+    "title": "لوحة المتصدرين",
+    "global": "عالمي",
+    "country": "البلد",
+    "rank": "الترتيب",
+    "score": "الذكاء",
+    "you": "أنت",
+    "noRankings": "لا يوجد ترتيب بعد",
+    "loadError": "تعذر تحميل الترتيب"
+  },
+  "profile": {
+    "title": "الملف الشخصي",
+    "testHistory": "سجل الاختبارات",
+    "settings": "الإعدادات",
+    "theme": "المظهر",
+    "cyberpunk": "سايبربانك",
+    "clean": "بسيط",
+    "language": "اللغة",
+    "noHistory": "لا يوجد سجل اختبارات",
+    "loadError": "تعذر تحميل البيانات"
+  },
+  "history": {
+    "notFound": "النتيجة غير موجودة"
+  }
+}

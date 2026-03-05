@@ -1,0 +1,112 @@
+{
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました",
+    "retry": "再試行",
+    "cancel": "キャンセル",
+    "save": "保存",
+    "done": "完了",
+    "next": "次へ",
+    "back": "戻る",
+    "skip": "スキップ",
+    "ok": "OK",
+    "goBack": "戻る",
+    "noData": "データが見つかりません"
+  },
+  "auth": {
+    "login": "ログイン",
+    "register": "新規登録",
+    "logout": "ログアウト",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "username": "ユーザー名",
+    "age": "年齢",
+    "country": "国",
+    "alreadyHaveAccount": "アカウントをお持ちですか？",
+    "dontHaveAccount": "アカウントをお持ちでないですか？",
+    "loginError": "メールアドレスまたはパスワードが無効です",
+    "registerError": "登録に失敗しました",
+    "logoutConfirm": "本当にログアウトしますか？",
+    "selectCountry": "国を選択",
+    "searchCountry": "国を検索..."
+  },
+  "onboarding": {
+    "slide1Title": "IQを発見しよう",
+    "slide1Desc": "科学的に設計されたテストで認知能力を明らかにしましょう",
+    "slide2Title": "世界と競争",
+    "slide2Desc": "世界中の何百万人とランキングを競おう",
+    "slide3Title": "言語を選択",
+    "slide3Desc": "開始するには言語を選んでください",
+    "getStarted": "始める"
+  },
+  "home": {
+    "welcome": "おかえりなさい",
+    "startTest": "IQテストを開始",
+    "lastResult": "最新の結果",
+    "noResults": "まだテストを受けていません",
+    "streak": "連続日数",
+    "coins": "Neural Coins",
+    "firstTestHint": "最初のIQテストを受けて結果を確認しましょう"
+  },
+  "test": {
+    "selectMode": "テストモードを選択",
+    "arcade": "アーケードモード",
+    "arcadeDesc": "素早く楽しい脳トレ",
+    "fullAnalysis": "総合認知分析",
+    "fullAnalysisDesc": "詳細な認知評価",
+    "preparingQuestions": "問題を準備中...",
+    "question": "問題",
+    "of": "/",
+    "timeUp": "時間切れ！",
+    "streak": "連続",
+    "submitting": "結果を送信中...",
+    "quitTitle": "テストを終了？",
+    "quitMessage": "進捗が失われます。よろしいですか？",
+    "quit": "テストを終了",
+    "networkError": "ネットワークエラー。回答は保存されました。"
+  },
+  "result": {
+    "yourIQ": "あなたのIQスコア",
+    "iqScore": "IQスコア",
+    "celebrityMatch": "あなたの思考は",
+    "cognitiveAge": "認知年齢",
+    "categories": "カテゴリー別詳細",
+    "spatial": "空間",
+    "logic": "論理",
+    "verbal": "言語",
+    "memory": "記憶",
+    "speed": "速度",
+    "notAvailable": "N/A",
+    "globalRank": "世界ランキング",
+    "countryRank": "国内ランキング",
+    "share": "結果を共有",
+    "retake": "もう一度テスト",
+    "percentile": "パーセンタイル",
+    "calculating": "結果を計算中...",
+    "loadError": "結果を読み込めませんでした"
+  },
+  "leaderboard": {
+    "title": "ランキング",
+    "global": "世界",
+    "country": "国内",
+    "rank": "順位",
+    "score": "IQ",
+    "you": "あなた",
+    "noRankings": "まだランキングがありません",
+    "loadError": "ランキングを読み込めませんでした"
+  },
+  "profile": {
+    "title": "プロフィール",
+    "testHistory": "テスト履歴",
+    "settings": "設定",
+    "theme": "テーマ",
+    "cyberpunk": "サイバーパンク",
+    "clean": "シンプル",
+    "language": "言語",
+    "noHistory": "テスト履歴がありません",
+    "loadError": "データを読み込めませんでした"
+  },
+  "history": {
+    "notFound": "結果が見つかりません"
+  }
+}

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { View, ScrollView, StyleSheet, Text } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter, useLocalSearchParams } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { useThemeColors } from '../../theme';
 import { testService } from '../../services/test.service';
 import { LoadingSpinner } from '../../components/ui';
@@ -17,6 +18,7 @@ export default function ResultScreen() {
   const colors = useThemeColors();
   const insets = useSafeAreaInsets();
   const router = useRouter();
+  const { t } = useTranslation();
   const { sessionId } = useLocalSearchParams<{ sessionId: string }>();
 
   const [result, setResult] = useState<TestResult | null>(null);
@@ -47,7 +49,7 @@ export default function ResultScreen() {
           { backgroundColor: colors.background, paddingTop: insets.top },
         ]}
       >
-        <LoadingSpinner text="Calculating your results..." />
+        <LoadingSpinner text={t('result.calculating')} />
       </View>
     );
   }
@@ -61,7 +63,7 @@ export default function ResultScreen() {
         ]}
       >
         <Text style={[styles.errorText, { color: colors.error }]}>
-          Could not load results
+          {t('result.loadError')}
         </Text>
         <ShareCard iqScore={0} onRetake={() => router.replace('/(tabs)/home')} />
       </View>
@@ -116,7 +118,7 @@ export default function ResultScreen() {
                 #{result.globalRank}
               </Text>
               <Text style={[styles.rankLabel, { color: colors.textDim }]}>
-                Global
+                {t('result.globalRank')}
               </Text>
             </View>
           )}
@@ -127,7 +129,7 @@ export default function ResultScreen() {
                 #{result.countryRank}
               </Text>
               <Text style={[styles.rankLabel, { color: colors.textDim }]}>
-                Country
+                {t('result.countryRank')}
               </Text>
             </View>
           )}

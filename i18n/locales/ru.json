@@ -1,0 +1,112 @@
+{
+  "common": {
+    "loading": "Загрузка...",
+    "error": "Что-то пошло не так",
+    "retry": "Повторить",
+    "cancel": "Отмена",
+    "save": "Сохранить",
+    "done": "Готово",
+    "next": "Далее",
+    "back": "Назад",
+    "skip": "Пропустить",
+    "ok": "ОК",
+    "goBack": "Вернуться",
+    "noData": "Данные не найдены"
+  },
+  "auth": {
+    "login": "Войти",
+    "register": "Регистрация",
+    "logout": "Выйти",
+    "email": "Эл. почта",
+    "password": "Пароль",
+    "username": "Имя пользователя",
+    "age": "Возраст",
+    "country": "Страна",
+    "alreadyHaveAccount": "Уже есть аккаунт?",
+    "dontHaveAccount": "Нет аккаунта?",
+    "loginError": "Неверный email или пароль",
+    "registerError": "Регистрация не удалась",
+    "logoutConfirm": "Вы уверены, что хотите выйти?",
+    "selectCountry": "Выберите страну",
+    "searchCountry": "Поиск страны..."
+  },
+  "onboarding": {
+    "slide1Title": "Узнайте свой IQ",
+    "slide1Desc": "Пройдите научно разработанный тест и раскройте свой когнитивный потенциал",
+    "slide2Title": "Соревнуйтесь глобально",
+    "slide2Desc": "Сравните себя с миллионами людей по всему миру",
+    "slide3Title": "Выберите язык",
+    "slide3Desc": "Выберите предпочитаемый язык для начала",
+    "getStarted": "Начать"
+  },
+  "home": {
+    "welcome": "С возвращением",
+    "startTest": "НАЧАТЬ ТЕСТ IQ",
+    "lastResult": "Последний результат",
+    "noResults": "Тесты ещё не пройдены",
+    "streak": "Дневная серия",
+    "coins": "Neural Coins",
+    "firstTestHint": "Пройдите первый IQ-тест, чтобы увидеть результаты"
+  },
+  "test": {
+    "selectMode": "Выберите режим теста",
+    "arcade": "Аркада",
+    "arcadeDesc": "Быстрый и увлекательный тест",
+    "fullAnalysis": "Полный когнитивный анализ",
+    "fullAnalysisDesc": "Подробная когнитивная оценка",
+    "preparingQuestions": "Подготовка вопросов...",
+    "question": "Вопрос",
+    "of": "из",
+    "timeUp": "Время вышло!",
+    "streak": "Серия",
+    "submitting": "Отправка результатов...",
+    "quitTitle": "Выйти из теста?",
+    "quitMessage": "Ваш прогресс будет потерян. Вы уверены?",
+    "quit": "Выйти из теста",
+    "networkError": "Ошибка сети. Ваш ответ сохранён."
+  },
+  "result": {
+    "yourIQ": "Ваш IQ",
+    "iqScore": "Балл IQ",
+    "celebrityMatch": "Вы думаете как",
+    "cognitiveAge": "Когнитивный возраст",
+    "categories": "Разбивка по категориям",
+    "spatial": "Пространственное",
+    "logic": "Логика",
+    "verbal": "Вербальное",
+    "memory": "Память",
+    "speed": "Скорость",
+    "notAvailable": "Н/Д",
+    "globalRank": "Мировой рейтинг",
+    "countryRank": "Рейтинг страны",
+    "share": "Поделиться",
+    "retake": "Пройти ещё тест",
+    "percentile": "процентиль",
+    "calculating": "Подсчёт результатов...",
+    "loadError": "Не удалось загрузить результаты"
+  },
+  "leaderboard": {
+    "title": "Рейтинг",
+    "global": "Мировой",
+    "country": "Страна",
+    "rank": "Место",
+    "score": "IQ",
+    "you": "Вы",
+    "noRankings": "Рейтинг пока пуст",
+    "loadError": "Не удалось загрузить рейтинг"
+  },
+  "profile": {
+    "title": "Профиль",
+    "testHistory": "История тестов",
+    "settings": "Настройки",
+    "theme": "Тема",
+    "cyberpunk": "Cyberpunk",
+    "clean": "Светлая",
+    "language": "Язык",
+    "noHistory": "История тестов пуста",
+    "loadError": "Не удалось загрузить данные"
+  },
+  "history": {
+    "notFound": "Результат не найден"
+  }
+}

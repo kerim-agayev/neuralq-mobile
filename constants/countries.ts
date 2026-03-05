@@ -1,0 +1,48 @@
+export interface Country {
+  code: string; // ISO 3166-1 alpha-2
+  name: string;
+  flag: string;
+}
+
+export const COUNTRIES: Country[] = [
+  { code: 'US', name: 'United States', flag: '🇺🇸' },
+  { code: 'GB', name: 'United Kingdom', flag: '🇬🇧' },
+  { code: 'TR', name: 'Türkiye', flag: '🇹🇷' },
+  { code: 'AZ', name: 'Azərbaycan', flag: '🇦🇿' },
+  { code: 'RU', name: 'Россия', flag: '🇷🇺' },
+  { code: 'DE', name: 'Deutschland', flag: '🇩🇪' },
+  { code: 'FR', name: 'France', flag: '🇫🇷' },
+  { code: 'ES', name: 'España', flag: '🇪🇸' },
+  { code: 'IT', name: 'Italia', flag: '🇮🇹' },
+  { code: 'PT', name: 'Portugal', flag: '🇵🇹' },
+  { code: 'BR', name: 'Brasil', flag: '🇧🇷' },
+  { code: 'CN', name: '中国', flag: '🇨🇳' },
+  { code: 'JP', name: '日本', flag: '🇯🇵' },
+  { code: 'KR', name: '한국', flag: '🇰🇷' },
+  { code: 'IN', name: 'India', flag: '🇮🇳' },
+  { code: 'SA', name: 'السعودية', flag: '🇸🇦' },
+  { code: 'AE', name: 'الإمارات', flag: '🇦🇪' },
+  { code: 'PL', name: 'Polska', flag: '🇵🇱' },
+  { code: 'ID', name: 'Indonesia', flag: '🇮🇩' },
+  { code: 'NL', name: 'Nederland', flag: '🇳🇱' },
+  { code: 'CA', name: 'Canada', flag: '🇨🇦' },
+  { code: 'AU', name: 'Australia', flag: '🇦🇺' },
+  { code: 'MX', name: 'México', flag: '🇲🇽' },
+  { code: 'AR', name: 'Argentina', flag: '🇦🇷' },
+  { code: 'EG', name: 'مصر', flag: '🇪🇬' },
+  { code: 'UA', name: 'Україна', flag: '🇺🇦' },
+  { code: 'GE', name: 'საქართველო', flag: '🇬🇪' },
+  { code: 'KZ', name: 'Қазақстан', flag: '🇰🇿' },
+  { code: 'PK', name: 'Pakistan', flag: '🇵🇰' },
+  { code: 'NG', name: 'Nigeria', flag: '🇳🇬' },
+  { code: 'ZA', name: 'South Africa', flag: '🇿🇦' },
+  { code: 'SE', name: 'Sverige', flag: '🇸🇪' },
+  { code: 'NO', name: 'Norge', flag: '🇳🇴' },
+  { code: 'FI', name: 'Suomi', flag: '🇫🇮' },
+  { code: 'DK', name: 'Danmark', flag: '🇩🇰' },
+  { code: 'IL', name: 'ישראל', flag: '🇮🇱' },
+  { code: 'TH', name: 'ไทย', flag: '🇹🇭' },
+  { code: 'VN', name: 'Việt Nam', flag: '🇻🇳' },
+  { code: 'PH', name: 'Philippines', flag: '🇵🇭' },
+  { code: 'MY', name: 'Malaysia', flag: '🇲🇾' },
+];

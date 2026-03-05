@@ -88,12 +88,12 @@ export default function TestSessionScreen() {
 
   const confirmQuit = () => {
     Alert.alert(
-      'Quit Test?',
-      'Your progress will be lost. Are you sure?',
+      t('test.quitTitle'),
+      t('test.quitMessage'),
       [
-        { text: 'Cancel', style: 'cancel' },
+        { text: t('common.cancel'), style: 'cancel' },
         {
-          text: 'Quit',
+          text: t('test.quit'),
           style: 'destructive',
           onPress: () => {
             useTestStore.getState().resetSession();

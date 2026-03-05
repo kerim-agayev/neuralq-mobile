@@ -1,0 +1,112 @@
+{
+  "common": {
+    "loading": "Carregando...",
+    "error": "Algo deu errado",
+    "retry": "Tentar novamente",
+    "cancel": "Cancelar",
+    "save": "Salvar",
+    "done": "Pronto",
+    "next": "Próximo",
+    "back": "Voltar",
+    "skip": "Pular",
+    "ok": "OK",
+    "goBack": "Voltar",
+    "noData": "Nenhum dado encontrado"
+  },
+  "auth": {
+    "login": "Entrar",
+    "register": "Cadastrar",
+    "logout": "Sair",
+    "email": "E-mail",
+    "password": "Senha",
+    "username": "Nome de usuário",
+    "age": "Idade",
+    "country": "País",
+    "alreadyHaveAccount": "Já tem uma conta?",
+    "dontHaveAccount": "Não tem uma conta?",
+    "loginError": "E-mail ou senha inválidos",
+    "registerError": "Falha no cadastro",
+    "logoutConfirm": "Tem certeza de que deseja sair?",
+    "selectCountry": "Selecione seu país",
+    "searchCountry": "Buscar país..."
+  },
+  "onboarding": {
+    "slide1Title": "Descubra seu QI",
+    "slide1Desc": "Faça um teste cientificamente projetado e descubra seu potencial cognitivo",
+    "slide2Title": "Compita Globalmente",
+    "slide2Desc": "Classifique-se entre milhões em todo o mundo",
+    "slide3Title": "Escolha seu Idioma",
+    "slide3Desc": "Selecione seu idioma preferido para começar",
+    "getStarted": "Começar"
+  },
+  "home": {
+    "welcome": "Bem-vindo de volta",
+    "startTest": "INICIAR TESTE DE QI",
+    "lastResult": "Último Resultado",
+    "noResults": "Nenhum teste realizado ainda",
+    "streak": "Sequência Diária",
+    "coins": "Neural Coins",
+    "firstTestHint": "Faça seu primeiro teste de QI para ver os resultados"
+  },
+  "test": {
+    "selectMode": "Selecione o Modo",
+    "arcade": "Modo Arcade",
+    "arcadeDesc": "Desafio cerebral rápido e divertido",
+    "fullAnalysis": "Análise Cognitiva Completa",
+    "fullAnalysisDesc": "Avaliação cognitiva detalhada",
+    "preparingQuestions": "Preparando perguntas...",
+    "question": "Pergunta",
+    "of": "de",
+    "timeUp": "Tempo esgotado!",
+    "streak": "Sequência",
+    "submitting": "Enviando resultados...",
+    "quitTitle": "Abandonar teste?",
+    "quitMessage": "Seu progresso será perdido. Tem certeza?",
+    "quit": "Abandonar Teste",
+    "networkError": "Erro de rede. Sua resposta foi salva."
+  },
+  "result": {
+    "yourIQ": "Sua Pontuação de QI",
+    "iqScore": "Pontuação QI",
+    "celebrityMatch": "Você pensa como",
+    "cognitiveAge": "Idade Cognitiva",
+    "categories": "Detalhamento por Categoria",
+    "spatial": "Espacial",
+    "logic": "Lógica",
+    "verbal": "Verbal",
+    "memory": "Memória",
+    "speed": "Velocidade",
+    "notAvailable": "N/D",
+    "globalRank": "Ranking Global",
+    "countryRank": "Ranking do País",
+    "share": "Compartilhar Resultado",
+    "retake": "Fazer Outro Teste",
+    "percentile": "percentil",
+    "calculating": "Calculando seus resultados...",
+    "loadError": "Não foi possível carregar os resultados"
+  },
+  "leaderboard": {
+    "title": "Classificação",
+    "global": "Global",
+    "country": "País",
+    "rank": "Posição",
+    "score": "QI",
+    "you": "Você",
+    "noRankings": "Ainda sem classificação",
+    "loadError": "Não foi possível carregar a classificação"
+  },
+  "profile": {
+    "title": "Perfil",
+    "testHistory": "Histórico de Testes",
+    "settings": "Configurações",
+    "theme": "Tema",
+    "cyberpunk": "Cyberpunk",
+    "clean": "Limpo",
+    "language": "Idioma",
+    "noHistory": "Sem histórico de testes",
+    "loadError": "Não foi possível carregar os dados"
+  },
+  "history": {
+    "notFound": "Resultado não encontrado"
+  }
+}

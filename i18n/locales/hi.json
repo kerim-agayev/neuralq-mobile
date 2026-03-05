@@ -1,0 +1,112 @@
+{
+  "common": {
+    "loading": "लोड हो रहा है...",
+    "error": "कुछ गलत हो गया",
+    "retry": "पुनः प्रयास करें",
+    "cancel": "रद्द करें",
+    "save": "सहेजें",
+    "done": "पूर्ण",
+    "next": "अगला",
+    "back": "वापस",
+    "skip": "छोड़ें",
+    "ok": "ठीक है",
+    "goBack": "वापस जाएं",
+    "noData": "कोई डेटा नहीं मिला"
+  },
+  "auth": {
+    "login": "लॉग इन",
+    "register": "साइन अप",
+    "logout": "लॉग आउट",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "username": "उपयोगकर्ता नाम",
+    "age": "आयु",
+    "country": "देश",
+    "alreadyHaveAccount": "पहले से खाता है?",
+    "dontHaveAccount": "खाता नहीं है?",
+    "loginError": "गलत ईमेल या पासवर्ड",
+    "registerError": "पंजीकरण विफल",
+    "logoutConfirm": "क्या आप लॉग आउट करना चाहते हैं?",
+    "selectCountry": "अपना देश चुनें",
+    "searchCountry": "देश खोजें..."
+  },
+  "onboarding": {
+    "slide1Title": "अपना IQ जानें",
+    "slide1Desc": "वैज्ञानिक रूप से डिज़ाइन किया गया टेस्ट लें और अपनी संज्ञानात्मक क्षमता जानें",
+    "slide2Title": "वैश्विक प्रतिस्पर्धा",
+    "slide2Desc": "दुनिया भर में लाखों लोगों के बीच अपनी रैंक देखें",
+    "slide3Title": "अपनी भाषा चुनें",
+    "slide3Desc": "शुरू करने के लिए अपनी पसंदीदा भाषा चुनें",
+    "getStarted": "शुरू करें"
+  },
+  "home": {
+    "welcome": "वापसी पर स्वागत है",
+    "startTest": "IQ टेस्ट शुरू करें",
+    "lastResult": "अंतिम परिणाम",
+    "noResults": "अभी तक कोई टेस्ट नहीं दिया",
+    "streak": "दैनिक स्ट्रीक",
+    "coins": "Neural Coins",
+    "firstTestHint": "परिणाम देखने के लिए अपना पहला IQ टेस्ट दें"
+  },
+  "test": {
+    "selectMode": "टेस्ट मोड चुनें",
+    "arcade": "आर्केड मोड",
+    "arcadeDesc": "तेज़ और मज़ेदार मस्तिष्क चुनौती",
+    "fullAnalysis": "पूर्ण संज्ञानात्मक विश्लेषण",
+    "fullAnalysisDesc": "विस्तृत संज्ञानात्मक मूल्यांकन",
+    "preparingQuestions": "प्रश्न तैयार हो रहे हैं...",
+    "question": "प्रश्न",
+    "of": "में से",
+    "timeUp": "समय समाप्त!",
+    "streak": "स्ट्रीक",
+    "submitting": "परिणाम भेजे जा रहे हैं...",
+    "quitTitle": "टेस्ट छोड़ें?",
+    "quitMessage": "आपकी प्रगति खो जाएगी। क्या आप सुनिश्चित हैं?",
+    "quit": "टेस्ट छोड़ें",
+    "networkError": "नेटवर्क त्रुटि। आपका उत्तर सहेजा गया।"
+  },
+  "result": {
+    "yourIQ": "आपका IQ स्कोर",
+    "iqScore": "IQ स्कोर",
+    "celebrityMatch": "आप सोचते हैं जैसे",
+    "cognitiveAge": "संज्ञानात्मक आयु",
+    "categories": "श्रेणी विवरण",
+    "spatial": "स्थानिक",
+    "logic": "तर्क",
+    "verbal": "मौखिक",
+    "memory": "स्मृति",
+    "speed": "गति",
+    "notAvailable": "उपलब्ध नहीं",
+    "globalRank": "वैश्विक रैंक",
+    "countryRank": "देश रैंक",
+    "share": "परिणाम साझा करें",
+    "retake": "दूसरा टेस्ट लें",
+    "percentile": "प्रतिशत",
+    "calculating": "आपके परिणाम की गणना हो रही है...",
+    "loadError": "परिणाम लोड नहीं हो सके"
+  },
+  "leaderboard": {
+    "title": "लीडरबोर्ड",
+    "global": "वैश्विक",
+    "country": "देश",
+    "rank": "रैंक",
+    "score": "IQ",
+    "you": "आप",
+    "noRankings": "अभी तक कोई रैंकिंग नहीं",
+    "loadError": "लीडरबोर्ड लोड नहीं हो सका"
+  },
+  "profile": {
+    "title": "प्रोफ़ाइल",
+    "testHistory": "टेस्ट इतिहास",
+    "settings": "सेटिंग्स",
+    "theme": "थीम",
+    "cyberpunk": "साइबरपंक",
+    "clean": "साफ़",
+    "language": "भाषा",
+    "noHistory": "अभी तक कोई टेस्ट इतिहास नहीं",
+    "loadError": "प्रोफ़ाइल डेटा लोड नहीं हो सका"
+  },
+  "history": {
+    "notFound": "परिणाम नहीं मिला"
+  }
+}

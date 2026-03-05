@@ -1,0 +1,112 @@
+{
+  "common": {
+    "loading": "로딩 중...",
+    "error": "문제가 발생했습니다",
+    "retry": "다시 시도",
+    "cancel": "취소",
+    "save": "저장",
+    "done": "완료",
+    "next": "다음",
+    "back": "뒤로",
+    "skip": "건너뛰기",
+    "ok": "확인",
+    "goBack": "돌아가기",
+    "noData": "데이터를 찾을 수 없습니다"
+  },
+  "auth": {
+    "login": "로그인",
+    "register": "회원가입",
+    "logout": "로그아웃",
+    "email": "이메일",
+    "password": "비밀번호",
+    "username": "사용자 이름",
+    "age": "나이",
+    "country": "국가",
+    "alreadyHaveAccount": "이미 계정이 있으신가요?",
+    "dontHaveAccount": "계정이 없으신가요?",
+    "loginError": "잘못된 이메일 또는 비밀번호",
+    "registerError": "가입에 실패했습니다",
+    "logoutConfirm": "로그아웃 하시겠습니까?",
+    "selectCountry": "국가를 선택하세요",
+    "searchCountry": "국가 검색..."
+  },
+  "onboarding": {
+    "slide1Title": "IQ를 알아보세요",
+    "slide1Desc": "과학적으로 설계된 테스트로 인지 잠재력을 발견하세요",
+    "slide2Title": "글로벌 경쟁",
+    "slide2Desc": "전 세계 수백만 명과 순위를 겨루세요",
+    "slide3Title": "언어 선택",
+    "slide3Desc": "시작하려면 선호하는 언어를 선택하세요",
+    "getStarted": "시작하기"
+  },
+  "home": {
+    "welcome": "다시 오신 것을 환영합니다",
+    "startTest": "IQ 테스트 시작",
+    "lastResult": "최근 결과",
+    "noResults": "아직 테스트를 하지 않았습니다",
+    "streak": "연속 일수",
+    "coins": "Neural Coins",
+    "firstTestHint": "첫 IQ 테스트를 해서 결과를 확인하세요"
+  },
+  "test": {
+    "selectMode": "테스트 모드 선택",
+    "arcade": "아케이드 모드",
+    "arcadeDesc": "빠르고 재미있는 두뇌 챌린지",
+    "fullAnalysis": "전체 인지 분석",
+    "fullAnalysisDesc": "상세한 인지 평가",
+    "preparingQuestions": "문제를 준비하고 있습니다...",
+    "question": "문제",
+    "of": "/",
+    "timeUp": "시간 초과!",
+    "streak": "연속",
+    "submitting": "결과 제출 중...",
+    "quitTitle": "테스트를 종료하시겠습니까?",
+    "quitMessage": "진행 상황이 사라집니다. 확실합니까?",
+    "quit": "테스트 종료",
+    "networkError": "네트워크 오류. 답변이 저장되었습니다."
+  },
+  "result": {
+    "yourIQ": "당신의 IQ 점수",
+    "iqScore": "IQ 점수",
+    "celebrityMatch": "당신의 사고방식은",
+    "cognitiveAge": "인지 나이",
+    "categories": "카테고리 분석",
+    "spatial": "공간",
+    "logic": "논리",
+    "verbal": "언어",
+    "memory": "기억",
+    "speed": "속도",
+    "notAvailable": "해당없음",
+    "globalRank": "세계 순위",
+    "countryRank": "국가 순위",
+    "share": "결과 공유",
+    "retake": "다시 테스트",
+    "percentile": "백분위",
+    "calculating": "결과를 계산하고 있습니다...",
+    "loadError": "결과를 불러올 수 없습니다"
+  },
+  "leaderboard": {
+    "title": "리더보드",
+    "global": "세계",
+    "country": "국가",
+    "rank": "순위",
+    "score": "IQ",
+    "you": "나",
+    "noRankings": "아직 순위가 없습니다",
+    "loadError": "리더보드를 불러올 수 없습니다"
+  },
+  "profile": {
+    "title": "프로필",
+    "testHistory": "테스트 기록",
+    "settings": "설정",
+    "theme": "테마",
+    "cyberpunk": "사이버펑크",
+    "clean": "심플",
+    "language": "언어",
+    "noHistory": "테스트 기록이 없습니다",
+    "loadError": "데이터를 불러올 수 없습니다"
+  },
+  "history": {
+    "notFound": "결과를 찾을 수 없습니다"
+  }
+}

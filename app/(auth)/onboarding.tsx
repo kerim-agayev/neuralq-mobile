@@ -14,6 +14,7 @@ import { useTranslation } from 'react-i18next';
 import { useThemeColors } from '../../theme';
 import { useSettingsStore } from '../../store/settings.store';
 import { storage } from '../../utils/storage';
+import i18n from '../../i18n';
 import { Button } from '../../components/ui';
 import OnboardingSlide from '../../components/onboarding/OnboardingSlide';
 import LanguageSelector from '../../components/onboarding/LanguageSelector';
@@ -106,7 +107,13 @@ export default function OnboardingScreen() {
             {t('onboarding.slide3Desc')}
           </Text>
           <View style={styles.langGrid}>
-            <LanguageSelector selected={language} onSelect={setLanguage} />
+            <LanguageSelector
+              selected={language}
+              onSelect={(lang) => {
+                setLanguage(lang);
+                i18n.changeLanguage(lang === 'other' ? 'en' : lang);
+              }}
+            />
           </View>
           <View style={styles.startButton}>
             <Button

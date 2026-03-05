@@ -3,10 +3,10 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View, ActivityIndicator } from 'react-native';
 import Toast from 'react-native-toast-message';
 import { useSettingsStore } from '../store/settings.store';
-import '../i18n';
+import i18n from '../i18n';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,13 +17,29 @@ const queryClient = new QueryClient({
 export default function RootLayout() {
   const { loadSettings, isSettingsLoaded } = useSettingsStore();
   const theme = useSettingsStore((s) => s.theme);
+  const language = useSettingsStore((s) => s.language);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
     loadSettings().then(() => setReady(true));
   }, []);
 
-  if (!ready || !isSettingsLoaded) return null;
+  // Sync i18n language with settings store
+  // 'other' has no locale file — use English UI
+  useEffect(() => {
+    const uiLang = language === 'other' ? 'en' : language;
+    if (uiLang && i18n.language !== uiLang) {
+      i18n.changeLanguage(uiLang);
+    }
+  }, [language]);
+
+  if (!ready || !isSettingsLoaded) {
+    return (
+      <View style={[styles.root, styles.splash]}>
+        <ActivityIndicator size="large" color="#00f5ff" />
+      </View>
+    );
+  }
 
   return (
     <GestureHandlerRootView style={styles.root}>
@@ -38,4 +54,5 @@ export default function RootLayout() {
 
 const styles = StyleSheet.create({
   root: { flex: 1 },
+  splash: { justifyContent: 'center', alignItems: 'center', backgroundColor: '#0a0a0f' },
 });

@@ -15,7 +15,8 @@ export function useTest() {
       setLoading(true);
       setError(null);
       try {
-        const response = await testService.startTest(mode, language);
+        const verbalLang = language === 'other' ? 'en' : language;
+        const response = await testService.startTest(mode, verbalLang);
         store.startSession(response);
         return response;
       } catch (err: any) {

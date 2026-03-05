@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { View, ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter, useLocalSearchParams } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { useThemeColors } from '../../theme';
 import { testService } from '../../services/test.service';
 import { LoadingSpinner } from '../../components/ui';
@@ -15,6 +16,7 @@ export default function HistoryDetailScreen() {
   const colors = useThemeColors();
   const insets = useSafeAreaInsets();
   const router = useRouter();
+  const { t } = useTranslation();
   const { id } = useLocalSearchParams<{ id: string }>();
 
   const [result, setResult] = useState<TestResult | null>(null);
@@ -54,10 +56,10 @@ export default function HistoryDetailScreen() {
         ]}
       >
         <Text style={[styles.errorText, { color: colors.error }]}>
-          Result not found
+          {t('history.notFound')}
         </Text>
         <TouchableOpacity onPress={() => router.back()}>
-          <Text style={[styles.backLink, { color: colors.primary }]}>Go Back</Text>
+          <Text style={[styles.backLink, { color: colors.primary }]}>{t('common.goBack')}</Text>
         </TouchableOpacity>
       </View>
     );
@@ -85,7 +87,7 @@ export default function HistoryDetailScreen() {
         activeOpacity={0.7}
       >
         <Text style={[styles.backArrow, { color: colors.primary }]}>‹</Text>
-        <Text style={[styles.backText, { color: colors.primary }]}>Profile</Text>
+        <Text style={[styles.backText, { color: colors.primary }]}>{t('profile.title')}</Text>
       </TouchableOpacity>
 
       {/* IQ Score header */}
@@ -93,7 +95,7 @@ export default function HistoryDetailScreen() {
         <Text style={[styles.iqScore, { color: colors.primary }]}>
           {result.iqScore}
         </Text>
-        <Text style={[styles.iqLabel, { color: colors.textDim }]}>IQ Score</Text>
+        <Text style={[styles.iqLabel, { color: colors.textDim }]}>{t('result.iqScore')}</Text>
         <Text style={[styles.date, { color: colors.textSecondary }]}>{date}</Text>
       </View>
 
@@ -133,7 +135,7 @@ export default function HistoryDetailScreen() {
                 #{result.globalRank}
               </Text>
               <Text style={[styles.rankLabel, { color: colors.textDim }]}>
-                Global
+                {t('result.globalRank')}
               </Text>
             </View>
           )}
@@ -144,7 +146,7 @@ export default function HistoryDetailScreen() {
                 #{result.countryRank}
               </Text>
               <Text style={[styles.rankLabel, { color: colors.textDim }]}>
-                Country
+                {t('result.countryRank')}
               </Text>
             </View>
           )}

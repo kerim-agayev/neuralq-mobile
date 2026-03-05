@@ -1,0 +1,112 @@
+{
+  "common": {
+    "loading": "Ładowanie...",
+    "error": "Coś poszło nie tak",
+    "retry": "Ponów",
+    "cancel": "Anuluj",
+    "save": "Zapisz",
+    "done": "Gotowe",
+    "next": "Dalej",
+    "back": "Wstecz",
+    "skip": "Pomiń",
+    "ok": "OK",
+    "goBack": "Wróć",
+    "noData": "Nie znaleziono danych"
+  },
+  "auth": {
+    "login": "Zaloguj się",
+    "register": "Zarejestruj się",
+    "logout": "Wyloguj się",
+    "email": "E-mail",
+    "password": "Hasło",
+    "username": "Nazwa użytkownika",
+    "age": "Wiek",
+    "country": "Kraj",
+    "alreadyHaveAccount": "Masz już konto?",
+    "dontHaveAccount": "Nie masz konta?",
+    "loginError": "Nieprawidłowy e-mail lub hasło",
+    "registerError": "Rejestracja nie powiodła się",
+    "logoutConfirm": "Czy na pewno chcesz się wylogować?",
+    "selectCountry": "Wybierz swój kraj",
+    "searchCountry": "Szukaj kraju..."
+  },
+  "onboarding": {
+    "slide1Title": "Odkryj swoje IQ",
+    "slide1Desc": "Rozwiąż test zaprojektowany naukowo i odkryj swój potencjał poznawczy",
+    "slide2Title": "Rywalizuj Globalnie",
+    "slide2Desc": "Porównaj się z milionami ludzi na całym świecie",
+    "slide3Title": "Wybierz Język",
+    "slide3Desc": "Wybierz preferowany język, aby zacząć",
+    "getStarted": "Rozpocznij"
+  },
+  "home": {
+    "welcome": "Witaj ponownie",
+    "startTest": "ROZPOCZNIJ TEST IQ",
+    "lastResult": "Ostatni Wynik",
+    "noResults": "Jeszcze nie rozwiązano testów",
+    "streak": "Dzienna Seria",
+    "coins": "Neural Coins",
+    "firstTestHint": "Rozwiąż swój pierwszy test IQ, aby zobaczyć wyniki"
+  },
+  "test": {
+    "selectMode": "Wybierz Tryb Testu",
+    "arcade": "Tryb Arcade",
+    "arcadeDesc": "Szybkie i zabawne wyzwanie dla mózgu",
+    "fullAnalysis": "Pełna Analiza Poznawcza",
+    "fullAnalysisDesc": "Szczegółowa ocena poznawcza",
+    "preparingQuestions": "Przygotowywanie pytań...",
+    "question": "Pytanie",
+    "of": "z",
+    "timeUp": "Czas minął!",
+    "streak": "Seria",
+    "submitting": "Wysyłanie wyników...",
+    "quitTitle": "Opuścić test?",
+    "quitMessage": "Twój postęp zostanie utracony. Jesteś pewien?",
+    "quit": "Opuść Test",
+    "networkError": "Błąd sieci. Twoja odpowiedź została zapisana."
+  },
+  "result": {
+    "yourIQ": "Twój Wynik IQ",
+    "iqScore": "Wynik IQ",
+    "celebrityMatch": "Myślisz jak",
+    "cognitiveAge": "Wiek Poznawczy",
+    "categories": "Podział na Kategorie",
+    "spatial": "Przestrzenne",
+    "logic": "Logika",
+    "verbal": "Werbalne",
+    "memory": "Pamięć",
+    "speed": "Szybkość",
+    "notAvailable": "Brak",
+    "globalRank": "Ranking Światowy",
+    "countryRank": "Ranking Krajowy",
+    "share": "Udostępnij Wynik",
+    "retake": "Zrób Kolejny Test",
+    "percentile": "percentyl",
+    "calculating": "Obliczanie wyników...",
+    "loadError": "Nie udało się załadować wyników"
+  },
+  "leaderboard": {
+    "title": "Ranking",
+    "global": "Globalny",
+    "country": "Kraj",
+    "rank": "Pozycja",
+    "score": "IQ",
+    "you": "Ty",
+    "noRankings": "Brak rankingu",
+    "loadError": "Nie udało się załadować rankingu"
+  },
+  "profile": {
+    "title": "Profil",
+    "testHistory": "Historia Testów",
+    "settings": "Ustawienia",
+    "theme": "Motyw",
+    "cyberpunk": "Cyberpunk",
+    "clean": "Prosty",
+    "language": "Język",
+    "noHistory": "Brak historii testów",
+    "loadError": "Nie udało się załadować danych"
+  },
+  "history": {
+    "notFound": "Wynik nie znaleziony"
+  }
+}

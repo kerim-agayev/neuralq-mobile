@@ -21,4 +21,10 @@ export const LANGUAGES: Language[] = [
   { value: 'it', label: 'Italiano', flag: '🇮🇹' },
   { value: 'pl', label: 'Polski', flag: '🇵🇱' },
   { value: 'id', label: 'Indonesia', flag: '🇮🇩' },
+  { value: 'other', label: 'Other Language', flag: '🌐' },
 ];
+
+/** The 16 languages that have verbal questions. 'other' falls back to 'en'. */
+export const SUPPORTED_VERBAL_LANGS = LANGUAGES
+  .filter((l) => l.value !== 'other')
+  .map((l) => l.value);

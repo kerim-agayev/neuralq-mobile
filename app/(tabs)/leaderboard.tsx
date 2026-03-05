@@ -33,7 +33,7 @@ export default function LeaderboardScreen() {
         setCountryData(data);
       }
     } catch {
-      // silently fail
+      // API endpoint may not exist yet — silently show empty list
     } finally {
       setLoading(false);
     }

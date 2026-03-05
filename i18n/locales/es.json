@@ -1,0 +1,112 @@
+{
+  "common": {
+    "loading": "Cargando...",
+    "error": "Algo salió mal",
+    "retry": "Reintentar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "done": "Listo",
+    "next": "Siguiente",
+    "back": "Atrás",
+    "skip": "Omitir",
+    "ok": "OK",
+    "goBack": "Volver",
+    "noData": "No se encontraron datos"
+  },
+  "auth": {
+    "login": "Iniciar Sesión",
+    "register": "Registrarse",
+    "logout": "Cerrar Sesión",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "username": "Nombre de usuario",
+    "age": "Edad",
+    "country": "País",
+    "alreadyHaveAccount": "¿Ya tienes cuenta?",
+    "dontHaveAccount": "¿No tienes cuenta?",
+    "loginError": "Correo o contraseña inválidos",
+    "registerError": "Error en el registro",
+    "logoutConfirm": "¿Estás seguro de que deseas cerrar sesión?",
+    "selectCountry": "Selecciona tu país",
+    "searchCountry": "Buscar país..."
+  },
+  "onboarding": {
+    "slide1Title": "Descubre tu IQ",
+    "slide1Desc": "Realiza un test diseñado científicamente y descubre tu potencial cognitivo",
+    "slide2Title": "Compite Globalmente",
+    "slide2Desc": "Clasifícate entre millones en todo el mundo",
+    "slide3Title": "Elige tu Idioma",
+    "slide3Desc": "Selecciona tu idioma preferido para comenzar",
+    "getStarted": "Comenzar"
+  },
+  "home": {
+    "welcome": "Bienvenido de nuevo",
+    "startTest": "INICIAR TEST DE IQ",
+    "lastResult": "Último Resultado",
+    "noResults": "Aún no has hecho ningún test",
+    "streak": "Racha Diaria",
+    "coins": "Neural Coins",
+    "firstTestHint": "Haz tu primer test de IQ para ver resultados aquí"
+  },
+  "test": {
+    "selectMode": "Selecciona el Modo",
+    "arcade": "Modo Arcade",
+    "arcadeDesc": "Desafío cerebral rápido y divertido",
+    "fullAnalysis": "Análisis Cognitivo Completo",
+    "fullAnalysisDesc": "Evaluación cognitiva detallada",
+    "preparingQuestions": "Preparando preguntas...",
+    "question": "Pregunta",
+    "of": "de",
+    "timeUp": "¡Tiempo agotado!",
+    "streak": "Racha",
+    "submitting": "Enviando resultados...",
+    "quitTitle": "¿Abandonar test?",
+    "quitMessage": "Tu progreso se perderá. ¿Estás seguro?",
+    "quit": "Abandonar Test",
+    "networkError": "Error de red. Tu respuesta fue guardada."
+  },
+  "result": {
+    "yourIQ": "Tu Puntuación IQ",
+    "iqScore": "Puntuación IQ",
+    "celebrityMatch": "Piensas como",
+    "cognitiveAge": "Edad Cognitiva",
+    "categories": "Desglose por Categoría",
+    "spatial": "Espacial",
+    "logic": "Lógica",
+    "verbal": "Verbal",
+    "memory": "Memoria",
+    "speed": "Velocidad",
+    "notAvailable": "N/D",
+    "globalRank": "Ranking Global",
+    "countryRank": "Ranking País",
+    "share": "Compartir Resultado",
+    "retake": "Hacer Otro Test",
+    "percentile": "percentil",
+    "calculating": "Calculando tus resultados...",
+    "loadError": "No se pudieron cargar los resultados"
+  },
+  "leaderboard": {
+    "title": "Clasificación",
+    "global": "Global",
+    "country": "País",
+    "rank": "Posición",
+    "score": "IQ",
+    "you": "Tú",
+    "noRankings": "Aún no hay clasificación",
+    "loadError": "No se pudo cargar la clasificación"
+  },
+  "profile": {
+    "title": "Perfil",
+    "testHistory": "Historial de Tests",
+    "settings": "Ajustes",
+    "theme": "Tema",
+    "cyberpunk": "Cyberpunk",
+    "clean": "Limpio",
+    "language": "Idioma",
+    "noHistory": "Sin historial de tests",
+    "loadError": "No se pudieron cargar los datos"
+  },
+  "history": {
+    "notFound": "Resultado no encontrado"
+  }
+}

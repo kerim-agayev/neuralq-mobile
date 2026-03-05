@@ -8,18 +8,23 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  Modal,
+  FlatList,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { useThemeColors } from '../../theme';
 import { useAuth } from '../../hooks/useAuth';
 import { useSettingsStore } from '../../store/settings.store';
+import { COUNTRIES, Country } from '../../constants/countries';
 import { Button, NeonText } from '../../components/ui';
 
 export default function RegisterScreen() {
   const router = useRouter();
   const { t } = useTranslation();
   const colors = useThemeColors();
+  const insets = useSafeAreaInsets();
   const { register, loading, error } = useAuth();
   const language = useSettingsStore((s) => s.language);
 
@@ -27,7 +32,20 @@ export default function RegisterScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [age, setAge] = useState('');
+  const [country, setCountry] = useState<string | undefined>(undefined);
   const [showPassword, setShowPassword] = useState(false);
+  const [showCountryPicker, setShowCountryPicker] = useState(false);
+  const [countrySearch, setCountrySearch] = useState('');
+
+  const selectedCountry = COUNTRIES.find((c) => c.code === country);
+
+  const filteredCountries = countrySearch.trim()
+    ? COUNTRIES.filter(
+        (c) =>
+          c.name.toLowerCase().includes(countrySearch.toLowerCase()) ||
+          c.code.toLowerCase().includes(countrySearch.toLowerCase()),
+      )
+    : COUNTRIES;
 
   const handleRegister = async () => {
     if (!username.trim() || !email.trim() || !password.trim()) return;
@@ -36,6 +54,7 @@ export default function RegisterScreen() {
       email: email.trim(),
       password,
       age: age ? parseInt(age, 10) : undefined,
+      country,
       language,
     });
     if (success) {
@@ -44,6 +63,28 @@ export default function RegisterScreen() {
   };
 
   const isFormValid = username.trim() && email.trim() && password.trim() && password.length >= 6;
+
+  const renderCountryItem = ({ item }: { item: Country }) => (
+    <TouchableOpacity
+      style={[
+        styles.countryItem,
+        {
+          backgroundColor: item.code === country ? colors.primaryDim : 'transparent',
+          borderColor: item.code === country ? colors.primary : colors.border,
+        },
+      ]}
+      onPress={() => {
+        setCountry(item.code);
+        setShowCountryPicker(false);
+        setCountrySearch('');
+      }}
+      activeOpacity={0.7}
+    >
+      <Text style={styles.countryFlag}>{item.flag}</Text>
+      <Text style={[styles.countryName, { color: colors.text }]}>{item.name}</Text>
+      <Text style={[styles.countryCode, { color: colors.textDim }]}>{item.code}</Text>
+    </TouchableOpacity>
+  );
 
   return (
     <KeyboardAvoidingView
@@ -148,26 +189,57 @@ export default function RegisterScreen() {
             </View>
           </View>
 
-          <View style={styles.inputGroup}>
-            <Text style={[styles.label, { color: colors.textSecondary }]}>
-              {t('auth.age')} (optional)
-            </Text>
-            <TextInput
-              style={[
-                styles.input,
-                {
-                  backgroundColor: colors.surface,
-                  color: colors.text,
-                  borderColor: colors.border,
-                },
-              ]}
-              placeholder="25"
-              placeholderTextColor={colors.textDim}
-              value={age}
-              onChangeText={setAge}
-              keyboardType="number-pad"
-              maxLength={3}
-            />
+          {/* Age + Country side by side */}
+          <View style={styles.rowFields}>
+            <View style={[styles.inputGroup, { flex: 1 }]}>
+              <Text style={[styles.label, { color: colors.textSecondary }]}>
+                {t('auth.age')}
+              </Text>
+              <TextInput
+                style={[
+                  styles.input,
+                  {
+                    backgroundColor: colors.surface,
+                    color: colors.text,
+                    borderColor: colors.border,
+                  },
+                ]}
+                placeholder="25"
+                placeholderTextColor={colors.textDim}
+                value={age}
+                onChangeText={setAge}
+                keyboardType="number-pad"
+                maxLength={3}
+              />
+            </View>
+
+            <View style={[styles.inputGroup, { flex: 1.5 }]}>
+              <Text style={[styles.label, { color: colors.textSecondary }]}>
+                {t('auth.country')}
+              </Text>
+              <TouchableOpacity
+                style={[
+                  styles.input,
+                  styles.countryButton,
+                  {
+                    backgroundColor: colors.surface,
+                    borderColor: country ? colors.primary : colors.border,
+                  },
+                ]}
+                onPress={() => setShowCountryPicker(true)}
+                activeOpacity={0.7}
+              >
+                {selectedCountry ? (
+                  <Text style={{ color: colors.text, fontSize: 16 }}>
+                    {selectedCountry.flag} {selectedCountry.code}
+                  </Text>
+                ) : (
+                  <Text style={{ color: colors.textDim, fontSize: 14 }}>
+                    {t('auth.selectCountry')}
+                  </Text>
+                )}
+              </TouchableOpacity>
+            </View>
           </View>
 
           <Button
@@ -192,6 +264,56 @@ export default function RegisterScreen() {
           </TouchableOpacity>
         </View>
       </ScrollView>
+
+      {/* Country Picker Modal */}
+      <Modal
+        visible={showCountryPicker}
+        animationType="slide"
+        transparent
+        onRequestClose={() => setShowCountryPicker(false)}
+      >
+        <View style={[styles.modalOverlay, { paddingTop: insets.top }]}>
+          <View
+            style={[
+              styles.modalContent,
+              { backgroundColor: colors.background, borderColor: colors.border },
+            ]}
+          >
+            <View style={styles.modalHeader}>
+              <Text style={[styles.modalTitle, { color: colors.text }]}>
+                {t('auth.selectCountry')}
+              </Text>
+              <TouchableOpacity onPress={() => { setShowCountryPicker(false); setCountrySearch(''); }}>
+                <Text style={{ color: colors.primary, fontSize: 16, fontWeight: '600' }}>
+                  {t('common.done')}
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <TextInput
+              style={[
+                styles.searchInput,
+                {
+                  backgroundColor: colors.surface,
+                  color: colors.text,
+                  borderColor: colors.border,
+                },
+              ]}
+              placeholder={t('auth.searchCountry')}
+              placeholderTextColor={colors.textDim}
+              value={countrySearch}
+              onChangeText={setCountrySearch}
+              autoCorrect={false}
+            />
+            <FlatList
+              data={filteredCountries}
+              keyExtractor={(item) => item.code}
+              renderItem={renderCountryItem}
+              keyboardShouldPersistTaps="handled"
+              showsVerticalScrollIndicator={false}
+            />
+          </View>
+        </View>
+      </Modal>
     </KeyboardAvoidingView>
   );
 }
@@ -254,6 +376,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  rowFields: {
+    flexDirection: 'row',
+    gap: 12,
+  },
+  countryButton: {
+    justifyContent: 'center',
+  },
   button: {
     marginTop: 8,
   },
@@ -263,5 +392,59 @@ const styles = StyleSheet.create({
   },
   switchText: {
     fontSize: 14,
+  },
+  // Modal
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.6)',
+  },
+  modalContent: {
+    flex: 1,
+    marginTop: 60,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    borderWidth: 1,
+    paddingHorizontal: 20,
+    paddingTop: 16,
+  },
+  modalHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+  },
+  searchInput: {
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    fontSize: 15,
+    marginBottom: 10,
+  },
+  countryItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 12,
+    borderRadius: 10,
+    borderWidth: 1,
+    marginBottom: 4,
+    gap: 10,
+  },
+  countryFlag: {
+    fontSize: 22,
+  },
+  countryName: {
+    fontSize: 15,
+    fontWeight: '500',
+    flex: 1,
+  },
+  countryCode: {
+    fontSize: 13,
+    fontWeight: '500',
   },
 });

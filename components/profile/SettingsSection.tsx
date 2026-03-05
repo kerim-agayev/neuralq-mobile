@@ -5,20 +5,31 @@ import { useThemeColors } from '../../theme';
 import { useTranslation } from 'react-i18next';
 import { useSettingsStore } from '../../store/settings.store';
 import { useAuthStore } from '../../store/auth.store';
+import { LANGUAGES } from '../../constants/languages';
+import i18n from '../../i18n';
 
 export default function SettingsSection() {
   const colors = useThemeColors();
   const { t } = useTranslation();
   const router = useRouter();
-  const { theme, setTheme } = useSettingsStore();
+  const { theme, setTheme, language, setLanguage } = useSettingsStore();
   const logout = useAuthStore((s) => s.logout);
 
   const handleThemeToggle = () => {
     setTheme(theme === 'cyberpunk' ? 'clean' : 'cyberpunk');
   };
 
+  const handleLanguageCycle = () => {
+    const currentIdx = LANGUAGES.findIndex((l) => l.value === language);
+    const nextIdx = (currentIdx + 1) % LANGUAGES.length;
+    const nextLang = LANGUAGES[nextIdx].value;
+    setLanguage(nextLang);
+    // 'other' has no locale — show English UI
+    i18n.changeLanguage(nextLang === 'other' ? 'en' : nextLang);
+  };
+
   const handleLogout = () => {
-    Alert.alert(t('auth.logout'), 'Are you sure you want to log out?', [
+    Alert.alert(t('auth.logout'), t('auth.logoutConfirm'), [
       { text: t('common.cancel'), style: 'cancel' },
       {
         text: t('auth.logout'),
@@ -54,16 +65,21 @@ export default function SettingsSection() {
       </TouchableOpacity>
 
       {/* Language */}
-      <View
+      <TouchableOpacity
         style={[styles.row, { backgroundColor: colors.surface, borderColor: colors.border }]}
+        onPress={handleLanguageCycle}
+        activeOpacity={0.7}
       >
         <Text style={[styles.rowLabel, { color: colors.text }]}>
           🌐 {t('profile.language')}
         </Text>
-        <Text style={[styles.value, { color: colors.textDim }]}>
-          {useSettingsStore.getState().language.toUpperCase()}
-        </Text>
-      </View>
+        <View style={[styles.badge, { backgroundColor: colors.primaryDim }]}>
+          <Text style={[styles.badgeText, { color: colors.primary }]}>
+            {LANGUAGES.find((l) => l.value === language)?.flag}{' '}
+            {language.toUpperCase()}
+          </Text>
+        </View>
+      </TouchableOpacity>
 
       {/* Logout */}
       <TouchableOpacity

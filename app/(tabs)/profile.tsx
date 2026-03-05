@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ScrollView, StyleSheet, RefreshControl } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useTranslation } from 'react-i18next';
+import Toast from 'react-native-toast-message';
 import { useThemeColors } from '../../theme';
 import { useAuthStore } from '../../store/auth.store';
 import { testService } from '../../services/test.service';
@@ -12,6 +14,7 @@ import { TestResult } from '../../types';
 export default function ProfileScreen() {
   const colors = useThemeColors();
   const insets = useSafeAreaInsets();
+  const { t } = useTranslation();
   const user = useAuthStore((s) => s.user);
 
   const [history, setHistory] = useState<TestResult[]>([]);
@@ -22,7 +25,7 @@ export default function ProfileScreen() {
       const data = await testService.getHistory();
       setHistory(data);
     } catch {
-      // silently fail
+      Toast.show({ type: 'error', text1: t('profile.loadError') });
     }
   }, []);
 
@@ -36,7 +39,11 @@ export default function ProfileScreen() {
     setRefreshing(false);
   }, [fetchHistory]);
 
-  if (!user) return null;
+  if (!user) {
+    return (
+      <ScrollView style={[styles.container, { backgroundColor: colors.background }]} />
+    );
+  }
 
   return (
     <ScrollView

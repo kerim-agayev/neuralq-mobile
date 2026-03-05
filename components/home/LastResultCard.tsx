@@ -21,7 +21,7 @@ export default function LastResultCard({ result }: LastResultCardProps) {
           {t('home.noResults')}
         </Text>
         <Text style={[styles.emptyHint, { color: colors.textDim }]}>
-          Take your first IQ test to see results here
+          {t('home.firstTestHint')}
         </Text>
       </Card>
     );

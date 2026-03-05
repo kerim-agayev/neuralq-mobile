@@ -9,7 +9,9 @@
     "next": "Next",
     "back": "Back",
     "skip": "Skip",
-    "ok": "OK"
+    "ok": "OK",
+    "goBack": "Go Back",
+    "noData": "No data found"
   },
   "auth": {
     "login": "Log In",
@@ -23,7 +25,10 @@
     "alreadyHaveAccount": "Already have an account?",
     "dontHaveAccount": "Don't have an account?",
     "loginError": "Invalid email or password",
-    "registerError": "Registration failed"
+    "registerError": "Registration failed",
+    "logoutConfirm": "Are you sure you want to log out?",
+    "selectCountry": "Select your country",
+    "searchCountry": "Search country..."
   },
   "onboarding": {
     "slide1Title": "Discover Your IQ",
@@ -40,7 +45,8 @@
     "lastResult": "Last Result",
     "noResults": "No tests taken yet",
     "streak": "Day Streak",
-    "coins": "Neural Coins"
+    "coins": "Neural Coins",
+    "firstTestHint": "Take your first IQ test to see results here"
   },
   "test": {
     "selectMode": "Select Test Mode",
@@ -53,7 +59,11 @@
     "of": "of",
     "timeUp": "Time's up!",
     "streak": "Streak",
-    "submitting": "Submitting results..."
+    "submitting": "Submitting results...",
+    "quitTitle": "Quit Test?",
+    "quitMessage": "Your progress will be lost. Are you sure?",
+    "quit": "Quit Test",
+    "networkError": "Connection error. Your answer was saved."
   },
   "result": {
     "yourIQ": "Your IQ Score",
@@ -70,7 +80,10 @@
     "countryRank": "Country Rank",
     "share": "Share Result",
     "retake": "Take Another Test",
-    "percentile": "percentile"
+    "percentile": "percentile",
+    "calculating": "Calculating your results...",
+    "loadError": "Could not load results",
+    "iqScore": "IQ Score"
   },
   "leaderboard": {
     "title": "Leaderboard",
@@ -78,7 +91,9 @@
     "country": "Country",
     "rank": "Rank",
     "score": "IQ",
-    "you": "You"
+    "you": "You",
+    "noRankings": "No rankings yet",
+    "loadError": "Could not load leaderboard"
   },
   "profile": {
     "title": "Profile",
@@ -88,6 +103,10 @@
     "cyberpunk": "Cyberpunk",
     "clean": "Clean",
     "language": "Language",
-    "noHistory": "No test history yet"
+    "noHistory": "No test history yet",
+    "loadError": "Could not load profile data"
+  },
+  "history": {
+    "notFound": "Result not found"
   }
 }

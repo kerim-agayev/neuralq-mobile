@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { useThemeColors } from '../../theme';
 import { LeaderboardEntry } from '../../types';
 import LeaderboardCard from './LeaderboardCard';
@@ -11,12 +12,13 @@ interface LeaderboardListProps {
 
 export default function LeaderboardList({ data, loading }: LeaderboardListProps) {
   const colors = useThemeColors();
+  const { t } = useTranslation();
 
   if (loading) {
     return (
       <View style={styles.empty}>
         <Text style={[styles.emptyText, { color: colors.textDim }]}>
-          Loading...
+          {t('common.loading')}
         </Text>
       </View>
     );
@@ -27,7 +29,7 @@ export default function LeaderboardList({ data, loading }: LeaderboardListProps)
       <View style={styles.empty}>
         <Text style={styles.emptyEmoji}>🏆</Text>
         <Text style={[styles.emptyText, { color: colors.textDim }]}>
-          No rankings yet
+          {t('leaderboard.noRankings')}
         </Text>
       </View>
     );

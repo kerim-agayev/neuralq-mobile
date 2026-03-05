@@ -1,0 +1,112 @@
+{
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "retry": "Tekrar Dene",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "done": "Tamam",
+    "next": "İleri",
+    "back": "Geri",
+    "skip": "Atla",
+    "ok": "Tamam",
+    "goBack": "Geri Dön",
+    "noData": "Veri bulunamadı"
+  },
+  "auth": {
+    "login": "Giriş Yap",
+    "register": "Kayıt Ol",
+    "logout": "Çıkış Yap",
+    "email": "E-posta",
+    "password": "Şifre",
+    "username": "Kullanıcı Adı",
+    "age": "Yaş",
+    "country": "Ülke",
+    "alreadyHaveAccount": "Zaten hesabınız var mı?",
+    "dontHaveAccount": "Hesabınız yok mu?",
+    "loginError": "Geçersiz e-posta veya şifre",
+    "registerError": "Kayıt başarısız oldu",
+    "logoutConfirm": "Çıkış yapmak istediğinize emin misiniz?",
+    "selectCountry": "Ülkenizi seçin",
+    "searchCountry": "Ülke ara..."
+  },
+  "onboarding": {
+    "slide1Title": "IQ'nizi Keşfedin",
+    "slide1Desc": "Bilimsel olarak tasarlanmış bir test yapın ve bilişsel potansiyelinizi ortaya çıkarın",
+    "slide2Title": "Küresel Yarışın",
+    "slide2Desc": "Dünya genelinde milyonlarca kişi arasında sıralanın ve arkadaşlarınıza meydan okuyun",
+    "slide3Title": "Dilinizi Seçin",
+    "slide3Desc": "Başlamak için tercih ettiğiniz dili seçin",
+    "getStarted": "Başla"
+  },
+  "home": {
+    "welcome": "Tekrar hoş geldin",
+    "startTest": "IQ TESTİNE BAŞLA",
+    "lastResult": "Son Sonuç",
+    "noResults": "Henüz test yapılmadı",
+    "streak": "Günlük Seri",
+    "coins": "Neural Coin",
+    "firstTestHint": "Sonuçları görmek için ilk IQ testinizi yapın"
+  },
+  "test": {
+    "selectMode": "Test Modunu Seç",
+    "arcade": "Arcade Modu",
+    "arcadeDesc": "Hızlı ve eğlenceli beyin testi",
+    "fullAnalysis": "Tam Bilişsel Analiz",
+    "fullAnalysisDesc": "Detaylı bilişsel değerlendirme",
+    "preparingQuestions": "Sorular hazırlanıyor...",
+    "question": "Soru",
+    "of": "/",
+    "timeUp": "Süre doldu!",
+    "streak": "Seri",
+    "submitting": "Sonuçlar gönderiliyor...",
+    "quitTitle": "Testi Bırak?",
+    "quitMessage": "İlerlemeniz kaybolacak. Emin misiniz?",
+    "quit": "Testi Bırak",
+    "networkError": "Bağlantı hatası. Cevabınız kaydedildi."
+  },
+  "result": {
+    "yourIQ": "IQ Puanınız",
+    "iqScore": "IQ Puanı",
+    "celebrityMatch": "Düşünce tarzınız",
+    "cognitiveAge": "Bilişsel Yaş",
+    "categories": "Kategori Dağılımı",
+    "spatial": "Uzamsal",
+    "logic": "Mantık",
+    "verbal": "Sözel",
+    "memory": "Hafıza",
+    "speed": "Hız",
+    "notAvailable": "Yok",
+    "globalRank": "Küresel Sıra",
+    "countryRank": "Ülke Sırası",
+    "share": "Sonucu Paylaş",
+    "retake": "Başka Test Yap",
+    "percentile": "yüzdelik",
+    "calculating": "Sonuçlarınız hesaplanıyor...",
+    "loadError": "Sonuçlar yüklenemedi"
+  },
+  "leaderboard": {
+    "title": "Sıralama",
+    "global": "Küresel",
+    "country": "Ülke",
+    "rank": "Sıra",
+    "score": "IQ",
+    "you": "Sen",
+    "noRankings": "Henüz sıralama yok",
+    "loadError": "Sıralama yüklenemedi"
+  },
+  "profile": {
+    "title": "Profil",
+    "testHistory": "Test Geçmişi",
+    "settings": "Ayarlar",
+    "theme": "Tema",
+    "cyberpunk": "Cyberpunk",
+    "clean": "Sade",
+    "language": "Dil",
+    "noHistory": "Henüz test geçmişi yok",
+    "loadError": "Profil verisi yüklenemedi"
+  },
+  "history": {
+    "notFound": "Sonuç bulunamadı"
+  }
+}

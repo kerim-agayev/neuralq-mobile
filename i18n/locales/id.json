@@ -1,0 +1,112 @@
+{
+  "common": {
+    "loading": "Memuat...",
+    "error": "Terjadi kesalahan",
+    "retry": "Coba Lagi",
+    "cancel": "Batal",
+    "save": "Simpan",
+    "done": "Selesai",
+    "next": "Berikutnya",
+    "back": "Kembali",
+    "skip": "Lewati",
+    "ok": "OK",
+    "goBack": "Kembali",
+    "noData": "Data tidak ditemukan"
+  },
+  "auth": {
+    "login": "Masuk",
+    "register": "Daftar",
+    "logout": "Keluar",
+    "email": "Email",
+    "password": "Kata Sandi",
+    "username": "Nama Pengguna",
+    "age": "Usia",
+    "country": "Negara",
+    "alreadyHaveAccount": "Sudah punya akun?",
+    "dontHaveAccount": "Belum punya akun?",
+    "loginError": "Email atau kata sandi salah",
+    "registerError": "Pendaftaran gagal",
+    "logoutConfirm": "Yakin ingin keluar?",
+    "selectCountry": "Pilih negaramu",
+    "searchCountry": "Cari negara..."
+  },
+  "onboarding": {
+    "slide1Title": "Temukan IQ Anda",
+    "slide1Desc": "Ikuti tes yang dirancang secara ilmiah dan temukan potensi kognitif Anda",
+    "slide2Title": "Bersaing Global",
+    "slide2Desc": "Bandingkan diri Anda dengan jutaan orang di seluruh dunia",
+    "slide3Title": "Pilih Bahasa",
+    "slide3Desc": "Pilih bahasa yang Anda inginkan untuk memulai",
+    "getStarted": "Mulai"
+  },
+  "home": {
+    "welcome": "Selamat datang kembali",
+    "startTest": "MULAI TES IQ",
+    "lastResult": "Hasil Terakhir",
+    "noResults": "Belum ada tes yang diambil",
+    "streak": "Streak Harian",
+    "coins": "Neural Coins",
+    "firstTestHint": "Ambil tes IQ pertama Anda untuk melihat hasil"
+  },
+  "test": {
+    "selectMode": "Pilih Mode Tes",
+    "arcade": "Mode Arcade",
+    "arcadeDesc": "Tantangan otak cepat dan menyenangkan",
+    "fullAnalysis": "Analisis Kognitif Lengkap",
+    "fullAnalysisDesc": "Penilaian kognitif terperinci",
+    "preparingQuestions": "Menyiapkan pertanyaan...",
+    "question": "Pertanyaan",
+    "of": "dari",
+    "timeUp": "Waktu habis!",
+    "streak": "Streak",
+    "submitting": "Mengirim hasil...",
+    "quitTitle": "Keluar dari tes?",
+    "quitMessage": "Progres Anda akan hilang. Anda yakin?",
+    "quit": "Keluar Tes",
+    "networkError": "Kesalahan jaringan. Jawaban Anda telah disimpan."
+  },
+  "result": {
+    "yourIQ": "Skor IQ Anda",
+    "iqScore": "Skor IQ",
+    "celebrityMatch": "Anda berpikir seperti",
+    "cognitiveAge": "Usia Kognitif",
+    "categories": "Rincian Kategori",
+    "spatial": "Spasial",
+    "logic": "Logika",
+    "verbal": "Verbal",
+    "memory": "Memori",
+    "speed": "Kecepatan",
+    "notAvailable": "T/A",
+    "globalRank": "Peringkat Global",
+    "countryRank": "Peringkat Negara",
+    "share": "Bagikan Hasil",
+    "retake": "Ambil Tes Lagi",
+    "percentile": "persentil",
+    "calculating": "Menghitung hasil Anda...",
+    "loadError": "Gagal memuat hasil"
+  },
+  "leaderboard": {
+    "title": "Papan Peringkat",
+    "global": "Global",
+    "country": "Negara",
+    "rank": "Peringkat",
+    "score": "IQ",
+    "you": "Anda",
+    "noRankings": "Belum ada peringkat",
+    "loadError": "Gagal memuat peringkat"
+  },
+  "profile": {
+    "title": "Profil",
+    "testHistory": "Riwayat Tes",
+    "settings": "Pengaturan",
+    "theme": "Tema",
+    "cyberpunk": "Cyberpunk",
+    "clean": "Bersih",
+    "language": "Bahasa",
+    "noHistory": "Belum ada riwayat tes",
+    "loadError": "Gagal memuat data"
+  },
+  "history": {
+    "notFound": "Hasil tidak ditemukan"
+  }
+}

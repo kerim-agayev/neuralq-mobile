@@ -1,0 +1,112 @@
+{
+  "common": {
+    "loading": "Yüklənir...",
+    "error": "Xəta baş verdi",
+    "retry": "Yenidən cəhd et",
+    "cancel": "Ləğv et",
+    "save": "Saxla",
+    "done": "Hazır",
+    "next": "Növbəti",
+    "back": "Geri",
+    "skip": "Keç",
+    "ok": "OK",
+    "goBack": "Geri Qayıt",
+    "noData": "Məlumat tapılmadı"
+  },
+  "auth": {
+    "login": "Daxil Ol",
+    "register": "Qeydiyyat",
+    "logout": "Çıxış",
+    "email": "E-poçt",
+    "password": "Şifrə",
+    "username": "İstifadəçi adı",
+    "age": "Yaş",
+    "country": "Ölkə",
+    "alreadyHaveAccount": "Artıq hesabınız var?",
+    "dontHaveAccount": "Hesabınız yoxdur?",
+    "loginError": "Yanlış e-poçt və ya şifrə",
+    "registerError": "Qeydiyyat uğursuz oldu",
+    "logoutConfirm": "Çıxış etmək istədiyinizə əminsiniz?",
+    "selectCountry": "Ölkənizi seçin",
+    "searchCountry": "Ölkə axtar..."
+  },
+  "onboarding": {
+    "slide1Title": "IQ-nizi Kəşf Edin",
+    "slide1Desc": "Elmi əsaslı test keçin və koqnitiv potensialınızı üzə çıxarın",
+    "slide2Title": "Qlobal Yarışın",
+    "slide2Desc": "Dünya üzrə milyonlarla insan arasında sıralanın",
+    "slide3Title": "Dilinizi Seçin",
+    "slide3Desc": "Başlamaq üçün istədiyiniz dili seçin",
+    "getStarted": "Başla"
+  },
+  "home": {
+    "welcome": "Xoş gəlmisiniz",
+    "startTest": "IQ TESTİNƏ BAŞLA",
+    "lastResult": "Son Nəticə",
+    "noResults": "Hələ test verilməyib",
+    "streak": "Günlük Seriya",
+    "coins": "Neural Coin",
+    "firstTestHint": "Nəticələri görmək üçün ilk IQ testinizi verin"
+  },
+  "test": {
+    "selectMode": "Test Rejimini Seçin",
+    "arcade": "Arcade Rejimi",
+    "arcadeDesc": "Sürətli və əyləncəli beyin testi",
+    "fullAnalysis": "Tam Koqnitiv Analiz",
+    "fullAnalysisDesc": "Ətraflı koqnitiv qiymətləndirmə",
+    "preparingQuestions": "Suallar hazırlanır...",
+    "question": "Sual",
+    "of": "/",
+    "timeUp": "Vaxt bitdi!",
+    "streak": "Seriya",
+    "submitting": "Nəticələr göndərilir...",
+    "quitTitle": "Testi Burax?",
+    "quitMessage": "İrəliləyişiniz itiriləcək. Əminsiniz?",
+    "quit": "Testi Burax",
+    "networkError": "Bağlantı xətası. Cavabınız yadda saxlanıldı."
+  },
+  "result": {
+    "yourIQ": "IQ Balınız",
+    "iqScore": "IQ Balı",
+    "celebrityMatch": "Düşüncə tərziniz",
+    "cognitiveAge": "Koqnitiv Yaş",
+    "categories": "Kateqoriya Bölgüsü",
+    "spatial": "Məkan",
+    "logic": "Məntiq",
+    "verbal": "Şifahi",
+    "memory": "Yaddaş",
+    "speed": "Sürət",
+    "notAvailable": "Yoxdur",
+    "globalRank": "Qlobal Sıra",
+    "countryRank": "Ölkə Sırası",
+    "share": "Nəticəni Paylaş",
+    "retake": "Başqa Test Ver",
+    "percentile": "faiz",
+    "calculating": "Nəticələriniz hesablanır...",
+    "loadError": "Nəticələr yüklənmədi"
+  },
+  "leaderboard": {
+    "title": "Sıralama",
+    "global": "Qlobal",
+    "country": "Ölkə",
+    "rank": "Sıra",
+    "score": "IQ",
+    "you": "Sən",
+    "noRankings": "Hələ sıralama yoxdur",
+    "loadError": "Sıralama yüklənmədi"
+  },
+  "profile": {
+    "title": "Profil",
+    "testHistory": "Test Tarixçəsi",
+    "settings": "Parametrlər",
+    "theme": "Tema",
+    "cyberpunk": "Cyberpunk",
+    "clean": "Sadə",
+    "language": "Dil",
+    "noHistory": "Hələ test tarixçəsi yoxdur",
+    "loadError": "Profil məlumatı yüklənmədi"
+  },
+  "history": {
+    "notFound": "Nəticə tapılmadı"
+  }
+}
