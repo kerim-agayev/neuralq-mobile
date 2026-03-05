@@ -1,8 +1,17 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { useState, useEffect } from 'react';
+import { View, ScrollView, StyleSheet, Text } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useThemeColors } from '../../theme';
-import { Button } from '../../components/ui';
+import { testService } from '../../services/test.service';
+import { LoadingSpinner } from '../../components/ui';
+import IQReveal from '../../components/results/IQReveal';
+import SpiderChart from '../../components/results/SpiderChart';
+import CelebrityMatchComponent from '../../components/results/CelebrityMatch';
+import CognitiveAge from '../../components/results/CognitiveAge';
+import CategoryBreakdown from '../../components/results/CategoryBreakdown';
+import ShareCard from '../../components/results/ShareCard';
+import { TestResult } from '../../types';
 
 export default function ResultScreen() {
   const colors = useThemeColors();
@@ -10,58 +19,175 @@ export default function ResultScreen() {
   const router = useRouter();
   const { sessionId } = useLocalSearchParams<{ sessionId: string }>();
 
+  const [result, setResult] = useState<TestResult | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!sessionId) return;
+    testService
+      .getResult(sessionId)
+      .then((data) => setResult(data))
+      .catch(() => {
+        // Try from history as fallback
+        testService
+          .getHistory()
+          .then((history) => {
+            if (history.length > 0) setResult(history[0]);
+          })
+          .catch(() => {});
+      })
+      .finally(() => setLoading(false));
+  }, [sessionId]);
+
+  if (loading) {
+    return (
+      <View
+        style={[
+          styles.loadingContainer,
+          { backgroundColor: colors.background, paddingTop: insets.top },
+        ]}
+      >
+        <LoadingSpinner text="Calculating your results..." />
+      </View>
+    );
+  }
+
+  if (!result) {
+    return (
+      <View
+        style={[
+          styles.loadingContainer,
+          { backgroundColor: colors.background, paddingTop: insets.top },
+        ]}
+      >
+        <Text style={[styles.errorText, { color: colors.error }]}>
+          Could not load results
+        </Text>
+        <ShareCard iqScore={0} onRetake={() => router.replace('/(tabs)/home')} />
+      </View>
+    );
+  }
+
   return (
-    <View
-      style={[
-        styles.container,
-        {
-          backgroundColor: colors.background,
-          paddingTop: insets.top + 40,
-          paddingBottom: insets.bottom + 20,
-        },
+    <ScrollView
+      style={[styles.container, { backgroundColor: colors.background }]}
+      contentContainerStyle={[
+        styles.content,
+        { paddingTop: insets.top + 20, paddingBottom: insets.bottom + 40 },
       ]}
+      showsVerticalScrollIndicator={false}
     >
-      <Text style={[styles.emoji]}>🎉</Text>
-      <Text style={[styles.title, { color: colors.primary }]}>
-        Test Complete!
-      </Text>
-      <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
-        Results screen — ADIM 7'de tamamlanacak
-      </Text>
-      <Text style={[styles.sessionId, { color: colors.textDim }]}>
-        Session: {sessionId}
-      </Text>
-      <Button
-        title="Go Home"
-        onPress={() => router.replace('/(tabs)/home')}
-        style={{ marginTop: 32 }}
-      />
-    </View>
+      {/* Animated IQ Score */}
+      <IQReveal iqScore={result.iqScore} />
+
+      {/* Celebrity Match */}
+      <View style={styles.section}>
+        <CelebrityMatchComponent iqScore={result.iqScore} />
+      </View>
+
+      {/* Spider Chart */}
+      <View style={styles.section}>
+        <SpiderChart
+          spatial={result.spatialPercentile}
+          logic={result.logicPercentile}
+          verbal={result.verbalPercentile}
+          memory={result.memoryPercentile}
+          speed={result.speedPercentile}
+        />
+      </View>
+
+      {/* Cognitive Age */}
+      <View style={styles.section}>
+        <CognitiveAge cognitiveAge={result.cognitiveAge} />
+      </View>
+
+      {/* Category Breakdown */}
+      <View style={styles.section}>
+        <CategoryBreakdown result={result} />
+      </View>
+
+      {/* Ranks */}
+      {(result.globalRank || result.countryRank) && (
+        <View style={[styles.rankRow, { borderColor: colors.border }]}>
+          {result.globalRank && (
+            <View style={styles.rankItem}>
+              <Text style={styles.rankEmoji}>🌍</Text>
+              <Text style={[styles.rankValue, { color: colors.primary }]}>
+                #{result.globalRank}
+              </Text>
+              <Text style={[styles.rankLabel, { color: colors.textDim }]}>
+                Global
+              </Text>
+            </View>
+          )}
+          {result.countryRank && (
+            <View style={styles.rankItem}>
+              <Text style={styles.rankEmoji}>🏳️</Text>
+              <Text style={[styles.rankValue, { color: colors.primary }]}>
+                #{result.countryRank}
+              </Text>
+              <Text style={[styles.rankLabel, { color: colors.textDim }]}>
+                Country
+              </Text>
+            </View>
+          )}
+        </View>
+      )}
+
+      {/* Share + Retake */}
+      <View style={styles.section}>
+        <ShareCard
+          iqScore={result.iqScore}
+          onRetake={() => router.replace('/test/select-mode')}
+        />
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 24,
   },
-  emoji: {
-    fontSize: 60,
+  content: {
+    paddingHorizontal: 20,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+  },
+  errorText: {
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 20,
+  },
+  section: {
     marginBottom: 16,
   },
-  title: {
-    fontSize: 28,
+  rankRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    paddingVertical: 16,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    marginBottom: 16,
+  },
+  rankItem: {
+    alignItems: 'center',
+  },
+  rankEmoji: {
+    fontSize: 20,
+    marginBottom: 4,
+  },
+  rankValue: {
+    fontSize: 22,
     fontWeight: '800',
-    letterSpacing: 1,
-    marginBottom: 8,
   },
-  subtitle: {
-    fontSize: 14,
-    marginBottom: 8,
-  },
-  sessionId: {
+  rankLabel: {
     fontSize: 11,
+    fontWeight: '500',
+    marginTop: 2,
   },
 });
