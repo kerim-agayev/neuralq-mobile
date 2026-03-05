@@ -104,7 +104,8 @@
     "clean": "Clean",
     "language": "Language",
     "noHistory": "No test history yet",
-    "loadError": "Could not load profile data"
+    "loadError": "Could not load profile data",
+    "editProfile": "Edit Profile"
   },
   "history": {
     "notFound": "Result not found"

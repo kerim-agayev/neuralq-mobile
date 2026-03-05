@@ -104,7 +104,8 @@
     "clean": "Schlicht",
     "language": "Sprache",
     "noHistory": "Noch kein Testverlauf",
-    "loadError": "Daten konnten nicht geladen werden"
+    "loadError": "Daten konnten nicht geladen werden",
+    "editProfile": "Profil bearbeiten"
   },
   "history": {
     "notFound": "Ergebnis nicht gefunden"

@@ -104,7 +104,8 @@
     "clean": "Sade",
     "language": "Dil",
     "noHistory": "Henüz test geçmişi yok",
-    "loadError": "Profil verisi yüklenemedi"
+    "loadError": "Profil verisi yüklenemedi",
+    "editProfile": "Profili Düzenle"
   },
   "history": {
     "notFound": "Sonuç bulunamadı"

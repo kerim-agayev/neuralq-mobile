@@ -7,9 +7,10 @@ interface StatsRowProps {
   testsCompleted: number;
   streak: number;
   coins: number;
+  globalRank?: number | null;
 }
 
-export default function StatsRow({ testsCompleted, streak, coins }: StatsRowProps) {
+export default function StatsRow({ testsCompleted, streak, coins, globalRank }: StatsRowProps) {
   const colors = useThemeColors();
   const { t } = useTranslation();
 
@@ -17,6 +18,7 @@ export default function StatsRow({ testsCompleted, streak, coins }: StatsRowProp
     { emoji: '📝', value: testsCompleted, label: 'Tests' },
     { emoji: '🔥', value: streak, label: t('home.streak') },
     { emoji: '🪙', value: coins, label: t('home.coins') },
+    { emoji: '🏆', value: globalRank ?? '—', label: t('result.globalRank') },
   ];
 
   return (

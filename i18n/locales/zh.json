@@ -104,7 +104,8 @@
     "clean": "简洁",
     "language": "语言",
     "noHistory": "还没有测试历史",
-    "loadError": "无法加载个人资料"
+    "loadError": "无法加载个人资料",
+    "editProfile": "编辑个人资料"
   },
   "history": {
     "notFound": "未找到结果"

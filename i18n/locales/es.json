@@ -104,7 +104,8 @@
     "clean": "Limpio",
     "language": "Idioma",
     "noHistory": "Sin historial de tests",
-    "loadError": "No se pudieron cargar los datos"
+    "loadError": "No se pudieron cargar los datos",
+    "editProfile": "Editar perfil"
   },
   "history": {
     "notFound": "Resultado no encontrado"

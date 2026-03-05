@@ -104,7 +104,8 @@
     "clean": "Bersih",
     "language": "Bahasa",
     "noHistory": "Belum ada riwayat tes",
-    "loadError": "Gagal memuat data"
+    "loadError": "Gagal memuat data",
+    "editProfile": "Edit Profil"
   },
   "history": {
     "notFound": "Hasil tidak ditemukan"

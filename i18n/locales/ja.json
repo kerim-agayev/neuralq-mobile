@@ -104,7 +104,8 @@
     "clean": "シンプル",
     "language": "言語",
     "noHistory": "テスト履歴がありません",
-    "loadError": "データを読み込めませんでした"
+    "loadError": "データを読み込めませんでした",
+    "editProfile": "プロフィールを編集"
   },
   "history": {
     "notFound": "結果が見つかりません"

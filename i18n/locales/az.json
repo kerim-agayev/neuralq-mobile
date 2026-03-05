@@ -104,7 +104,8 @@
     "clean": "Sadə",
     "language": "Dil",
     "noHistory": "Hələ test tarixçəsi yoxdur",
-    "loadError": "Profil məlumatı yüklənmədi"
+    "loadError": "Profil məlumatı yüklənmədi",
+    "editProfile": "Profili Redaktə Et"
   },
   "history": {
     "notFound": "Nəticə tapılmadı"

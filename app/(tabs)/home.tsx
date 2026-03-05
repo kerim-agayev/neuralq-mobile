@@ -12,6 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { useThemeColors } from '../../theme';
 import { useAuthStore } from '../../store/auth.store';
 import { testService } from '../../services/test.service';
+import { leaderboardService } from '../../services/leaderboard.service';
 import { NeonText } from '../../components/ui';
 import QuickTestButton from '../../components/home/QuickTestButton';
 import LastResultCard from '../../components/home/LastResultCard';
@@ -28,15 +29,24 @@ export default function HomeScreen() {
 
   const [lastResult, setLastResult] = useState<TestResult | null>(null);
   const [testsCount, setTestsCount] = useState(0);
+  const [globalRank, setGlobalRank] = useState<number | null>(null);
   const [refreshing, setRefreshing] = useState(false);
 
   const fetchData = useCallback(async () => {
     try {
-      const history = await testService.getHistory();
-      setTestsCount(history.length);
-      setLastResult(history.length > 0 ? history[0] : null);
+      const [history, rankData] = await Promise.allSettled([
+        testService.getHistory(),
+        leaderboardService.getUserRank(),
+      ]);
+      if (history.status === 'fulfilled') {
+        setTestsCount(history.value.length);
+        setLastResult(history.value.length > 0 ? history.value[0] : null);
+      }
+      if (rankData.status === 'fulfilled') {
+        setGlobalRank(rankData.value.globalRank);
+      }
     } catch {
-      // No results yet — that's fine
+      // Silently handle
     }
   }, []);
 
@@ -82,6 +92,7 @@ export default function HomeScreen() {
         testsCompleted={testsCount}
         streak={user?.currentStreak ?? 0}
         coins={user?.neuralCoins ?? 0}
+        globalRank={globalRank}
       />
 
       {/* Pulsating Test Button */}
