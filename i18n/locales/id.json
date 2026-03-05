@@ -63,7 +63,10 @@
     "quitTitle": "Keluar dari tes?",
     "quitMessage": "Progres Anda akan hilang. Anda yakin?",
     "quit": "Keluar Tes",
-    "networkError": "Kesalahan jaringan. Jawaban Anda telah disimpan."
+    "networkError": "Kesalahan jaringan. Jawaban Anda telah disimpan.",
+    "incompleteTitle": "Tes Belum Selesai",
+    "incompleteMessage": "Anda memiliki sesi tes yang belum selesai. Sayangnya tidak bisa dilanjutkan — mulai tes baru.",
+    "discardTest": "Buang"
   },
   "result": {
     "yourIQ": "Skor IQ Anda",

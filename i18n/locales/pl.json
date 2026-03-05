@@ -63,7 +63,10 @@
     "quitTitle": "Opuścić test?",
     "quitMessage": "Twój postęp zostanie utracony. Jesteś pewien?",
     "quit": "Opuść Test",
-    "networkError": "Błąd sieci. Twoja odpowiedź została zapisana."
+    "networkError": "Błąd sieci. Twoja odpowiedź została zapisana.",
+    "incompleteTitle": "Nieukończony test",
+    "incompleteMessage": "Masz nieukończoną sesję testową. Niestety nie można jej wznowić — rozpocznij nowy test.",
+    "discardTest": "Odrzuć"
   },
   "result": {
     "yourIQ": "Twój Wynik IQ",

@@ -63,7 +63,10 @@
     "quitTitle": "Quit Test?",
     "quitMessage": "Your progress will be lost. Are you sure?",
     "quit": "Quit Test",
-    "networkError": "Connection error. Your answer was saved."
+    "networkError": "Connection error. Your answer was saved.",
+    "incompleteTitle": "Incomplete Test",
+    "incompleteMessage": "You have an unfinished test session. Unfortunately it cannot be resumed — please start a new test.",
+    "discardTest": "Discard"
   },
   "result": {
     "yourIQ": "Your IQ Score",

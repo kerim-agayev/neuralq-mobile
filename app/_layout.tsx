@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StyleSheet, View, ActivityIndicator } from 'react-native';
 import Toast from 'react-native-toast-message';
+import ErrorBoundary from '../components/ErrorBoundary';
 import { useSettingsStore } from '../store/settings.store';
 import i18n from '../i18n';
 
@@ -42,13 +43,15 @@ export default function RootLayout() {
   }
 
   return (
-    <GestureHandlerRootView style={styles.root}>
-      <QueryClientProvider client={queryClient}>
-        <StatusBar style={theme === 'cyberpunk' ? 'light' : 'dark'} />
-        <Stack screenOptions={{ headerShown: false, animation: 'fade' }} />
-        <Toast />
-      </QueryClientProvider>
-    </GestureHandlerRootView>
+    <ErrorBoundary>
+      <GestureHandlerRootView style={styles.root}>
+        <QueryClientProvider client={queryClient}>
+          <StatusBar style={theme === 'cyberpunk' ? 'light' : 'dark'} />
+          <Stack screenOptions={{ headerShown: false, animation: 'fade' }} />
+          <Toast />
+        </QueryClientProvider>
+      </GestureHandlerRootView>
+    </ErrorBoundary>
   );
 }
 

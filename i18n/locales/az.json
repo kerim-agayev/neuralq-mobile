@@ -63,7 +63,10 @@
     "quitTitle": "Testi Burax?",
     "quitMessage": "İrəliləyişiniz itiriləcək. Əminsiniz?",
     "quit": "Testi Burax",
-    "networkError": "Bağlantı xətası. Cavabınız yadda saxlanıldı."
+    "networkError": "Bağlantı xətası. Cavabınız yadda saxlanıldı.",
+    "incompleteTitle": "Tamamlanmamış Test",
+    "incompleteMessage": "Tamamlanmamış test sessiyanız var. Təəssüf ki davam etmək mümkün deyil — yeni test başladın.",
+    "discardTest": "Sil"
   },
   "result": {
     "yourIQ": "IQ Balınız",

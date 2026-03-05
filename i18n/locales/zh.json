@@ -63,7 +63,10 @@
     "quitTitle": "退出测试？",
     "quitMessage": "你的进度将会丢失，确定吗？",
     "quit": "退出测试",
-    "networkError": "网络错误，你的答案已保存。"
+    "networkError": "网络错误，你的答案已保存。",
+    "incompleteTitle": "未完成的测试",
+    "incompleteMessage": "您有一个未完成的测试。很遗憾无法继续 — 请开始新的测试。",
+    "discardTest": "丢弃"
   },
   "result": {
     "yourIQ": "你的IQ分数",

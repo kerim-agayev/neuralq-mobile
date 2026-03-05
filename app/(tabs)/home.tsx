@@ -5,6 +5,7 @@ import {
   ScrollView,
   StyleSheet,
   RefreshControl,
+  Alert,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -13,6 +14,7 @@ import { useThemeColors } from '../../theme';
 import { useAuthStore } from '../../store/auth.store';
 import { testService } from '../../services/test.service';
 import { leaderboardService } from '../../services/leaderboard.service';
+import { storage } from '../../utils/storage';
 import { NeonText } from '../../components/ui';
 import QuickTestButton from '../../components/home/QuickTestButton';
 import LastResultCard from '../../components/home/LastResultCard';
@@ -53,6 +55,39 @@ export default function HomeScreen() {
   useEffect(() => {
     fetchData();
   }, [fetchData]);
+
+  // Check for incomplete test session backup
+  useEffect(() => {
+    (async () => {
+      try {
+        const backup = await storage.getTestBackup();
+        if (!backup) return;
+        // Ignore backups older than 30 minutes
+        const ageMs = Date.now() - backup.timestamp;
+        if (ageMs > 30 * 60 * 1000) {
+          await storage.clearTestBackup();
+          return;
+        }
+        Alert.alert(
+          t('test.incompleteTitle'),
+          t('test.incompleteMessage'),
+          [
+            {
+              text: t('test.discardTest'),
+              style: 'destructive',
+              onPress: () => storage.clearTestBackup(),
+            },
+            {
+              text: t('common.ok'),
+              onPress: () => storage.clearTestBackup(),
+            },
+          ],
+        );
+      } catch {
+        // Ignore
+      }
+    })();
+  }, []);
 
   const onRefresh = useCallback(async () => {
     setRefreshing(true);

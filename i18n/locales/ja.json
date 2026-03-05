@@ -63,7 +63,10 @@
     "quitTitle": "テストを終了？",
     "quitMessage": "進捗が失われます。よろしいですか？",
     "quit": "テストを終了",
-    "networkError": "ネットワークエラー。回答は保存されました。"
+    "networkError": "ネットワークエラー。回答は保存されました。",
+    "incompleteTitle": "未完了のテスト",
+    "incompleteMessage": "未完了のテストセッションがあります。残念ながら再開できません — 新しいテストを開始してください。",
+    "discardTest": "破棄"
   },
   "result": {
     "yourIQ": "あなたのIQスコア",

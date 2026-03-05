@@ -5,12 +5,22 @@ import {
   StartTestResponse,
   AnswerResponse,
 } from '../types';
+import { storage } from '../utils/storage';
 
 interface RecordedAnswer {
   questionId: string;
   selectedAnswer: number | null;
   responseTimeMs: number;
   isCorrect: boolean;
+}
+
+export interface TestBackup {
+  sessionId: string;
+  mode: TestMode;
+  currentIndex: number;
+  answeredCount: number;
+  totalQuestions: number;
+  timestamp: number;
 }
 
 interface TestState {
@@ -51,10 +61,23 @@ const initialState = {
   isActive: false,
 };
 
+function saveBackup(state: TestState) {
+  if (!state.sessionId || !state.mode) return;
+  const backup: TestBackup = {
+    sessionId: state.sessionId,
+    mode: state.mode,
+    currentIndex: state.currentIndex,
+    answeredCount: state.answers.length,
+    totalQuestions: state.questions.length,
+    timestamp: Date.now(),
+  };
+  storage.saveTestBackup(backup).catch(() => {});
+}
+
 export const useTestStore = create<TestState>((set, get) => ({
   ...initialState,
 
-  startSession: (data: StartTestResponse) =>
+  startSession: (data: StartTestResponse) => {
     set({
       sessionId: data.sessionId,
       mode: data.mode,
@@ -66,14 +89,16 @@ export const useTestStore = create<TestState>((set, get) => ({
       streak: 0,
       maxStreak: 0,
       isActive: true,
-    }),
+    });
+    saveBackup(get());
+  },
 
   recordAnswer: (
     questionId: string,
     selected: number | null,
     timeMs: number,
     result: AnswerResponse,
-  ) =>
+  ) => {
     set((state) => {
       const newStreak = result.isCorrect ? state.streak + 1 : 0;
       return {
@@ -89,7 +114,9 @@ export const useTestStore = create<TestState>((set, get) => ({
         streak: newStreak,
         maxStreak: Math.max(state.maxStreak, newStreak),
       };
-    }),
+    });
+    saveBackup(get());
+  },
 
   nextQuestion: () =>
     set((state) => ({ currentIndex: state.currentIndex + 1 })),
@@ -104,5 +131,8 @@ export const useTestStore = create<TestState>((set, get) => ({
     return currentIndex >= questions.length - 1;
   },
 
-  resetSession: () => set(initialState),
+  resetSession: () => {
+    set(initialState);
+    storage.clearTestBackup().catch(() => {});
+  },
 }));

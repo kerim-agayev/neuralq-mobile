@@ -63,7 +63,10 @@
     "quitTitle": "Testi Bırak?",
     "quitMessage": "İlerlemeniz kaybolacak. Emin misiniz?",
     "quit": "Testi Bırak",
-    "networkError": "Bağlantı hatası. Cevabınız kaydedildi."
+    "networkError": "Bağlantı hatası. Cevabınız kaydedildi.",
+    "incompleteTitle": "Tamamlanmamış Test",
+    "incompleteMessage": "Tamamlanmamış bir test oturumunuz var. Maalesef devam edilemiyor — yeni bir test başlatın.",
+    "discardTest": "Sil"
   },
   "result": {
     "yourIQ": "IQ Puanınız",

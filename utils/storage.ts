@@ -38,4 +38,14 @@ export const storage = {
   getTheme: () => AsyncStorage.getItem(KEYS.THEME),
   setTheme: (theme: string) =>
     AsyncStorage.setItem(KEYS.THEME, theme),
+
+  // Test session backup (crash recovery)
+  saveTestBackup: async (backup: object) => {
+    await AsyncStorage.setItem('testBackup', JSON.stringify(backup));
+  },
+  getTestBackup: async () => {
+    const raw = await AsyncStorage.getItem('testBackup');
+    return raw ? JSON.parse(raw) : null;
+  },
+  clearTestBackup: () => AsyncStorage.removeItem('testBackup'),
 };

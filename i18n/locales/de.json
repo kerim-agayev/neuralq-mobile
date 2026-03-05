@@ -63,7 +63,10 @@
     "quitTitle": "Test abbrechen?",
     "quitMessage": "Dein Fortschritt geht verloren. Bist du sicher?",
     "quit": "Test Abbrechen",
-    "networkError": "Netzwerkfehler. Deine Antwort wurde gespeichert."
+    "networkError": "Netzwerkfehler. Deine Antwort wurde gespeichert.",
+    "incompleteTitle": "Unvollständiger Test",
+    "incompleteMessage": "Du hast eine unvollständige Testsitzung. Leider kann sie nicht fortgesetzt werden — starte einen neuen Test.",
+    "discardTest": "Verwerfen"
   },
   "result": {
     "yourIQ": "Dein IQ-Wert",

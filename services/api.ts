@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Toast from 'react-native-toast-message';
 import { storage } from '../utils/storage';
 
 const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http://192.168.100.37:3000';
@@ -18,13 +19,25 @@ api.interceptors.request.use(async (config) => {
   return config;
 });
 
-// Response interceptor: auto-refresh on 401
+// Response interceptor: auto-refresh on 401 + error toasts
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
 
-    if (error.response?.status === 401 && !originalRequest._retry) {
+    // Network error (no response — backend down or no internet)
+    if (!error.response) {
+      Toast.show({
+        type: 'error',
+        text1: 'Network Error',
+        text2: 'Check your connection and try again',
+        visibilityTime: 3000,
+      });
+      return Promise.reject(error);
+    }
+
+    // 401 — try token refresh
+    if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
       try {
@@ -48,6 +61,26 @@ api.interceptors.response.use(
         await storage.clearTokens();
         return Promise.reject(error);
       }
+    }
+
+    // 500 — server error
+    if (error.response.status >= 500) {
+      Toast.show({
+        type: 'error',
+        text1: 'Server Error',
+        text2: 'Please try again later',
+        visibilityTime: 3000,
+      });
+    }
+
+    // 429 — rate limit
+    if (error.response.status === 429) {
+      Toast.show({
+        type: 'error',
+        text1: 'Too many requests',
+        text2: 'Please wait a moment',
+        visibilityTime: 3000,
+      });
     }
 
     return Promise.reject(error);

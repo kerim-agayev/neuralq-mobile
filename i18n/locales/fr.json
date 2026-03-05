@@ -63,7 +63,10 @@
     "quitTitle": "Quitter le test ?",
     "quitMessage": "Votre progression sera perdue. Êtes-vous sûr ?",
     "quit": "Quitter le Test",
-    "networkError": "Erreur réseau. Votre réponse a été sauvegardée."
+    "networkError": "Erreur réseau. Votre réponse a été sauvegardée.",
+    "incompleteTitle": "Test incomplet",
+    "incompleteMessage": "Vous avez une session de test inachevée. Malheureusement, elle ne peut pas être reprise — commencez un nouveau test.",
+    "discardTest": "Supprimer"
   },
   "result": {
     "yourIQ": "Votre Score QI",

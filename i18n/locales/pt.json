@@ -63,7 +63,10 @@
     "quitTitle": "Abandonar teste?",
     "quitMessage": "Seu progresso será perdido. Tem certeza?",
     "quit": "Abandonar Teste",
-    "networkError": "Erro de rede. Sua resposta foi salva."
+    "networkError": "Erro de rede. Sua resposta foi salva.",
+    "incompleteTitle": "Teste incompleto",
+    "incompleteMessage": "Você tem uma sessão de teste inacabada. Infelizmente não é possível continuar — inicie um novo teste.",
+    "discardTest": "Descartar"
   },
   "result": {
     "yourIQ": "Sua Pontuação de QI",

@@ -63,7 +63,10 @@
     "quitTitle": "¿Abandonar test?",
     "quitMessage": "Tu progreso se perderá. ¿Estás seguro?",
     "quit": "Abandonar Test",
-    "networkError": "Error de red. Tu respuesta fue guardada."
+    "networkError": "Error de red. Tu respuesta fue guardada.",
+    "incompleteTitle": "Test incompleto",
+    "incompleteMessage": "Tienes una sesión de test sin terminar. Lamentablemente no se puede continuar — inicia un nuevo test.",
+    "discardTest": "Descartar"
   },
   "result": {
     "yourIQ": "Tu Puntuación IQ",
