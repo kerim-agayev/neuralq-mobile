@@ -45,9 +45,10 @@
   "test": {
     "selectMode": "Select Test Mode",
     "arcade": "Arcade Mode",
-    "arcadeDesc": "15 questions · 5 minutes · Quick & fun",
+    "arcadeDesc": "Quick & fun brain challenge",
     "fullAnalysis": "Full Cognitive Analysis",
-    "fullAnalysisDesc": "50 questions · 25 minutes · Detailed breakdown",
+    "fullAnalysisDesc": "Detailed cognitive breakdown",
+    "preparingQuestions": "Preparing your questions...",
     "question": "Question",
     "of": "of",
     "timeUp": "Time's up!",

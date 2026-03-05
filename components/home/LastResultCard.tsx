@@ -58,31 +58,34 @@ export default function LastResultCard({ result }: LastResultCardProps) {
         )}
       </View>
 
-      {/* Mini category bars */}
+      {/* Mini category bars — only show categories that have data */}
       <View style={styles.categories}>
         {[
           { label: t('result.spatial'), score: result.spatialPercentile },
           { label: t('result.logic'), score: result.logicPercentile },
+          { label: t('result.verbal'), score: result.verbalPercentile },
           { label: t('result.memory'), score: result.memoryPercentile },
           { label: t('result.speed'), score: result.speedPercentile },
-        ].map((cat) => (
-          <View key={cat.label} style={styles.catRow}>
-            <Text style={[styles.catLabel, { color: colors.textDim }]}>
-              {cat.label}
-            </Text>
-            <View style={[styles.barBg, { backgroundColor: colors.border }]}>
-              <View
-                style={[
-                  styles.barFill,
-                  {
-                    backgroundColor: colors.primary,
-                    width: `${cat.score ?? 0}%`,
-                  },
-                ]}
-              />
+        ]
+          .filter((cat) => cat.score != null && cat.score > 0)
+          .map((cat) => (
+            <View key={cat.label} style={styles.catRow}>
+              <Text style={[styles.catLabel, { color: colors.textDim }]}>
+                {cat.label}
+              </Text>
+              <View style={[styles.barBg, { backgroundColor: colors.border }]}>
+                <View
+                  style={[
+                    styles.barFill,
+                    {
+                      backgroundColor: colors.primary,
+                      width: `${cat.score!}%` as const,
+                    },
+                  ]}
+                />
+              </View>
             </View>
-          </View>
-        ))}
+          ))}
       </View>
     </Card>
   );
