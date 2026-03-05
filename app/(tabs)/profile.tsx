@@ -6,6 +6,7 @@ import Toast from 'react-native-toast-message';
 import { useThemeColors } from '../../theme';
 import { useAuthStore } from '../../store/auth.store';
 import { testService } from '../../services/test.service';
+import { ProfileSkeleton } from '../../components/ui';
 import ProfileHeader from '../../components/profile/ProfileHeader';
 import TestHistory from '../../components/profile/TestHistory';
 import SettingsSection from '../../components/profile/SettingsSection';
@@ -18,6 +19,7 @@ export default function ProfileScreen() {
   const user = useAuthStore((s) => s.user);
 
   const [history, setHistory] = useState<TestResult[]>([]);
+  const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
 
   const fetchHistory = useCallback(async () => {
@@ -26,6 +28,8 @@ export default function ProfileScreen() {
       setHistory(data);
     } catch {
       Toast.show({ type: 'error', text1: t('profile.loadError') });
+    } finally {
+      setLoading(false);
     }
   }, []);
 
@@ -39,10 +43,8 @@ export default function ProfileScreen() {
     setRefreshing(false);
   }, [fetchHistory]);
 
-  if (!user) {
-    return (
-      <ScrollView style={[styles.container, { backgroundColor: colors.background }]} />
-    );
+  if (!user || loading) {
+    return <ProfileSkeleton />;
   }
 
   return (

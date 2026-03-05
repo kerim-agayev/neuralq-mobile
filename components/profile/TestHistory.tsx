@@ -18,8 +18,12 @@ export default function TestHistory({ results }: TestHistoryProps) {
   if (results.length === 0) {
     return (
       <View style={styles.empty}>
-        <Text style={[styles.emptyText, { color: colors.textDim }]}>
+        <Text style={styles.emptyEmoji}>🧠</Text>
+        <Text style={[styles.emptyTitle, { color: colors.textSecondary }]}>
           {t('profile.noHistory')}
+        </Text>
+        <Text style={[styles.emptyHint, { color: colors.textDim }]}>
+          {t('home.firstTestHint')}
         </Text>
       </View>
     );
@@ -30,7 +34,7 @@ export default function TestHistory({ results }: TestHistoryProps) {
       <Text style={[styles.title, { color: colors.textSecondary }]}>
         {t('profile.testHistory')}
       </Text>
-      {results.map((result, index) => {
+      {results.map((result) => {
         const celebrity = getCelebrityMatch(result.iqScore);
         const date = new Date(result.completedAt).toLocaleDateString();
 
@@ -81,10 +85,20 @@ const styles = StyleSheet.create({
   },
   empty: {
     alignItems: 'center',
-    paddingVertical: 20,
+    paddingVertical: 28,
   },
-  emptyText: {
-    fontSize: 13,
+  emptyEmoji: {
+    fontSize: 36,
+    marginBottom: 8,
+  },
+  emptyTitle: {
+    fontSize: 15,
+    fontWeight: '600',
+    marginBottom: 4,
+  },
+  emptyHint: {
+    fontSize: 12,
+    textAlign: 'center',
   },
   item: {
     flexDirection: 'row',

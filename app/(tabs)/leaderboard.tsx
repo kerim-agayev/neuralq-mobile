@@ -21,6 +21,7 @@ export default function LeaderboardScreen() {
   const [globalData, setGlobalData] = useState<LeaderboardEntry[]>([]);
   const [countryData, setCountryData] = useState<LeaderboardEntry[]>([]);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -41,6 +42,12 @@ export default function LeaderboardScreen() {
 
   useEffect(() => {
     fetchData();
+  }, [fetchData]);
+
+  const onRefresh = useCallback(async () => {
+    setRefreshing(true);
+    await fetchData();
+    setRefreshing(false);
   }, [fetchData]);
 
   const tabs: { key: Tab; label: string }[] = [
@@ -92,6 +99,8 @@ export default function LeaderboardScreen() {
       <LeaderboardList
         data={activeTab === 'global' ? globalData : countryData}
         loading={loading}
+        refreshing={refreshing}
+        onRefresh={onRefresh}
       />
     </View>
   );

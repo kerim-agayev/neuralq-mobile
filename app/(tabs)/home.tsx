@@ -15,7 +15,7 @@ import { useAuthStore } from '../../store/auth.store';
 import { testService } from '../../services/test.service';
 import { leaderboardService } from '../../services/leaderboard.service';
 import { storage } from '../../utils/storage';
-import { NeonText } from '../../components/ui';
+import { NeonText, HomeSkeleton } from '../../components/ui';
 import QuickTestButton from '../../components/home/QuickTestButton';
 import LastResultCard from '../../components/home/LastResultCard';
 import StatsRow from '../../components/home/StatsRow';
@@ -32,6 +32,7 @@ export default function HomeScreen() {
   const [lastResult, setLastResult] = useState<TestResult | null>(null);
   const [testsCount, setTestsCount] = useState(0);
   const [globalRank, setGlobalRank] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
 
   const fetchData = useCallback(async () => {
@@ -49,6 +50,8 @@ export default function HomeScreen() {
       }
     } catch {
       // Silently handle
+    } finally {
+      setLoading(false);
     }
   }, []);
 
@@ -98,6 +101,10 @@ export default function HomeScreen() {
   const handleStartTest = () => {
     router.push('/test/select-mode');
   };
+
+  if (loading) {
+    return <HomeSkeleton />;
+  }
 
   return (
     <ScrollView
