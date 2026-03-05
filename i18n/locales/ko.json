@@ -71,6 +71,8 @@
   "result": {
     "yourIQ": "당신의 IQ 점수",
     "iqScore": "IQ 점수",
+    "downloadCertificate": "인증서 다운로드",
+    "certificateError": "인증서를 다운로드할 수 없습니다",
     "celebrityMatch": "당신의 사고방식은",
     "cognitiveAge": "인지 나이",
     "categories": "카테고리 분석",

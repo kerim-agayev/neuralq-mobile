@@ -71,6 +71,8 @@
   "result": {
     "yourIQ": "你的IQ分数",
     "iqScore": "IQ分数",
+    "downloadCertificate": "下载证书",
+    "certificateError": "无法下载证书",
     "celebrityMatch": "你的思维方式像",
     "cognitiveAge": "认知年龄",
     "categories": "分类详情",

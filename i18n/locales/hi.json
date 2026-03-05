@@ -71,6 +71,8 @@
   "result": {
     "yourIQ": "आपका IQ स्कोर",
     "iqScore": "IQ स्कोर",
+    "downloadCertificate": "प्रमाणपत्र डाउनलोड करें",
+    "certificateError": "प्रमाणपत्र डाउनलोड नहीं हो सका",
     "celebrityMatch": "आप सोचते हैं जैसे",
     "cognitiveAge": "संज्ञानात्मक आयु",
     "categories": "श्रेणी विवरण",

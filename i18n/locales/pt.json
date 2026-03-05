@@ -71,6 +71,8 @@
   "result": {
     "yourIQ": "Sua Pontuação de QI",
     "iqScore": "Pontuação QI",
+    "downloadCertificate": "Baixar Certificado",
+    "certificateError": "Não foi possível baixar o certificado",
     "celebrityMatch": "Você pensa como",
     "cognitiveAge": "Idade Cognitiva",
     "categories": "Detalhamento por Categoria",

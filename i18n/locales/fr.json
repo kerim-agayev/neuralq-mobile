@@ -71,6 +71,8 @@
   "result": {
     "yourIQ": "Votre Score QI",
     "iqScore": "Score QI",
+    "downloadCertificate": "Télécharger le certificat",
+    "certificateError": "Impossible de télécharger le certificat",
     "celebrityMatch": "Vous pensez comme",
     "cognitiveAge": "Âge Cognitif",
     "categories": "Répartition par Catégorie",

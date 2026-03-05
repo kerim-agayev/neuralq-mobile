@@ -71,6 +71,8 @@
   "result": {
     "yourIQ": "Dein IQ-Wert",
     "iqScore": "IQ-Wert",
+    "downloadCertificate": "Zertifikat herunterladen",
+    "certificateError": "Zertifikat konnte nicht heruntergeladen werden",
     "celebrityMatch": "Du denkst wie",
     "cognitiveAge": "Kognitives Alter",
     "categories": "Kategorienaufschlüsselung",

@@ -1,4 +1,7 @@
+import { File, Paths } from 'expo-file-system';
+import * as Sharing from 'expo-sharing';
 import api from './api';
+import { storage } from '../utils/storage';
 import { StartTestResponse, TestResult, AnswerInput, AnswerResponse } from '../types';
 
 export const testService = {
@@ -45,5 +48,30 @@ export const testService = {
     );
     const results = data.data;
     return results.length > 0 ? results[0] : null;
+  },
+
+  downloadCertificate: async (resultId: string): Promise<void> => {
+    const token = await storage.getAccessToken();
+    const baseUrl = api.defaults.baseURL;
+
+    const response = await fetch(`${baseUrl}/results/${resultId}/certificate`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+    if (!response.ok) {
+      throw new Error('Certificate download failed');
+    }
+
+    const arrayBuffer = await response.arrayBuffer();
+    const file = new File(Paths.cache, `neuralq-certificate-${resultId}.pdf`);
+    file.write(new Uint8Array(arrayBuffer));
+
+    const canShare = await Sharing.isAvailableAsync();
+    if (canShare) {
+      await Sharing.shareAsync(file.uri, {
+        mimeType: 'application/pdf',
+        dialogTitle: 'NeuralQ Certificate',
+      });
+    }
   },
 };

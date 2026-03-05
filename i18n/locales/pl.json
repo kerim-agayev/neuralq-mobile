@@ -71,6 +71,8 @@
   "result": {
     "yourIQ": "Twój Wynik IQ",
     "iqScore": "Wynik IQ",
+    "downloadCertificate": "Pobierz certyfikat",
+    "certificateError": "Nie udało się pobrać certyfikatu",
     "celebrityMatch": "Myślisz jak",
     "cognitiveAge": "Wiek Poznawczy",
     "categories": "Podział na Kategorie",

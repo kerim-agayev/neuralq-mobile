@@ -71,6 +71,8 @@
   "result": {
     "yourIQ": "Skor IQ Anda",
     "iqScore": "Skor IQ",
+    "downloadCertificate": "Unduh Sertifikat",
+    "certificateError": "Tidak dapat mengunduh sertifikat",
     "celebrityMatch": "Anda berpikir seperti",
     "cognitiveAge": "Usia Kognitif",
     "categories": "Rincian Kategori",

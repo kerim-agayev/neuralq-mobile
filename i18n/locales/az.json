@@ -71,6 +71,8 @@
   "result": {
     "yourIQ": "IQ Balınız",
     "iqScore": "IQ Balı",
+    "downloadCertificate": "Sertifikat Yüklə",
+    "certificateError": "Sertifikat yüklənə bilmədi",
     "celebrityMatch": "Düşüncə tərziniz",
     "cognitiveAge": "Koqnitiv Yaş",
     "categories": "Kateqoriya Bölgüsü",

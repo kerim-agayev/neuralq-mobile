@@ -71,6 +71,8 @@
   "result": {
     "yourIQ": "معدل ذكائك",
     "iqScore": "درجة الذكاء",
+    "downloadCertificate": "تحميل الشهادة",
+    "certificateError": "تعذر تحميل الشهادة",
     "celebrityMatch": "تفكيرك يشبه",
     "cognitiveAge": "العمر المعرفي",
     "categories": "تفصيل الفئات",

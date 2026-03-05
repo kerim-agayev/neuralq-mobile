@@ -71,6 +71,8 @@
   "result": {
     "yourIQ": "Ваш IQ",
     "iqScore": "Балл IQ",
+    "downloadCertificate": "Скачать сертификат",
+    "certificateError": "Не удалось скачать сертификат",
     "celebrityMatch": "Вы думаете как",
     "cognitiveAge": "Когнитивный возраст",
     "categories": "Разбивка по категориям",

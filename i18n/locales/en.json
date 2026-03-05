@@ -86,7 +86,9 @@
     "percentile": "percentile",
     "calculating": "Calculating your results...",
     "loadError": "Could not load results",
-    "iqScore": "IQ Score"
+    "iqScore": "IQ Score",
+    "downloadCertificate": "Download Certificate",
+    "certificateError": "Could not download certificate"
   },
   "leaderboard": {
     "title": "Leaderboard",

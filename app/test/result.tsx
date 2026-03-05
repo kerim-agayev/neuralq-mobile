@@ -12,6 +12,7 @@ import CelebrityMatchComponent from '../../components/results/CelebrityMatch';
 import CognitiveAge from '../../components/results/CognitiveAge';
 import CategoryBreakdown from '../../components/results/CategoryBreakdown';
 import ShareCard from '../../components/results/ShareCard';
+import CertificateButton from '../../components/results/CertificateButton';
 import { TestResult } from '../../types';
 
 export default function ResultScreen() {
@@ -135,6 +136,11 @@ export default function ResultScreen() {
           )}
         </View>
       )}
+
+      {/* Certificate Download */}
+      <View style={styles.section}>
+        <CertificateButton resultId={result.id} />
+      </View>
 
       {/* Share + Retake */}
       <View style={styles.section}>

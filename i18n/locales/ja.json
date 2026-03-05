@@ -71,6 +71,8 @@
   "result": {
     "yourIQ": "あなたのIQスコア",
     "iqScore": "IQスコア",
+    "downloadCertificate": "証明書をダウンロード",
+    "certificateError": "証明書をダウンロードできませんでした",
     "celebrityMatch": "あなたの思考は",
     "cognitiveAge": "認知年齢",
     "categories": "カテゴリー別詳細",

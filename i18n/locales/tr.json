@@ -71,6 +71,8 @@
   "result": {
     "yourIQ": "IQ Puanınız",
     "iqScore": "IQ Puanı",
+    "downloadCertificate": "Sertifika İndir",
+    "certificateError": "Sertifika indirilemedi",
     "celebrityMatch": "Düşünce tarzınız",
     "cognitiveAge": "Bilişsel Yaş",
     "categories": "Kategori Dağılımı",

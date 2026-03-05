@@ -71,6 +71,8 @@
   "result": {
     "yourIQ": "Tu Puntuación IQ",
     "iqScore": "Puntuación IQ",
+    "downloadCertificate": "Descargar Certificado",
+    "certificateError": "No se pudo descargar el certificado",
     "celebrityMatch": "Piensas como",
     "cognitiveAge": "Edad Cognitiva",
     "categories": "Desglose por Categoría",

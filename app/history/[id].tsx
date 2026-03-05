@@ -10,6 +10,7 @@ import SpiderChart from '../../components/results/SpiderChart';
 import CelebrityMatchComponent from '../../components/results/CelebrityMatch';
 import CognitiveAge from '../../components/results/CognitiveAge';
 import CategoryBreakdown from '../../components/results/CategoryBreakdown';
+import CertificateButton from '../../components/results/CertificateButton';
 import { TestResult } from '../../types';
 
 export default function HistoryDetailScreen() {
@@ -152,6 +153,11 @@ export default function HistoryDetailScreen() {
           )}
         </View>
       )}
+
+      {/* Certificate Download */}
+      <View style={styles.section}>
+        <CertificateButton resultId={result.id} />
+      </View>
     </ScrollView>
   );
 }
