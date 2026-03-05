@@ -1,0 +1,92 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "done": "Done",
+    "next": "Next",
+    "back": "Back",
+    "skip": "Skip",
+    "ok": "OK"
+  },
+  "auth": {
+    "login": "Log In",
+    "register": "Sign Up",
+    "logout": "Log Out",
+    "email": "Email",
+    "password": "Password",
+    "username": "Username",
+    "age": "Age",
+    "country": "Country",
+    "alreadyHaveAccount": "Already have an account?",
+    "dontHaveAccount": "Don't have an account?",
+    "loginError": "Invalid email or password",
+    "registerError": "Registration failed"
+  },
+  "onboarding": {
+    "slide1Title": "Discover Your IQ",
+    "slide1Desc": "Take a scientifically designed test and uncover your cognitive potential",
+    "slide2Title": "Compete Globally",
+    "slide2Desc": "Rank among millions worldwide and challenge your friends",
+    "slide3Title": "Choose Your Language",
+    "slide3Desc": "Select your preferred language to get started",
+    "getStarted": "Get Started"
+  },
+  "home": {
+    "welcome": "Welcome back",
+    "startTest": "START IQ TEST",
+    "lastResult": "Last Result",
+    "noResults": "No tests taken yet",
+    "streak": "Day Streak",
+    "coins": "Neural Coins"
+  },
+  "test": {
+    "selectMode": "Select Test Mode",
+    "arcade": "Arcade Mode",
+    "arcadeDesc": "15 questions · 5 minutes · Quick & fun",
+    "fullAnalysis": "Full Cognitive Analysis",
+    "fullAnalysisDesc": "50 questions · 25 minutes · Detailed breakdown",
+    "question": "Question",
+    "of": "of",
+    "timeUp": "Time's up!",
+    "streak": "Streak",
+    "submitting": "Submitting results..."
+  },
+  "result": {
+    "yourIQ": "Your IQ Score",
+    "celebrityMatch": "You think like",
+    "cognitiveAge": "Cognitive Age",
+    "categories": "Category Breakdown",
+    "spatial": "Spatial",
+    "logic": "Logic",
+    "verbal": "Verbal",
+    "memory": "Memory",
+    "speed": "Speed",
+    "notAvailable": "N/A",
+    "globalRank": "Global Rank",
+    "countryRank": "Country Rank",
+    "share": "Share Result",
+    "retake": "Take Another Test",
+    "percentile": "percentile"
+  },
+  "leaderboard": {
+    "title": "Leaderboard",
+    "global": "Global",
+    "country": "Country",
+    "rank": "Rank",
+    "score": "IQ",
+    "you": "You"
+  },
+  "profile": {
+    "title": "Profile",
+    "testHistory": "Test History",
+    "settings": "Settings",
+    "theme": "Theme",
+    "cyberpunk": "Cyberpunk",
+    "clean": "Clean",
+    "language": "Language",
+    "noHistory": "No test history yet"
+  }
+}
