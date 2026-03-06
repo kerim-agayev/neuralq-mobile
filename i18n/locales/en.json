@@ -112,6 +112,22 @@
     "loadError": "Could not load profile data",
     "editProfile": "Edit Profile"
   },
+  "daily": {
+    "title": "Daily Brain Snatch",
+    "todayChallenge": "Today's Challenge",
+    "alreadyDone": "You already answered today!",
+    "comeBackTomorrow": "Come back tomorrow for more",
+    "peopleAttempted": "{{count}} people attempted today",
+    "gotItRight": "{{percent}}% got it right",
+    "correct": "Correct!",
+    "incorrect": "Incorrect",
+    "pointsEarned": "+{{points}} Brain Points",
+    "coinsEarned": "+{{coins}} Neural Coins",
+    "streakDays": "{{count}} day streak",
+    "solveNow": "Solve Now",
+    "dailyComplete": "Daily Complete!",
+    "noChallenge": "No challenge available today"
+  },
   "history": {
     "notFound": "Result not found"
   }
