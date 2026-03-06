@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, Animated } from 'react-native';
+import { View, Text, StyleSheet, Animated, useWindowDimensions } from 'react-native';
 import { useThemeColors } from '../../theme';
 import { useTranslation } from 'react-i18next';
 
@@ -10,6 +10,9 @@ interface IQRevealProps {
 export default function IQReveal({ iqScore }: IQRevealProps) {
   const colors = useThemeColors();
   const { t } = useTranslation();
+  const { width: screenWidth } = useWindowDimensions();
+  const circleSize = Math.min(screenWidth * 0.36, 160);
+  const scoreFontSize = circleSize * 0.37;
   const countAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(0.5)).current;
   const opacityAnim = useRef(new Animated.Value(0)).current;
@@ -79,6 +82,9 @@ export default function IQReveal({ iqScore }: IQRevealProps) {
         style={[
           styles.scoreCircle,
           {
+            width: circleSize,
+            height: circleSize,
+            borderRadius: circleSize / 2,
             borderColor: scoreColor,
             shadowColor: scoreColor,
           },
@@ -88,6 +94,7 @@ export default function IQReveal({ iqScore }: IQRevealProps) {
           style={[
             styles.score,
             {
+              fontSize: scoreFontSize,
               color: scoreColor,
               textShadowColor: scoreColor,
               textShadowOffset: { width: 0, height: 0 },
@@ -116,9 +123,6 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   scoreCircle: {
-    width: 140,
-    height: 140,
-    borderRadius: 70,
     borderWidth: 3,
     alignItems: 'center',
     justifyContent: 'center',
@@ -128,7 +132,6 @@ const styles = StyleSheet.create({
     elevation: 10,
   },
   score: {
-    fontSize: 52,
     fontWeight: '800',
     letterSpacing: 2,
   },

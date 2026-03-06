@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, useWindowDimensions } from 'react-native';
 import { useThemeColors } from '../../theme';
 import { useTranslation } from 'react-i18next';
 
@@ -14,6 +14,8 @@ interface StatsRowProps {
 export default function StatsRow({ testsCompleted, streak, coins, brainPoints, globalRank }: StatsRowProps) {
   const colors = useThemeColors();
   const { t } = useTranslation();
+  const { width } = useWindowDimensions();
+  const isSmall = width < 380;
 
   const stats = [
     { emoji: '📝', value: testsCompleted, label: 'Tests' },
@@ -23,29 +25,49 @@ export default function StatsRow({ testsCompleted, streak, coins, brainPoints, g
     { emoji: '🏆', value: globalRank ?? '—', label: t('result.globalRank') },
   ];
 
+  const boxWidth = isSmall ? 72 : undefined;
+
+  const renderBoxes = () =>
+    stats.map((stat, i) => (
+      <View
+        key={stat.label}
+        style={[
+          styles.statBox,
+          {
+            backgroundColor: colors.surface,
+            borderColor: colors.border,
+          },
+          !isSmall && styles.statBoxFlex,
+          isSmall && { width: boxWidth, marginRight: i < stats.length - 1 ? 6 : 0 },
+          !isSmall && i < stats.length - 1 && styles.statBoxGap,
+        ]}
+      >
+        <Text style={[styles.emoji, isSmall && { fontSize: 14 }]}>{stat.emoji}</Text>
+        <Text style={[styles.value, { color: colors.primary }, isSmall && { fontSize: 15 }]}>
+          {stat.value}
+        </Text>
+        <Text style={[styles.label, { color: colors.textDim }]} numberOfLines={1}>
+          {stat.label}
+        </Text>
+      </View>
+    ));
+
+  if (isSmall) {
+    return (
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContent}
+        style={styles.scrollContainer}
+      >
+        {renderBoxes()}
+      </ScrollView>
+    );
+  }
+
   return (
     <View style={styles.container}>
-      {stats.map((stat, i) => (
-        <View
-          key={stat.label}
-          style={[
-            styles.statBox,
-            {
-              backgroundColor: colors.surface,
-              borderColor: colors.border,
-            },
-            i < stats.length - 1 && styles.statBoxGap,
-          ]}
-        >
-          <Text style={styles.emoji}>{stat.emoji}</Text>
-          <Text style={[styles.value, { color: colors.primary }]}>
-            {stat.value}
-          </Text>
-          <Text style={[styles.label, { color: colors.textDim }]}>
-            {stat.label}
-          </Text>
-        </View>
-      ))}
+      {renderBoxes()}
     </View>
   );
 }
@@ -56,12 +78,20 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginTop: 16,
   },
+  scrollContainer: {
+    marginTop: 16,
+  },
+  scrollContent: {
+    paddingHorizontal: 20,
+  },
   statBox: {
-    flex: 1,
     alignItems: 'center',
     paddingVertical: 10,
     borderRadius: 12,
     borderWidth: 1,
+  },
+  statBoxFlex: {
+    flex: 1,
   },
   statBoxGap: {
     marginRight: 6,

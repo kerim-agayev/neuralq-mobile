@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, useWindowDimensions } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useThemeColors } from '../../theme';
 import { BADGE_INFO, ALL_BADGE_KEYS } from '../../constants/badges';
@@ -12,8 +12,16 @@ interface BadgesSectionProps {
 export default function BadgesSection({ earnedBadges }: BadgesSectionProps) {
   const colors = useThemeColors();
   const { t } = useTranslation();
+  const { width } = useWindowDimensions();
 
   const earnedNames = new Set(earnedBadges.map((b) => b.name));
+
+  // Responsive: 2 columns on very small, 3 on normal, 4 on large/tablet
+  const numColumns = width < 360 ? 2 : width > 500 ? 4 : 3;
+  const gap = 8;
+  const containerPadding = 20;
+  const availableWidth = width - containerPadding * 2;
+  const itemWidth = (availableWidth - gap * (numColumns - 1)) / numColumns;
 
   return (
     <View style={styles.container}>
@@ -30,6 +38,7 @@ export default function BadgesSection({ earnedBadges }: BadgesSectionProps) {
               style={[
                 styles.badgeItem,
                 {
+                  width: itemWidth,
                   backgroundColor: earned ? colors.surface : colors.background,
                   borderColor: earned ? colors.primary : colors.border,
                 },
@@ -79,7 +88,6 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   badgeItem: {
-    width: '31%',
     alignItems: 'center',
     paddingVertical: 12,
     paddingHorizontal: 6,

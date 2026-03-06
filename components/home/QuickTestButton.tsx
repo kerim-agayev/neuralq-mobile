@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Animated,
   View,
+  useWindowDimensions,
 } from 'react-native';
 import { useThemeColors } from '../../theme';
 import { useTranslation } from 'react-i18next';
@@ -16,6 +17,9 @@ interface QuickTestButtonProps {
 export default function QuickTestButton({ onPress }: QuickTestButtonProps) {
   const colors = useThemeColors();
   const { t } = useTranslation();
+  const { width: screenWidth } = useWindowDimensions();
+  const btnSize = Math.min(screenWidth * 0.38, 160);
+  const glowSize = btnSize + 20;
   const pulseAnim = useRef(new Animated.Value(1)).current;
   const glowAnim = useRef(new Animated.Value(0.4)).current;
 
@@ -66,6 +70,9 @@ export default function QuickTestButton({ onPress }: QuickTestButtonProps) {
         style={[
           styles.glowRing,
           {
+            width: glowSize,
+            height: glowSize,
+            borderRadius: glowSize / 2,
             borderColor: colors.primary,
             opacity: glowAnim,
           },
@@ -78,13 +85,16 @@ export default function QuickTestButton({ onPress }: QuickTestButtonProps) {
           style={[
             styles.button,
             {
+              width: btnSize,
+              height: btnSize,
+              borderRadius: btnSize / 2,
               backgroundColor: colors.primary,
               shadowColor: colors.primary,
             },
           ]}
         >
-          <Text style={styles.brain}>🧠</Text>
-          <Text style={styles.label}>{t('home.startTest')}</Text>
+          <Text style={[styles.brain, { fontSize: btnSize * 0.27 }]}>🧠</Text>
+          <Text style={[styles.label, { fontSize: btnSize * 0.08 }]}>{t('home.startTest')}</Text>
         </TouchableOpacity>
       </Animated.View>
     </View>
@@ -99,15 +109,9 @@ const styles = StyleSheet.create({
   },
   glowRing: {
     position: 'absolute',
-    width: 170,
-    height: 170,
-    borderRadius: 85,
     borderWidth: 2,
   },
   button: {
-    width: 150,
-    height: 150,
-    borderRadius: 75,
     alignItems: 'center',
     justifyContent: 'center',
     shadowOffset: { width: 0, height: 0 },
@@ -116,11 +120,9 @@ const styles = StyleSheet.create({
     elevation: 12,
   },
   brain: {
-    fontSize: 40,
     marginBottom: 6,
   },
   label: {
-    fontSize: 12,
     fontWeight: '800',
     color: '#0a0a0f',
     letterSpacing: 1.5,

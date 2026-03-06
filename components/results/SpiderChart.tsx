@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, useWindowDimensions } from 'react-native';
 import Svg, { Polygon, Line, Circle, Text as SvgText } from 'react-native-svg';
 import { useThemeColors } from '../../theme';
 import { useTranslation } from 'react-i18next';
@@ -21,10 +21,11 @@ export default function SpiderChart({
 }: SpiderChartProps) {
   const colors = useThemeColors();
   const { t } = useTranslation();
+  const { width: screenWidth } = useWindowDimensions();
 
-  const size = 220;
+  const size = Math.min(screenWidth * 0.56, 260);
   const center = size / 2;
-  const maxRadius = size / 2 - 30;
+  const maxRadius = size / 2 - size * 0.14;
   const levels = 4;
 
   // Only include categories that have data
