@@ -7,16 +7,18 @@ interface StatsRowProps {
   testsCompleted: number;
   streak: number;
   coins: number;
+  brainPoints: number;
   globalRank?: number | null;
 }
 
-export default function StatsRow({ testsCompleted, streak, coins, globalRank }: StatsRowProps) {
+export default function StatsRow({ testsCompleted, streak, coins, brainPoints, globalRank }: StatsRowProps) {
   const colors = useThemeColors();
   const { t } = useTranslation();
 
   const stats = [
     { emoji: '📝', value: testsCompleted, label: 'Tests' },
     { emoji: '🔥', value: streak, label: t('home.streak') },
+    { emoji: '🧠', value: brainPoints, label: 'BP' },
     { emoji: '🪙', value: coins, label: t('home.coins') },
     { emoji: '🏆', value: globalRank ?? '—', label: t('result.globalRank') },
   ];
@@ -57,23 +59,23 @@ const styles = StyleSheet.create({
   statBox: {
     flex: 1,
     alignItems: 'center',
-    paddingVertical: 12,
+    paddingVertical: 10,
     borderRadius: 12,
     borderWidth: 1,
   },
   statBoxGap: {
-    marginRight: 10,
+    marginRight: 6,
   },
   emoji: {
-    fontSize: 18,
-    marginBottom: 4,
+    fontSize: 16,
+    marginBottom: 3,
   },
   value: {
-    fontSize: 20,
+    fontSize: 17,
     fontWeight: '700',
   },
   label: {
-    fontSize: 10,
+    fontSize: 9,
     fontWeight: '500',
     marginTop: 2,
   },

@@ -6,7 +6,6 @@ import {
   StyleSheet,
   RefreshControl,
   Alert,
-  TouchableOpacity,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -20,6 +19,7 @@ import { NeonText, HomeSkeleton } from '../../components/ui';
 import QuickTestButton from '../../components/home/QuickTestButton';
 import LastResultCard from '../../components/home/LastResultCard';
 import StatsRow from '../../components/home/StatsRow';
+import DailyChallengeCard from '../../components/home/DailyChallengeCard';
 import { TestResult } from '../../types';
 
 export default function HomeScreen() {
@@ -134,6 +134,7 @@ export default function HomeScreen() {
       <StatsRow
         testsCompleted={testsCount}
         streak={user?.currentStreak ?? 0}
+        brainPoints={user?.brainPoints ?? 0}
         coins={user?.neuralCoins ?? 0}
         globalRank={globalRank}
       />
@@ -142,24 +143,7 @@ export default function HomeScreen() {
       <QuickTestButton onPress={handleStartTest} />
 
       {/* Daily Challenge Card */}
-      <TouchableOpacity
-        style={[styles.dailyCard, { backgroundColor: colors.surface, borderColor: colors.border }]}
-        onPress={() => router.push('/daily')}
-        activeOpacity={0.7}
-      >
-        <Text style={styles.dailyEmoji}>{'\uD83E\uDDE0'}</Text>
-        <View style={styles.dailyContent}>
-          <Text style={[styles.dailyTitle, { color: colors.text }]}>
-            {t('daily.title')}
-          </Text>
-          <Text style={[styles.dailySub, { color: colors.textDim }]}>
-            {t('daily.solveNow')} {'\u2192'}
-          </Text>
-        </View>
-        <Text style={[styles.dailyStreak, { color: colors.warning }]}>
-          {'\uD83D\uDD25'} {user?.currentStreak ?? 0}
-        </Text>
-      </TouchableOpacity>
+      <DailyChallengeCard streak={user?.currentStreak ?? 0} />
 
       {/* Last Result Card */}
       <LastResultCard result={lastResult} />
@@ -182,33 +166,5 @@ const styles = StyleSheet.create({
   welcome: {
     fontSize: 15,
     marginTop: 8,
-  },
-  dailyCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginHorizontal: 20,
-    marginTop: 16,
-    padding: 14,
-    borderRadius: 12,
-    borderWidth: 1,
-  },
-  dailyEmoji: {
-    fontSize: 28,
-    marginRight: 12,
-  },
-  dailyContent: {
-    flex: 1,
-  },
-  dailyTitle: {
-    fontSize: 15,
-    fontWeight: '700',
-  },
-  dailySub: {
-    fontSize: 12,
-    marginTop: 2,
-  },
-  dailyStreak: {
-    fontSize: 16,
-    fontWeight: '700',
   },
 });
