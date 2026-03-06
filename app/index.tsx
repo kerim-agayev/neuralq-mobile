@@ -13,10 +13,10 @@ export default function SplashScreen() {
 
   useEffect(() => {
     const bootstrap = async () => {
-      // Small delay for splash feel
-      await new Promise((r) => setTimeout(r, 800));
+      // Minimum splash duration for branding
+      const minDelay = new Promise((r) => setTimeout(r, 1500));
 
-      const isLoggedIn = await loadAuth();
+      const [, isLoggedIn] = await Promise.all([minDelay, loadAuth()]);
 
       if (isLoggedIn) {
         router.replace('/(tabs)/home');
