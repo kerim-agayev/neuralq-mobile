@@ -11,9 +11,10 @@ interface LeaderboardListProps {
   loading: boolean;
   refreshing?: boolean;
   onRefresh?: () => void;
+  bottomInset?: number;
 }
 
-export default function LeaderboardList({ data, loading, refreshing = false, onRefresh }: LeaderboardListProps) {
+export default function LeaderboardList({ data, loading, refreshing = false, onRefresh, bottomInset = 0 }: LeaderboardListProps) {
   const colors = useThemeColors();
   const { t } = useTranslation();
 
@@ -49,7 +50,7 @@ export default function LeaderboardList({ data, loading, refreshing = false, onR
       data={data}
       keyExtractor={(item) => `${item.userId}-${item.rank}`}
       renderItem={({ item }) => <LeaderboardCard entry={item} />}
-      contentContainerStyle={styles.list}
+      contentContainerStyle={[styles.list, { paddingBottom: Math.max(bottomInset, 20) + 60 }]}
       showsVerticalScrollIndicator={false}
       refreshControl={
         onRefresh ? (
@@ -67,7 +68,6 @@ export default function LeaderboardList({ data, loading, refreshing = false, onR
 const styles = StyleSheet.create({
   list: {
     paddingHorizontal: 20,
-    paddingBottom: 20,
   },
   skeletonContainer: {
     paddingHorizontal: 20,

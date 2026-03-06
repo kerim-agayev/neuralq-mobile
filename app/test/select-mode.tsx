@@ -45,7 +45,7 @@ export default function SelectModeScreen() {
         {
           backgroundColor: colors.background,
           paddingTop: insets.top + 20,
-          paddingBottom: insets.bottom + 20,
+          paddingBottom: Math.max(insets.bottom, 20) + 20,
         },
       ]}
     >

@@ -179,7 +179,7 @@ export default function TestSessionScreen() {
         {
           backgroundColor: colors.background,
           paddingTop: insets.top + 10,
-          paddingBottom: insets.bottom + 10,
+          paddingBottom: Math.max(insets.bottom, 20) + 20,
         },
       ]}
     >

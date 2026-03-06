@@ -76,7 +76,7 @@ export default function ResultScreen() {
       style={[styles.container, { backgroundColor: colors.background }]}
       contentContainerStyle={[
         styles.content,
-        { paddingTop: insets.top + 20, paddingBottom: insets.bottom + 40 },
+        { paddingTop: insets.top + 20, paddingBottom: Math.max(insets.bottom, 20) + 60 },
       ]}
       showsVerticalScrollIndicator={false}
     >

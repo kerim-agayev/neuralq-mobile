@@ -101,6 +101,7 @@ export default function LeaderboardScreen() {
         loading={loading}
         refreshing={refreshing}
         onRefresh={onRefresh}
+        bottomInset={insets.bottom}
       />
     </View>
   );

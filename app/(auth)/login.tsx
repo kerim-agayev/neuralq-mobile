@@ -9,6 +9,7 @@ import {
   Platform,
   ScrollView,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { useThemeColors } from '../../theme';
@@ -19,6 +20,7 @@ export default function LoginScreen() {
   const router = useRouter();
   const { t } = useTranslation();
   const colors = useThemeColors();
+  const insets = useSafeAreaInsets();
   const { login, loading, error } = useAuth();
 
   const [email, setEmail] = useState('');
@@ -39,7 +41,7 @@ export default function LoginScreen() {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
       <ScrollView
-        contentContainerStyle={styles.scroll}
+        contentContainerStyle={[styles.scroll, { paddingTop: insets.top + 40, paddingBottom: Math.max(insets.bottom, 20) + 40 }]}
         keyboardShouldPersistTaps="handled"
       >
         <View style={styles.header}>
@@ -148,7 +150,6 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     paddingHorizontal: 24,
-    paddingVertical: 40,
   },
   header: {
     alignItems: 'center',

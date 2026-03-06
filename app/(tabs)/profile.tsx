@@ -52,7 +52,7 @@ export default function ProfileScreen() {
       style={[styles.container, { backgroundColor: colors.background }]}
       contentContainerStyle={[
         styles.content,
-        { paddingTop: insets.top + 10, paddingBottom: insets.bottom + 80 },
+        { paddingTop: insets.top + 10, paddingBottom: Math.max(insets.bottom, 20) + 80 },
       ]}
       showsVerticalScrollIndicator={false}
       refreshControl={
