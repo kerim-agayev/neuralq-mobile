@@ -132,6 +132,28 @@ export default function ProfileHeader({ user }: ProfileHeaderProps) {
         )}
       </View>
 
+      {/* BP + NC + Streak row */}
+      <View style={styles.coinsRow}>
+        <View style={[styles.coinBadge, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+          <Text style={[styles.coinValue, { color: colors.primary }]}>
+            {'\uD83E\uDDE0'} {user.brainPoints ?? 0}
+          </Text>
+          <Text style={[styles.coinLabel, { color: colors.textDim }]}>BP</Text>
+        </View>
+        <View style={[styles.coinBadge, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+          <Text style={[styles.coinValue, { color: colors.warning }]}>
+            {'\uD83E\uDE99'} {user.neuralCoins ?? 0}
+          </Text>
+          <Text style={[styles.coinLabel, { color: colors.textDim }]}>NC</Text>
+        </View>
+        <View style={[styles.coinBadge, { backgroundColor: colors.surface, borderColor: colors.border }]}>
+          <Text style={[styles.coinValue, { color: colors.error }]}>
+            {'\uD83D\uDD25'} {user.currentStreak ?? 0}
+          </Text>
+          <Text style={[styles.coinLabel, { color: colors.textDim }]}>Streak</Text>
+        </View>
+      </View>
+
       {/* Edit Profile Button */}
       <TouchableOpacity
         style={[styles.editBtn, { borderColor: colors.primary }]}
@@ -255,6 +277,27 @@ const styles = StyleSheet.create({
   statText: {
     fontSize: 12,
     fontWeight: '500',
+  },
+  coinsRow: {
+    flexDirection: 'row',
+    gap: 8,
+    marginTop: 12,
+  },
+  coinBadge: {
+    flex: 1,
+    alignItems: 'center',
+    paddingVertical: 8,
+    borderRadius: 10,
+    borderWidth: 1,
+  },
+  coinValue: {
+    fontSize: 15,
+    fontWeight: '700',
+  },
+  coinLabel: {
+    fontSize: 10,
+    fontWeight: '500',
+    marginTop: 2,
   },
   editBtn: {
     marginTop: 14,

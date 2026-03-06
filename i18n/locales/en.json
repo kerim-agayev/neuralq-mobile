@@ -110,7 +110,18 @@
     "language": "Language",
     "noHistory": "No test history yet",
     "loadError": "Could not load profile data",
-    "editProfile": "Edit Profile"
+    "editProfile": "Edit Profile",
+    "brainPoints": "Brain Points",
+    "neuralCoins": "Neural Coins",
+    "dailyStats": "Daily Challenge Stats",
+    "accuracy": "Accuracy",
+    "longestStreak": "Longest Streak"
+  },
+  "badges": {
+    "title": "Badges",
+    "unlocked": "Badge Unlocked!",
+    "locked": "Locked",
+    "earned": "Earned {{date}}"
   },
   "daily": {
     "title": "Daily Brain Snatch",

@@ -6,11 +6,14 @@ import Toast from 'react-native-toast-message';
 import { useThemeColors } from '../../theme';
 import { useAuthStore } from '../../store/auth.store';
 import { testService } from '../../services/test.service';
+import { dailyService } from '../../services/daily.service';
 import { ProfileSkeleton } from '../../components/ui';
 import ProfileHeader from '../../components/profile/ProfileHeader';
+import BadgesSection from '../../components/profile/BadgesSection';
+import DailyStatsSection from '../../components/profile/DailyStatsSection';
 import TestHistory from '../../components/profile/TestHistory';
 import SettingsSection from '../../components/profile/SettingsSection';
-import { TestResult } from '../../types';
+import { TestResult, DailyStats } from '../../types';
 
 export default function ProfileScreen() {
   const colors = useThemeColors();
@@ -19,13 +22,18 @@ export default function ProfileScreen() {
   const user = useAuthStore((s) => s.user);
 
   const [history, setHistory] = useState<TestResult[]>([]);
+  const [dailyStats, setDailyStats] = useState<DailyStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
 
-  const fetchHistory = useCallback(async () => {
+  const fetchData = useCallback(async () => {
     try {
-      const data = await testService.getHistory();
-      setHistory(data);
+      const [historyData, statsData] = await Promise.allSettled([
+        testService.getHistory(),
+        dailyService.getStats(),
+      ]);
+      if (historyData.status === 'fulfilled') setHistory(historyData.value);
+      if (statsData.status === 'fulfilled') setDailyStats(statsData.value);
     } catch {
       Toast.show({ type: 'error', text1: t('profile.loadError') });
     } finally {
@@ -34,14 +42,14 @@ export default function ProfileScreen() {
   }, []);
 
   useEffect(() => {
-    fetchHistory();
-  }, [fetchHistory]);
+    fetchData();
+  }, [fetchData]);
 
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
-    await fetchHistory();
+    await fetchData();
     setRefreshing(false);
-  }, [fetchHistory]);
+  }, [fetchData]);
 
   if (!user || loading) {
     return <ProfileSkeleton />;
@@ -64,6 +72,8 @@ export default function ProfileScreen() {
       }
     >
       <ProfileHeader user={user} />
+      <BadgesSection earnedBadges={user.badges ?? []} />
+      <DailyStatsSection stats={dailyStats} />
       <TestHistory results={history} />
       <SettingsSection />
     </ScrollView>
