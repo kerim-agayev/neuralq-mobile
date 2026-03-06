@@ -21,6 +21,7 @@ export interface TestResult {
   globalRank: number | null;
   certificateUrl: string | null;
   completedAt: string;
+  newBadges?: string[];
 }
 
 export interface StartTestResponse {

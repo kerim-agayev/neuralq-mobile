@@ -13,6 +13,7 @@ import CognitiveAge from '../../components/results/CognitiveAge';
 import CategoryBreakdown from '../../components/results/CategoryBreakdown';
 import ShareCard from '../../components/results/ShareCard';
 import CertificateButton from '../../components/results/CertificateButton';
+import BadgeUnlockModal from '../../components/badges/BadgeUnlockModal';
 import { TestResult } from '../../types';
 
 export default function ResultScreen() {
@@ -24,12 +25,18 @@ export default function ResultScreen() {
 
   const [result, setResult] = useState<TestResult | null>(null);
   const [loading, setLoading] = useState(true);
+  const [unlockedBadges, setUnlockedBadges] = useState<string[]>([]);
 
   useEffect(() => {
     if (!sessionId) return;
     testService
       .getResult(sessionId)
-      .then((data) => setResult(data))
+      .then((data) => {
+        setResult(data);
+        if (data.newBadges && data.newBadges.length > 0) {
+          setUnlockedBadges(data.newBadges);
+        }
+      })
       .catch(() => {
         // Try from history as fallback
         testService
@@ -149,6 +156,12 @@ export default function ResultScreen() {
           onRetake={() => router.replace('/test/select-mode')}
         />
       </View>
+
+      {/* Badge unlock modal */}
+      <BadgeUnlockModal
+        badgeNames={unlockedBadges}
+        onClose={() => setUnlockedBadges([])}
+      />
     </ScrollView>
   );
 }

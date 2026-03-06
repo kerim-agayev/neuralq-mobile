@@ -19,6 +19,7 @@ import QuestionCard from '../../components/test/QuestionCard';
 import MixedOptions from '../../components/test/MixedOptions';
 import TimerBar from '../../components/test/TimerBar';
 import AnswerFeedback from '../../components/test/AnswerFeedback';
+import BadgeUnlockModal from '../../components/badges/BadgeUnlockModal';
 import { DailyChallenge, DailyAttemptResponse } from '../../types';
 
 type ScreenState = 'loading' | 'question' | 'result' | 'already_done' | 'error';
@@ -38,6 +39,7 @@ export default function DailyChallengeScreen() {
   const [feedbackVisible, setFeedbackVisible] = useState(false);
   const [feedbackCorrect, setFeedbackCorrect] = useState(false);
   const [answering, setAnswering] = useState(false);
+  const [unlockedBadges, setUnlockedBadges] = useState<string[]>([]);
   const startTimeRef = useRef<number>(0);
 
   // Timer
@@ -101,6 +103,10 @@ export default function DailyChallengeScreen() {
         haptic.correctFeedback();
       } else {
         haptic.wrongFeedback();
+      }
+
+      if (result.newBadges && result.newBadges.length > 0) {
+        setUnlockedBadges(result.newBadges);
       }
 
       // Show feedback briefly, then show result screen
@@ -286,6 +292,11 @@ export default function DailyChallengeScreen() {
         >
           <Text style={[styles.homeBtnText, { color: colors.primary }]}>{t('common.goBack')}</Text>
         </TouchableOpacity>
+
+        <BadgeUnlockModal
+          badgeNames={unlockedBadges}
+          onClose={() => setUnlockedBadges([])}
+        />
       </ScrollView>
     );
   }
