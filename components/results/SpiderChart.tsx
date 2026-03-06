@@ -40,6 +40,7 @@ export default function SpiderChart({
   const categories = allCategories.filter(
     (c) => c.value != null && c.value > 0,
   );
+  const skippedCount = allCategories.length - categories.length;
 
   if (categories.length < 3) {
     // Not enough data for a spider chart
@@ -162,6 +163,11 @@ export default function SpiderChart({
           </SvgText>
         ))}
       </Svg>
+      {skippedCount > 0 && (
+        <Text style={[styles.skippedNote, { color: colors.textDim }]}>
+          {t('result.categoriesSkipped', { count: skippedCount })}
+        </Text>
+      )}
     </View>
   );
 }
@@ -177,5 +183,11 @@ const styles = StyleSheet.create({
   },
   fallbackText: {
     fontSize: 13,
+  },
+  skippedNote: {
+    fontSize: 11,
+    fontStyle: 'italic',
+    marginTop: 6,
+    textAlign: 'center',
   },
 });

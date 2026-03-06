@@ -88,7 +88,8 @@
     "retake": "Başka Test Yap",
     "percentile": "yüzdelik",
     "calculating": "Sonuçlarınız hesaplanıyor...",
-    "loadError": "Sonuçlar yüklenemedi"
+    "loadError": "Sonuçlar yüklenemedi",
+    "categoriesSkipped": "{{count}} kategori bu test icin mevcut degil"
   },
   "leaderboard": {
     "title": "Sıralama",

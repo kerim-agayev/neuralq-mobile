@@ -88,7 +88,8 @@
     "retake": "Fazer Outro Teste",
     "percentile": "percentil",
     "calculating": "Calculando seus resultados...",
-    "loadError": "Não foi possível carregar os resultados"
+    "loadError": "Não foi possível carregar os resultados",
+    "categoriesSkipped": "{{count}} categoria indisponivel para este teste"
   },
   "leaderboard": {
     "title": "Classificação",

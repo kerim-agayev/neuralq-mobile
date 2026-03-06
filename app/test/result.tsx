@@ -5,6 +5,7 @@ import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { useThemeColors } from '../../theme';
 import { testService } from '../../services/test.service';
+import { useTestStore } from '../../store/test.store';
 import { LoadingSpinner } from '../../components/ui';
 import IQReveal from '../../components/results/IQReveal';
 import SpiderChart from '../../components/results/SpiderChart';
@@ -22,6 +23,7 @@ export default function ResultScreen() {
   const router = useRouter();
   const { t } = useTranslation();
   const { sessionId } = useLocalSearchParams<{ sessionId: string }>();
+  const verbalSkipped = useTestStore((s) => s.verbalSkipped);
 
   const [result, setResult] = useState<TestResult | null>(null);
   const [loading, setLoading] = useState(true);
@@ -113,7 +115,7 @@ export default function ResultScreen() {
 
       {/* Category Breakdown */}
       <View style={styles.section}>
-        <CategoryBreakdown result={result} />
+        <CategoryBreakdown result={result} verbalSkipped={verbalSkipped} />
       </View>
 
       {/* Ranks */}

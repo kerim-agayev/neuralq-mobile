@@ -88,7 +88,8 @@
     "retake": "Пройти ещё тест",
     "percentile": "процентиль",
     "calculating": "Подсчёт результатов...",
-    "loadError": "Не удалось загрузить результаты"
+    "loadError": "Не удалось загрузить результаты",
+    "categoriesSkipped": "{{count}} kategoriya nedostupna dlya etogo testa"
   },
   "leaderboard": {
     "title": "Рейтинг",

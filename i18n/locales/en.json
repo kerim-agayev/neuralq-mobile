@@ -88,7 +88,8 @@
     "loadError": "Could not load results",
     "iqScore": "IQ Score",
     "downloadCertificate": "Download Certificate",
-    "certificateError": "Could not download certificate"
+    "certificateError": "Could not download certificate",
+    "categoriesSkipped": "{{count}} category not available for this test"
   },
   "leaderboard": {
     "title": "Leaderboard",

@@ -88,7 +88,8 @@
     "retake": "Başqa Test Ver",
     "percentile": "faiz",
     "calculating": "Nəticələriniz hesablanır...",
-    "loadError": "Nəticələr yüklənmədi"
+    "loadError": "Nəticələr yüklənmədi",
+    "categoriesSkipped": "{{count}} kateqoriya bu test ucun movcud deyil"
   },
   "leaderboard": {
     "title": "Sıralama",

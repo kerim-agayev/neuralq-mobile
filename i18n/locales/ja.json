@@ -88,7 +88,8 @@
     "retake": "もう一度テスト",
     "percentile": "パーセンタイル",
     "calculating": "結果を計算中...",
-    "loadError": "結果を読み込めませんでした"
+    "loadError": "結果を読み込めませんでした",
+    "categoriesSkipped": "{{count}} kategorii ga kono tesuto de wa riyou dekimasen"
   },
   "leaderboard": {
     "title": "ランキング",

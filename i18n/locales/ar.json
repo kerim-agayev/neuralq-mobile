@@ -88,7 +88,8 @@
     "retake": "إجراء اختبار آخر",
     "percentile": "المئوي",
     "calculating": "جاري حساب نتائجك...",
-    "loadError": "تعذر تحميل النتائج"
+    "loadError": "تعذر تحميل النتائج",
+    "categoriesSkipped": "{{count}} fi'a ghayr mutaha li-hadha al-ikhtbar"
   },
   "leaderboard": {
     "title": "لوحة المتصدرين",

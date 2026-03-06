@@ -7,51 +7,64 @@ import { TestResult } from '../../types';
 
 interface CategoryBreakdownProps {
   result: TestResult;
+  verbalSkipped?: boolean;
 }
 
-export default function CategoryBreakdown({ result }: CategoryBreakdownProps) {
+export default function CategoryBreakdown({ result, verbalSkipped }: CategoryBreakdownProps) {
   const colors = useThemeColors();
   const { t } = useTranslation();
 
   const allCategories = [
     {
+      key: 'spatial',
       label: t('result.spatial'),
       emoji: '🧩',
       percentile: result.spatialPercentile,
       score: result.spatialScore,
+      skipped: false,
     },
     {
+      key: 'logic',
       label: t('result.logic'),
       emoji: '🔢',
       percentile: result.logicPercentile,
       score: result.logicScore,
+      skipped: false,
     },
     {
+      key: 'verbal',
       label: t('result.verbal'),
       emoji: '📝',
       percentile: result.verbalPercentile,
       score: result.verbalScore,
+      skipped: !!verbalSkipped || result.verbalPercentile == null || result.verbalPercentile === 0,
     },
     {
+      key: 'memory',
       label: t('result.memory'),
       emoji: '🧠',
       percentile: result.memoryPercentile,
       score: result.memoryScore,
+      skipped: result.memoryPercentile == null || result.memoryPercentile === 0,
     },
     {
+      key: 'speed',
       label: t('result.speed'),
       emoji: '⚡',
       percentile: result.speedPercentile,
       score: result.speedScore,
+      skipped: false,
     },
   ];
 
-  // Only show categories with data
-  const categories = allCategories.filter(
-    (c) => c.percentile != null && c.percentile > 0,
+  // Active categories (have data and not skipped)
+  const activeCategories = allCategories.filter(
+    (c) => !c.skipped && c.percentile != null && c.percentile > 0,
   );
+  // Skipped categories to show as N/A
+  const skippedCategories = allCategories.filter((c) => c.skipped);
 
-  if (categories.length === 0) return null;
+  if (activeCategories.length === 0 && skippedCategories.length === 0) return null;
 
   const getBarColor = (percentile: number) => {
     if (percentile >= 75) return colors.success;
@@ -66,8 +79,8 @@ export default function CategoryBreakdown({ result }: CategoryBreakdownProps) {
         {t('result.categories')}
       </Text>
       <View style={styles.list}>
-        {categories.map((cat) => (
-          <View key={cat.label} style={styles.row}>
+        {activeCategories.map((cat) => (
+          <View key={cat.key} style={styles.row}>
             <Text style={styles.emoji}>{cat.emoji}</Text>
             <View style={styles.info}>
               <View style={styles.labelRow}>
@@ -88,6 +101,24 @@ export default function CategoryBreakdown({ result }: CategoryBreakdownProps) {
                     },
                   ]}
                 />
+              </View>
+            </View>
+          </View>
+        ))}
+        {skippedCategories.map((cat) => (
+          <View key={cat.key} style={[styles.row, { opacity: 0.5 }]}>
+            <Text style={styles.emoji}>{cat.emoji}</Text>
+            <View style={styles.info}>
+              <View style={styles.labelRow}>
+                <Text style={[styles.label, { color: colors.textDim }]}>
+                  {cat.label}
+                </Text>
+                <Text style={[styles.naLabel, { color: colors.textDim }]}>
+                  {t('result.notAvailable')}
+                </Text>
+              </View>
+              <View style={[styles.barBg, { backgroundColor: colors.border }]}>
+                <View style={[styles.barFill, { backgroundColor: colors.border, width: '100%' }]} />
               </View>
             </View>
           </View>
@@ -134,6 +165,11 @@ const styles = StyleSheet.create({
   percentile: {
     fontSize: 12,
     fontWeight: '500',
+  },
+  naLabel: {
+    fontSize: 12,
+    fontWeight: '600',
+    fontStyle: 'italic',
   },
   barBg: {
     height: 8,

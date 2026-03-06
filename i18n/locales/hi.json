@@ -88,7 +88,8 @@
     "retake": "दूसरा टेस्ट लें",
     "percentile": "प्रतिशत",
     "calculating": "आपके परिणाम की गणना हो रही है...",
-    "loadError": "परिणाम लोड नहीं हो सके"
+    "loadError": "परिणाम लोड नहीं हो सके",
+    "categoriesSkipped": "{{count}} shrenee is pariksha ke lie uplabdh nahin"
   },
   "leaderboard": {
     "title": "लीडरबोर्ड",

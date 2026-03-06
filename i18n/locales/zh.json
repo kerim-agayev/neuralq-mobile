@@ -88,7 +88,8 @@
     "retake": "再测一次",
     "percentile": "百分位",
     "calculating": "正在计算结果...",
-    "loadError": "无法加载结果"
+    "loadError": "无法加载结果",
+    "categoriesSkipped": "{{count}} ge lei bie bu shi yong yu ci ce shi"
   },
   "leaderboard": {
     "title": "排行榜",

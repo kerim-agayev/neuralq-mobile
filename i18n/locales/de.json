@@ -88,7 +88,8 @@
     "retake": "Weiteren Test Machen",
     "percentile": "Perzentil",
     "calculating": "Deine Ergebnisse werden berechnet...",
-    "loadError": "Ergebnisse konnten nicht geladen werden"
+    "loadError": "Ergebnisse konnten nicht geladen werden",
+    "categoriesSkipped": "{{count}} Kategorie nicht verfuegbar fuer diesen Test"
   },
   "leaderboard": {
     "title": "Rangliste",

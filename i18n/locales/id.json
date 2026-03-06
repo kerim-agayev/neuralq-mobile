@@ -88,7 +88,8 @@
     "retake": "Ambil Tes Lagi",
     "percentile": "persentil",
     "calculating": "Menghitung hasil Anda...",
-    "loadError": "Gagal memuat hasil"
+    "loadError": "Gagal memuat hasil",
+    "categoriesSkipped": "{{count}} kategori tidak tersedia untuk tes ini"
   },
   "leaderboard": {
     "title": "Papan Peringkat",
