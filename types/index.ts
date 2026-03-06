@@ -13,3 +13,9 @@ export type {
   AnswerInput,
   LeaderboardEntry,
 } from './result';
+export type { Badge } from './badge';
+export type {
+  DailyChallenge,
+  DailyAttemptResponse,
+  DailyStats,
+} from './daily';

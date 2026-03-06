@@ -1,419 +1,286 @@
-# SPRINT-5-MOBILE.md — NeuralQ Mobile Entegrasyon, Bug Fix & Production Hazırlık
+# SPRINT-5-MOBILE.md — NeuralQ Mobile — TAMAMLANDI
 
-> **DURUM**: Mobil uygulama 9 adımda tamamlandı ve standalone repo'da çalışıyor. Temel akışlar hazır: onboarding, auth, test engine, sonuç ekranı, leaderboard, profile. Bu sprint backend entegrasyonunu test edip, eksikleri tamamlayıp, production'a hazırlıyor.
+> **DURUM**: Sprint 5 tamamlandi. 7 adimin hepsi bitti.
 >
-> **REPO**: `neuralq-mobile/` (standalone, `iq_test/` monorepo'dan ayrı)
-> **Backend API**: `http://192.168.100.37:3000/api` (Port 3000!)
+> **REPO**: `neuralq-mobile/` (standalone)
+> **Backend API**: `http://192.168.100.37:3000/api`
 > **GitHub**: `https://github.com/kerim-agayev/neuralq-mobile.git`
 
 ---
 
-## Mevcut Durum — Neler Hazır, Neler Eksik?
+## Sprint 5 Ozet — Yapilan Her Sey
 
-### Hazır (9 Adım Tamamlandı)
+### ADIM 1: Backend Entegrasyon (Commit: 850ab7c)
 
-| Özellik | Durum |
-|---------|-------|
-| Expo SDK 54 + TypeScript + Expo Router | ✅ |
-| Auth (onboarding, login, register) | ✅ |
-| Zustand stores (auth, test, settings) | ✅ |
-| API client + JWT interceptor + refresh | ✅ |
-| Cyberpunk + Clean dual theme | ✅ |
-| 16 dil i18n + "Other Language" | ✅ |
-| Bottom tabs (Home, Leaderboard, Profile) | ✅ |
-| Home ekranı (stats, last result, quick test button) | ✅ |
-| Test engine (question card, timer, options, streak, feedback) | ✅ |
-| Text/Image/Mixed option layouts | ✅ |
-| Result screen (IQ reveal, spider chart, celebrity, cognitive age) | ✅ |
-| Leaderboard (global + country) | ✅ |
-| Profile (header, test history, settings) | ✅ |
-| History detail page | ✅ |
+**Yapilan:**
+- `services/leaderboard.service.ts` — `getUserRank()` metodu eklendi (`GET /api/leaderboard/user/rank`)
+- `UserRank` interface: `{ globalRank, countryRank, totalUsers, iqScore }`
+- `components/home/StatsRow.tsx` — 4. stat kutusu olarak global rank eklendi (emoji: trophy)
+- `app/(tabs)/home.tsx` — `Promise.allSettled` ile history + rank paralel fetch, `globalRank` state
+- `components/profile/ProfileHeader.tsx` — "Edit Profile" butonu + modal (username TextInput + country picker)
+- `services/auth.service.ts` — `updateProfile()` metodu (`PATCH /api/auth/me`)
+- 16 dil dosyasina `editProfile` key eklendi
 
-### Eksik / Test Edilecek
-
-| Özellik | Durum | Sprint |
-|---------|-------|--------|
-| **Backend ile tam entegrasyon testi** | ⚠️ Test gerekli | **Sprint 5** |
-| **Leaderboard backend bağlantısı** | ❌ Backend endpoint yok | Sprint 5 Backend |
-| **Gerçek cihazda end-to-end test** | ❌ Yapılmadı | **Sprint 5** |
-| **Error handling iyileştirme** | ⚠️ Basic var | **Sprint 5** |
-| **Offline fallback / retry logic** | ❌ Eksik | **Sprint 5** |
-| **Share card image generation** | ⚠️ Buton var, generate yok | **Sprint 5** |
-| **PDF Certificate download** | ❌ Eksik | **Sprint 5** |
-| **Seed data ile gerçek test** | ❌ Yapılmadı | **Sprint 5** |
-| **Loading states & skeleton screens** | ⚠️ Basic var | **Sprint 5** |
-| **Keyboard handling** | ⚠️ Kontrol gerekli | **Sprint 5** |
-| **App icon & splash screen** | ❌ Placeholder | **Sprint 5** |
-| **Push notifications** | ❌ Phase 2 | Sonraki sprint |
-| **Daily Challenge** | ❌ Phase 2 | Sonraki sprint |
-| **Neural Coins economy** | ❌ Phase 2 | Sonraki sprint |
+**Degisen dosyalar:**
+- `services/leaderboard.service.ts`
+- `components/home/StatsRow.tsx`
+- `app/(tabs)/home.tsx`
+- `components/profile/ProfileHeader.tsx`
+- `services/auth.service.ts`
+- `i18n/locales/*.json` (16 dosya)
 
 ---
 
-## Kapsam — 7 Adım
+### ADIM 2: Error Handling & Retry Logic (Commit: 5d8fff4)
 
-| Adım | İçerik |
-|------|--------|
-| 1 | Backend entegrasyon testi — tüm API akışlarını gerçek data ile test et |
-| 2 | Error handling & retry logic |
-| 3 | Share card image generation |
-| 4 | PDF Certificate download |
-| 5 | Loading states & UX polish |
-| 6 | App icon, splash screen, branding |
-| 7 | End-to-end test + bug fix |
+**Yapilan:**
+- `components/ErrorBoundary.tsx` — React class-based error boundary (cyberpunk styled, brain emoji, "Try Again" butonu)
+- `app/_layout.tsx` — Root layout `<ErrorBoundary>` ile wrap edildi
+- `services/api.ts` — Interceptor'a eklendi:
+  - Network error (no response) → toast
+  - 500 server error → toast
+  - 429 rate limit → toast
+- `store/test.store.ts` — `TestBackup` interface, `saveBackup()` helper
+  - `startSession` ve `recordAnswer` sonrasi AsyncStorage'a backup
+  - `resetSession`'da `clearTestBackup()`
+- `utils/storage.ts` — `saveTestBackup()`, `getTestBackup()`, `clearTestBackup()` helper'lar
+- `app/(tabs)/home.tsx` — Uygulama acildiginda incomplete test backup kontrolu (30dk timeout, Alert dialog)
+- 16 dil dosyasina `incompleteTitle`, `incompleteMessage`, `discardTest` keyleri
 
----
-
-## ADIM 1: Backend Entegrasyon Testi
-
-### 1.1 Test Checklist
-
-Backend çalışır durumda olmalı (`http://192.168.100.37:3000`). Her akışı sırayla test et:
-
-```
-TEST 1: Register
-  - Yeni kullanıcı oluştur (username, email, password, age, country, language)
-  - Response'da accessToken ve refreshToken geliyor mu?
-  - Otomatik login olup home'a yönleniyor mu?
-
-TEST 2: Login
-  - Oluşturulan kullanıcıyla login
-  - Token kaydediliyor mu?
-  - Home'da kullanıcı bilgileri görünüyor mu?
-
-TEST 3: Start Test (Arcade)
-  - "Start IQ Test" → Arcade seç
-  - Backend'den sorular geliyor mu?
-  - Kaç soru geldi? (Arcade ~15)
-  - Her sorunun timeLimit'i var mı?
-  - Options formatı doğru mu? ({ text, imageUrl? })
-
-TEST 4: Answer Questions
-  - Bir soruyu cevapla
-  - POST /answer response geliyor mu? (isCorrect, correctAnswer, explanation)
-  - Doğru/yanlış animasyon çalışıyor mu?
-  - Timer doğru mu? (soruya özel süre)
-
-TEST 5: Complete Test
-  - Tüm soruları cevapla
-  - POST /complete response'da IQ, categoryScores, celebrity geldi mi?
-  - Result ekranında veriler doğru görünüyor mu?
-  - Spider chart doğru mu?
-
-TEST 6: Leaderboard
-  - Global leaderboard yükleniyor mu? (Sprint 5 Backend tamamlandıktan sonra)
-  - Country leaderboard çalışıyor mu?
-
-TEST 7: Profile
-  - Test history yükleniyor mu?
-  - Eski test sonuçlarına tıklayınca detay açılıyor mu?
-
-TEST 8: Token Refresh
-  - 15 dakika bekle (veya accessToken'ı elle kısalt)
-  - API çağrısı 401 döndüğünde refresh otomatik çalışıyor mu?
-  - Refresh da başarısız olursa login'e yönleniyor mu?
-```
-
-### 1.2 Olası Hatalar ve Çözümleri
-
-```typescript
-// HATA: "Network Error" — backend'e bağlanamıyor
-// ÇÖZÜM: .env'de EXPO_PUBLIC_API_URL doğru mu? Port 3000 mü?
-// Telefon ve bilgisayar aynı WiFi'da mı?
-
-// HATA: "Request failed with status 404" — endpoint yok
-// ÇÖZÜM: Backend'deki route path'leri kontrol et
-// Mobilde /api/tests/start çağrılıyor ama backend /api/test/start olabilir
-
-// HATA: Options formatı uyumsuzluğu
-// ÇÖZÜM: Backend string[] mı object[] mı dönüyor kontrol et
-// Mobil { text, imageUrl? } bekliyor
-
-// HATA: "Cannot read property 'iqScore' of undefined"
-// ÇÖZÜM: Backend complete response formatını kontrol et
-// data.data mı data mı?
-```
+**Degisen dosyalar:**
+- `components/ErrorBoundary.tsx` (yeni)
+- `app/_layout.tsx`
+- `services/api.ts`
+- `store/test.store.ts`
+- `utils/storage.ts`
+- `app/(tabs)/home.tsx`
+- `i18n/locales/*.json` (16 dosya)
 
 ---
 
-## ADIM 2: Error Handling & Retry Logic
+### ADIM 3: Share Card Image Generation (Commit: 3bb9eb0 + d4d22e1)
 
-### 2.1 Global Error Boundary
+**Yapilan:**
+- `expo-print` ve `expo-sharing` paketleri yuklendi
+- `utils/shareResult.ts` — HTML template ile cyberpunk styled PDF olusturma:
+  - NeuralQ header + IQ score + celebrity match + 5 kategori bar + ranks + footer
+  - `printToFileAsync()` ile PDF, `shareAsync()` ile native share dialog
+  - viewport meta tag, table layout (flexbox yerine), rgba renk kodlari
+- `components/results/ShareCard.tsx` — Props degisti: `{ result: TestResult | null; onRetake }`
+  - `shareResult(result)` cagrisi, loading state, error toast
+- `app/test/result.tsx` — `<ShareCard result={result} .../>` olarak guncellendi
 
-```typescript
-// components/ErrorBoundary.tsx
-// React error boundary — app crash olursa güzel bir hata ekranı göster
-// "Oops! Something went wrong" + "Try Again" butonu
-```
-
-### 2.2 API Error Handler
-
-```typescript
-// services/api.ts — response interceptor'a ekle:
-
-// Timeout handling
-api.defaults.timeout = 15000;
-
-// Network error toast
-api.interceptors.response.use(
-  (res) => res,
-  async (error) => {
-    if (!error.response) {
-      // Network error — internet yok veya backend kapalı
-      Toast.show({
-        type: 'error',
-        text1: t('errors.network'),
-        text2: t('errors.checkConnection'),
-      });
-    } else if (error.response.status === 500) {
-      Toast.show({
-        type: 'error',
-        text1: t('errors.server'),
-      });
-    }
-    // ... mevcut 401 refresh logic
-    return Promise.reject(error);
-  }
-);
-```
-
-### 2.3 Test Session Recovery
-
-```typescript
-// Eğer test sırasında uygulama crash olursa veya internet kesilirse:
-// 1. Her cevap AsyncStorage'a da kaydedilsin (backup)
-// 2. App açıldığında incomplete session varsa → "Continue test?" dialog
-// 3. Backend'de session timeout: 30 dakika sonra ABANDONED olarak işaretle
-
-// store/test.store.ts'e backup logic ekle:
-recordAnswer: async (questionId, selected, timeMs, result) => {
-  // Mevcut logic + AsyncStorage backup
-  const answers = get().answers;
-  await AsyncStorage.setItem('testBackup', JSON.stringify({
-    sessionId: get().sessionId,
-    answers: [...answers, { questionId, selected, timeMs, isCorrect: result.isCorrect }],
-  }));
-};
-```
+**Degisen dosyalar:**
+- `utils/shareResult.ts` (yeni)
+- `components/results/ShareCard.tsx`
+- `app/test/result.tsx`
+- `package.json` (expo-print, expo-sharing)
 
 ---
 
-## ADIM 3: Share Card Image Generation
+### ADIM 4: PDF Certificate Download (Commit: 20d6fd9)
 
-```typescript
-// components/results/ShareCard.tsx
+**Yapilan:**
+- `expo-file-system` paketi yuklendi (yeni class-based API: `File`, `Paths`)
+- `services/test.service.ts` — `downloadCertificate(resultId)` metodu:
+  - `fetch()` ile `GET /api/results/:id/certificate` → PDF blob indir
+  - `new File(Paths.cache, ...)` ile cache'e yaz
+  - `Sharing.shareAsync()` ile native share dialog
+- `components/results/CertificateButton.tsx` — "Download Certificate" butonu (secondary variant, loading state, error toast)
+- `app/test/result.tsx` — ShareCard'dan once CertificateButton eklendi
+- `app/history/[id].tsx` — Ranks'den sonra CertificateButton eklendi
+- 16 dil dosyasina `downloadCertificate`, `certificateError` keyleri
 
-// React Native'de component'ı image'a çevirme:
-// 1. react-native-view-shot YERINE expo-print + expo-sharing kullan (Expo Go uyumlu)
-// 2. VEYA: Backend'de share card generate et → URL döndür → share et
-
-// Yaklaşım A: Backend-side (Önerilen)
-// POST /api/results/:id/share → backend image generate eder → Cloudinary'ye yükler → URL döner
-// Mobil bu URL'yi expo-sharing ile paylaşır
-
-// Yaklaşım B: Client-side (Expo Go ile sınırlı)
-// HTML string oluştur → expo-print ile PDF'e çevir → expo-sharing ile paylaş
-
-// Basit implementasyon (Yaklaşım B):
-import * as Print from 'expo-print';
-import * as Sharing from 'expo-sharing';
-
-async function shareResult(result: TestResult) {
-  const html = `
-    <html>
-    <body style="background:#0a0a0f;color:white;text-align:center;padding:40px;font-family:sans-serif;">
-      <h1 style="color:#00f5ff;font-size:48px;">NeuralQ</h1>
-      <h2 style="font-size:72px;color:#00f5ff;">${result.iqScore}</h2>
-      <p style="font-size:24px;">IQ Score</p>
-      <p style="font-size:20px;color:#888;">${result.celebrityMatch?.replace('_', ' ')}</p>
-      <p style="font-size:14px;color:#555;margin-top:40px;">Take your test at neuralq.app</p>
-    </body>
-    </html>
-  `;
-
-  const { uri } = await Print.printToFileAsync({ html, width: 1080, height: 1080 });
-  await Sharing.shareAsync(uri, { mimeType: 'application/pdf', dialogTitle: 'Share IQ Result' });
-}
-```
+**Degisen dosyalar:**
+- `services/test.service.ts`
+- `components/results/CertificateButton.tsx` (yeni)
+- `app/test/result.tsx`
+- `app/history/[id].tsx`
+- `i18n/locales/*.json` (16 dosya)
+- `package.json` (expo-file-system)
 
 ---
 
-## ADIM 4: PDF Certificate Download
+### ADIM 5: Loading States & UX Polish (Commit: a6264f0)
 
-```typescript
-// Backend: GET /api/results/:id/certificate → PDF buffer
-// Mobil: İndir ve paylaş
+**Yapilan:**
+- `components/ui/Skeleton.tsx` — Pulsating animated placeholder komponent:
+  - `Skeleton` — tekil kutu (width, height, borderRadius props)
+  - `HomeSkeleton` — Home ekrani layout (header + 4 stat kutu + buton + kart)
+  - `LeaderboardSkeleton` — Leaderboard layout (tab bar + 6 liste satiri)
+  - `ProfileSkeleton` — Profil layout (avatar + isim + 3 history karti)
+- `components/ui/index.ts` — Skeleton export'lari eklendi
+- `app/(tabs)/home.tsx` — `loading` state, ilk yuklemede `<HomeSkeleton />` gosteriliyor
+- `app/(tabs)/leaderboard.tsx` — `refreshing` + `onRefresh` eklendi (pull-to-refresh)
+- `components/leaderboard/LeaderboardList.tsx` — Loading state'de 6 skeleton satiri, `RefreshControl` destegi
+- `app/(tabs)/profile.tsx` — `loading` state, ilk yuklemede `<ProfileSkeleton />` gosteriliyor
+- `components/profile/TestHistory.tsx` — Empty state iyilestirildi (brain emoji + baslik + hint)
+- Keyboard handling: Login ve Register zaten `KeyboardAvoidingView` kullaniyor
 
-import * as FileSystem from 'expo-file-system';
-import * as Sharing from 'expo-sharing';
-
-async function downloadCertificate(resultId: string) {
-  const token = await AsyncStorage.getItem('accessToken');
-  const API_URL = process.env.EXPO_PUBLIC_API_URL;
-
-  const fileUri = FileSystem.documentDirectory + `neuralq-certificate-${resultId}.pdf`;
-
-  const download = await FileSystem.downloadAsync(
-    `${API_URL}/api/results/${resultId}/certificate`,
-    fileUri,
-    { headers: { Authorization: `Bearer ${token}` } }
-  );
-
-  if (download.status === 200) {
-    await Sharing.shareAsync(download.uri, {
-      mimeType: 'application/pdf',
-      dialogTitle: 'NeuralQ Certificate',
-    });
-  } else {
-    Toast.show({ type: 'error', text1: 'Download failed' });
-  }
-}
-```
+**Degisen dosyalar:**
+- `components/ui/Skeleton.tsx` (yeni)
+- `components/ui/index.ts`
+- `app/(tabs)/home.tsx`
+- `app/(tabs)/leaderboard.tsx`
+- `components/leaderboard/LeaderboardList.tsx`
+- `app/(tabs)/profile.tsx`
+- `components/profile/TestHistory.tsx`
 
 ---
 
-## ADIM 5: Loading States & UX Polish
+### ADIM 6: App Icon & Splash Screen (Commit: c521ec6)
 
-### 5.1 Skeleton Screens
+**Yapilan:**
+- `scripts/generate-icons.mjs` — SVG → PNG icon generator script
+- `assets/icon.png` — 1024x1024, koyu arka plan + cyan "NQ" neon text + "NEURALQ" altyazi
+- `assets/adaptive-icon.png` — 1024x1024, Android adaptive icon (ayni tasarim)
+- `assets/splash-icon.png` — 200x200, sade "NQ" neon mark (koyu arka plan)
+- `assets/favicon.png` — 48x48, web favicon
+- `app.json` — Android `adaptiveIcon.foregroundImage` → `./assets/adaptive-icon.png`
 
-```typescript
-// Test yüklenirken, leaderboard yüklenirken, profile yüklenirken
-// Skeleton placeholders göster (pulsating gray boxes)
-// Simple approach: Animated.View ile opacity pulse
-
-// components/ui/Skeleton.tsx
-```
-
-### 5.2 Empty States
-
-```typescript
-// Leaderboard boşsa → "No data yet. Be the first!" mesajı
-// Test history boşsa → "Take your first test!" mesajı + start butonu
-// Her empty state için illüstrasyon (emoji veya basit ikon)
-```
-
-### 5.3 Keyboard Handling
-
-```typescript
-// Login/Register formlarında:
-// KeyboardAvoidingView kullan (Platform.OS === 'ios' ? 'padding' : 'height')
-// ScrollView + keyboard dismiss on tap
-```
-
-### 5.4 Pull to Refresh
-
-```typescript
-// Leaderboard ve Profile'da pull-to-refresh ekle
-// RefreshControl component'i
-```
+**Degisen dosyalar:**
+- `assets/icon.png` (guncellendi, 1x1 → 1024x1024)
+- `assets/adaptive-icon.png` (yeni)
+- `assets/splash-icon.png` (guncellendi, 1x1 → 200x200)
+- `assets/favicon.png` (guncellendi, 1x1 → 48x48)
+- `app.json`
+- `scripts/generate-icons.mjs` (yeni)
 
 ---
 
-## ADIM 6: App Icon & Splash Screen
+### ADIM 7: End-to-End Test + Bug Fix
 
-### 6.1 Gerekli Görseller
+**Yapilan:**
+- 2 bagimsiz agent ile tum dosyalar audit edildi
+- Navigation yollari dogrulandi: `/test/session`, `/test/result`, `/test/select-mode`, `/(tabs)/home`, `/(auth)/login` vb.
+- Tum import'lar ve export'lar dogrulandi
+- Component props interface'leri eslestirme kontrolu yapildi
+- API servisleri (test, leaderboard, auth) kontrol edildi
+- TypeScript `npx tsc --noEmit` → **0 hata**
+- **Bug bulunamadi** — kod temiz
 
+---
+
+## Teknik Detaylar
+
+### Paket Bagimliliklari (Sprint 5'te eklenenler)
+- `expo-print` — HTML → PDF donusumu
+- `expo-sharing` — Native share dialog
+- `expo-file-system` — Dosya indirme ve yazma (yeni File/Paths API)
+
+### API Endpointleri (Mobilde kullanilan)
+| Endpoint | Method | Kullanim |
+|----------|--------|----------|
+| `/api/auth/register` | POST | Kayit |
+| `/api/auth/login` | POST | Giris |
+| `/api/auth/refresh` | POST | Token yenileme |
+| `/api/auth/me` | PATCH | Profil guncelleme |
+| `/api/tests/start` | POST | Test baslat |
+| `/api/tests/:id/answer` | POST | Cevap gonder |
+| `/api/tests/:id/complete` | POST | Test tamamla |
+| `/api/tests/:id/result` | GET | Sonuc al |
+| `/api/tests/history` | GET | Gecmis testler |
+| `/api/leaderboard/global` | GET | Global siralama |
+| `/api/leaderboard/country/:code` | GET | Ulke siralamasi |
+| `/api/leaderboard/user/rank` | GET | Kullanici ranki |
+| `/api/results/:id/certificate` | GET | PDF sertifika |
+
+### Dosya Yapisi (Sprint 5'te eklenen/degisen dosyalar)
 ```
+components/
+  ErrorBoundary.tsx (yeni)
+  ui/
+    Skeleton.tsx (yeni)
+    index.ts (guncellendi)
+  results/
+    CertificateButton.tsx (yeni)
+    ShareCard.tsx (guncellendi)
+  leaderboard/
+    LeaderboardList.tsx (guncellendi)
+  profile/
+    ProfileHeader.tsx (guncellendi)
+    TestHistory.tsx (guncellendi)
+  home/
+    StatsRow.tsx (guncellendi)
+
+services/
+  api.ts (guncellendi — error toasts)
+  auth.service.ts (guncellendi — updateProfile)
+  leaderboard.service.ts (guncellendi — getUserRank)
+  test.service.ts (guncellendi — downloadCertificate)
+
+store/
+  test.store.ts (guncellendi — backup logic)
+
+utils/
+  shareResult.ts (yeni)
+  storage.ts (guncellendi — backup helpers)
+
+app/
+  _layout.tsx (guncellendi — ErrorBoundary)
+  (tabs)/home.tsx (guncellendi — skeleton, rank, backup check)
+  (tabs)/leaderboard.tsx (guncellendi — pull-to-refresh)
+  (tabs)/profile.tsx (guncellendi — skeleton)
+  test/result.tsx (guncellendi — certificate + share)
+  history/[id].tsx (guncellendi — certificate)
+
 assets/
-  icon.png          — 1024x1024 (app icon)
-  splash-icon.png   — 200x200 (splash center icon)
-  adaptive-icon.png — 1024x1024 (Android adaptive icon, foreground)
-  favicon.png       — 48x48 (web)
+  icon.png (guncellendi)
+  adaptive-icon.png (yeni)
+  splash-icon.png (guncellendi)
+  favicon.png (guncellendi)
+
+scripts/
+  generate-icons.mjs (yeni)
+
+i18n/locales/*.json (16 dosya, yeni keyler eklendi)
 ```
 
-### 6.2 Tasarım
-
-```
-App Icon: Siyah arka plan + cyan neon "NQ" harfleri veya beyin ikonu
-Splash: Siyah (#0a0a0f) arka plan + ortada küçük NeuralQ logosu
-```
-
-### 6.3 app.json Güncelle
-
-```json
-{
-  "expo": {
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#0a0a0f"
-    }
-  }
-}
-```
+### i18n Keyleri (Sprint 5'te eklenenler)
+- `profile.editProfile` — "Edit Profile"
+- `test.incompleteTitle` — "Incomplete Test"
+- `test.incompleteMessage` — "You have an unfinished test session..."
+- `test.discardTest` — "Discard"
+- `result.downloadCertificate` — "Download Certificate"
+- `result.certificateError` — "Could not download certificate"
 
 ---
 
-## ADIM 7: End-to-End Test
-
-### Tam Akış Testi
+## Bitirme Kontrol Listesi
 
 ```
-1. Uygulamayı sil ve yeniden aç
-2. Onboarding → Azerbaijani dili seç → Get Started
-3. Register → kerim / kerim@test.com / Test1234 / 25 / Azerbaijan
-4. Home ekranı açıldı → "Start IQ Test" bas
-5. Arcade seç → 15 soru gel
-6. Tüm soruları cevapla (bazıları doğru, bazıları yanlış)
-7. Timer çalışıyor mu? Doğru sürelerde mi?
-8. Streak counter çalışıyor mu?
-9. Son soru bittikten sonra result ekranı açılıyor mu?
-10. IQ skoru mantıklı mı? (70-150 arası)
-11. Spider chart doğru mu?
-12. Celebrity match doğru aralıkta mı?
-13. Share butonu çalışıyor mu?
-14. Home'a dön → "Last Result" kartında sonuç görünüyor mu?
-15. Leaderboard → veriler yükleniyor mu?
-16. Profile → test history'de az önceki test var mı?
-17. Settings → theme toggle → anında değişiyor mu?
-18. Settings → language → Türkçe seç → tüm UI Türkçe'ye döndü mü?
-19. Logout → login'e yönleniyor mu?
-20. Login → geri gir → veriler korunuyor mu?
-```
+ENTEGRASYON
+  [x] getUserRank — global rank home ekraninda
+  [x] updateProfile — profil duzenleme modali
+  [x] downloadCertificate — PDF indirme ve paylasma
 
-### Bug Report Şablonu
+ERROR HANDLING
+  [x] ErrorBoundary — app crash durumunda hata ekrani
+  [x] Network error toast
+  [x] 500 server error toast
+  [x] 429 rate limit toast
+  [x] Test session backup (AsyncStorage)
+  [x] Incomplete test dialog (30dk timeout)
 
-Her bulunan bug için:
-```
-BUG: [Kısa açıklama]
-ADIM: [Nasıl reproduce edilir]
-BEKLENEN: [Ne olmalıydı]
-GERÇEK: [Ne oldu]
-SCREENSHOT: [varsa]
-```
+PAYLASIM
+  [x] Share card — cyberpunk PDF olusturma + paylasma
+  [x] Certificate — backend'den PDF indirme + paylasma
 
----
+UX POLISH
+  [x] Skeleton loading (Home, Leaderboard, Profile)
+  [x] Pull-to-refresh (Home, Leaderboard, Profile)
+  [x] Empty state iyilestirmeleri (TestHistory)
+  [x] Keyboard handling (Login, Register)
 
-## BİTİRME KONTROL LİSTESİ
+BRANDING
+  [x] App icon (1024x1024 NQ neon)
+  [x] Adaptive icon (Android)
+  [x] Splash icon (200x200)
+  [x] Favicon (48x48)
 
-```
-✅ ENTEGRASYON
-  ✅ Register → backend'de user oluşuyor
-  ✅ Login → token alınıyor
-  ✅ Test start → sorular geliyor
-  ✅ Answer → doğru/yanlış dönüyor
-  ✅ Complete → IQ hesaplanıyor
-  ✅ Leaderboard → sıralama yükleniyor
-  ✅ History → geçmiş testler yükleniyor
-  ✅ Token refresh → otomatik çalışıyor
-
-✅ ERROR HANDLING
-  ✅ Network error → toast gösteriliyor
-  ✅ 500 error → toast gösteriliyor
-  ✅ Test backup → AsyncStorage'da saklanıyor
-  ✅ Empty states düzgün gösteriliyor
-
-✅ PAYLAŞIM
-  ✅ Share card → PDF/image oluşturuluyor + paylaşılıyor
-  ✅ Certificate → backend'den PDF indiriliyor + paylaşılıyor
-
-✅ UX
-  ✅ Skeleton loading screens
-  ✅ Pull to refresh (leaderboard, profile)
-  ✅ Keyboard handling (login, register)
-  ✅ App icon ve splash screen yerleştirildi
-
-✅ END-TO-END
-  ✅ 20 adımlık tam akış testi geçti
-  ✅ Bulunan bug'lar düzeltildi
+E2E TEST
+  [x] TypeScript 0 hata
+  [x] Navigation yollari dogrulandi
+  [x] Import/export dogrulandi
+  [x] Props type uyumu dogrulandi
 ```

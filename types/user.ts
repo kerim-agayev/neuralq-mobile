@@ -1,3 +1,5 @@
+import { Badge } from './badge';
+
 export interface User {
   id: string;
   email: string;
@@ -14,6 +16,7 @@ export interface User {
   brainPoints: number;
   currentStreak: number;
   longestStreak: number;
+  badges: Badge[];
   themePreference: string;
 }
 
