@@ -110,9 +110,36 @@
     "language": "언어",
     "noHistory": "테스트 기록이 없습니다",
     "loadError": "데이터를 불러올 수 없습니다",
-    "editProfile": "프로필 편집"
+    "editProfile": "프로필 편집",
+    "brainPoints": "브레인 포인트",
+    "neuralCoins": "Neural Coins",
+    "dailyStats": "일일 통계",
+    "accuracy": "정확도",
+    "longestStreak": "최장 연속"
   },
   "history": {
     "notFound": "결과를 찾을 수 없습니다"
+  },
+  "badges": {
+    "title": "배지",
+    "unlocked": "배지 획득!",
+    "locked": "잠김",
+    "earned": "{{date}} 획득"
+  },
+  "daily": {
+    "title": "매일 두뇌 챌린지",
+    "todayChallenge": "오늘의 챌린지",
+    "alreadyDone": "오늘 이미 답변했습니다!",
+    "comeBackTomorrow": "내일 다시 오세요",
+    "peopleAttempted": "{{count}}명이 오늘 도전했습니다",
+    "gotItRight": "{{percent}}%가 정답을 맞혔습니다",
+    "correct": "정답!",
+    "incorrect": "오답",
+    "pointsEarned": "+{{points}} 브레인 포인트",
+    "coinsEarned": "+{{coins}} Neural Coins",
+    "streakDays": "{{count}}일 연속",
+    "solveNow": "지금 풀기",
+    "dailyComplete": "일일 완료!",
+    "noChallenge": "오늘은 챌린지가 없습니다"
   }
 }

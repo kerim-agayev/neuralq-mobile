@@ -110,9 +110,36 @@
     "language": "Bahasa",
     "noHistory": "Belum ada riwayat tes",
     "loadError": "Gagal memuat data",
-    "editProfile": "Edit Profil"
+    "editProfile": "Edit Profil",
+    "brainPoints": "Poin Otak",
+    "neuralCoins": "Neural Coins",
+    "dailyStats": "Statistik Harian",
+    "accuracy": "Akurasi",
+    "longestStreak": "Streak Terpanjang"
   },
   "history": {
     "notFound": "Hasil tidak ditemukan"
+  },
+  "badges": {
+    "title": "Lencana",
+    "unlocked": "Lencana Terbuka!",
+    "locked": "Terkunci",
+    "earned": "Diperoleh {{date}}"
+  },
+  "daily": {
+    "title": "Tantangan Otak Harian",
+    "todayChallenge": "Tantangan Hari Ini",
+    "alreadyDone": "Anda sudah menjawab hari ini!",
+    "comeBackTomorrow": "Kembali besok untuk lebih banyak",
+    "peopleAttempted": "{{count}} orang mencoba hari ini",
+    "gotItRight": "{{percent}}% menjawab dengan benar",
+    "correct": "Benar!",
+    "incorrect": "Salah",
+    "pointsEarned": "+{{points}} Poin Otak",
+    "coinsEarned": "+{{coins}} Neural Coins",
+    "streakDays": "Streak {{count}} hari",
+    "solveNow": "Selesaikan Sekarang",
+    "dailyComplete": "Harian Selesai!",
+    "noChallenge": "Tidak ada tantangan hari ini"
   }
 }

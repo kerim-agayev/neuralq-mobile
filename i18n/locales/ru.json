@@ -110,9 +110,36 @@
     "language": "Язык",
     "noHistory": "История тестов пуста",
     "loadError": "Не удалось загрузить данные",
-    "editProfile": "Редактировать профиль"
+    "editProfile": "Редактировать профиль",
+    "brainPoints": "Очки мозга",
+    "neuralCoins": "Neural Coins",
+    "dailyStats": "Статистика заданий",
+    "accuracy": "Точность",
+    "longestStreak": "Лучшая серия"
   },
   "history": {
     "notFound": "Результат не найден"
+  },
+  "badges": {
+    "title": "Значки",
+    "unlocked": "Значок получен!",
+    "locked": "Заблокировано",
+    "earned": "Получен {{date}}"
+  },
+  "daily": {
+    "title": "Ежедневная Разминка",
+    "todayChallenge": "Задание дня",
+    "alreadyDone": "Вы уже ответили сегодня!",
+    "comeBackTomorrow": "Приходите завтра за новым заданием",
+    "peopleAttempted": "{{count}} человек попробовали сегодня",
+    "gotItRight": "{{percent}}% ответили правильно",
+    "correct": "Правильно!",
+    "incorrect": "Неправильно",
+    "pointsEarned": "+{{points}} очков мозга",
+    "coinsEarned": "+{{coins}} Neural Coins",
+    "streakDays": "{{count}} дней подряд",
+    "solveNow": "Решить",
+    "dailyComplete": "Задание выполнено!",
+    "noChallenge": "Сегодня нет задания"
   }
 }

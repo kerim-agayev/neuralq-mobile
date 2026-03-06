@@ -110,9 +110,36 @@
     "language": "भाषा",
     "noHistory": "अभी तक कोई टेस्ट इतिहास नहीं",
     "loadError": "प्रोफ़ाइल डेटा लोड नहीं हो सका",
-    "editProfile": "प्रोफ़ाइल संपादित करें"
+    "editProfile": "प्रोफ़ाइल संपादित करें",
+    "brainPoints": "ब्रेन पॉइंट्स",
+    "neuralCoins": "Neural Coins",
+    "dailyStats": "दैनिक आँकड़े",
+    "accuracy": "सटीकता",
+    "longestStreak": "सबसे लंबी स्ट्रीक"
   },
   "history": {
     "notFound": "परिणाम नहीं मिला"
+  },
+  "badges": {
+    "title": "बैज",
+    "unlocked": "बैज अनलॉक!",
+    "locked": "लॉक",
+    "earned": "{{date}} को अर्जित"
+  },
+  "daily": {
+    "title": "दैनिक मस्तिष्क चुनौती",
+    "todayChallenge": "आज की चुनौती",
+    "alreadyDone": "आपने आज पहले ही जवाब दे दिया!",
+    "comeBackTomorrow": "और के लिए कल आएं",
+    "peopleAttempted": "{{count}} लोगों ने आज प्रयास किया",
+    "gotItRight": "{{percent}}% ने सही जवाब दिया",
+    "correct": "सही!",
+    "incorrect": "गलत",
+    "pointsEarned": "+{{points}} ब्रेन पॉइंट्स",
+    "coinsEarned": "+{{coins}} Neural Coins",
+    "streakDays": "{{count}} दिन की स्ट्रीक",
+    "solveNow": "अभी हल करें",
+    "dailyComplete": "दैनिक पूर्ण!",
+    "noChallenge": "आज कोई चुनौती उपलब्ध नहीं"
   }
 }

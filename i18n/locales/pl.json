@@ -110,9 +110,36 @@
     "language": "Język",
     "noHistory": "Brak historii testów",
     "loadError": "Nie udało się załadować danych",
-    "editProfile": "Edytuj profil"
+    "editProfile": "Edytuj profil",
+    "brainPoints": "Punkty Mózgu",
+    "neuralCoins": "Neural Coins",
+    "dailyStats": "Statystyki Dzienne",
+    "accuracy": "Dokładność",
+    "longestStreak": "Najdłuższa Seria"
   },
   "history": {
     "notFound": "Wynik nie znaleziony"
+  },
+  "badges": {
+    "title": "Odznaki",
+    "unlocked": "Odznaka Odblokowana!",
+    "locked": "Zablokowana",
+    "earned": "Zdobyta {{date}}"
+  },
+  "daily": {
+    "title": "Codzienny Trening Mózgu",
+    "todayChallenge": "Dzisiejsze Wyzwanie",
+    "alreadyDone": "Już odpowiedziałeś dzisiaj!",
+    "comeBackTomorrow": "Wróć jutro po więcej",
+    "peopleAttempted": "{{count}} osób spróbowało dzisiaj",
+    "gotItRight": "{{percent}}% odpowiedziało poprawnie",
+    "correct": "Dobrze!",
+    "incorrect": "Źle",
+    "pointsEarned": "+{{points}} Punktów Mózgu",
+    "coinsEarned": "+{{coins}} Neural Coins",
+    "streakDays": "{{count}} dni serii",
+    "solveNow": "Rozwiąż Teraz",
+    "dailyComplete": "Dzienne Ukończone!",
+    "noChallenge": "Brak wyzwania na dziś"
   }
 }

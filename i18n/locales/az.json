@@ -110,9 +110,36 @@
     "language": "Dil",
     "noHistory": "Hələ test tarixçəsi yoxdur",
     "loadError": "Profil məlumatı yüklənmədi",
-    "editProfile": "Profili Redaktə Et"
+    "editProfile": "Profili Redaktə Et",
+    "brainPoints": "Beyin Xalları",
+    "neuralCoins": "Neural Coin",
+    "dailyStats": "Gündəlik Statistika",
+    "accuracy": "Dəqiqlik",
+    "longestStreak": "Ən Uzun Seriya"
   },
   "history": {
     "notFound": "Nəticə tapılmadı"
+  },
+  "badges": {
+    "title": "Nişanlar",
+    "unlocked": "Nişan Qazanıldı!",
+    "locked": "Kilidli",
+    "earned": "{{date}} tarixində qazanıldı"
+  },
+  "daily": {
+    "title": "Gündəlik Beyin Testi",
+    "todayChallenge": "Bugünkü Çağırış",
+    "alreadyDone": "Bu gün artıq cavabladınız!",
+    "comeBackTomorrow": "Daha çoxu üçün sabah gəlin",
+    "peopleAttempted": "{{count}} nəfər bu gün cəhd etdi",
+    "gotItRight": "%{{percent}} düzgün cavabladı",
+    "correct": "Düzgün!",
+    "incorrect": "Yanlış",
+    "pointsEarned": "+{{points}} Beyin Xalı",
+    "coinsEarned": "+{{coins}} Neural Coin",
+    "streakDays": "{{count}} günlük seriya",
+    "solveNow": "İndi Həll Et",
+    "dailyComplete": "Gündəlik Tamamlandı!",
+    "noChallenge": "Bu gün çağırış yoxdur"
   }
 }

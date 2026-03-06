@@ -110,9 +110,36 @@
     "language": "Dil",
     "noHistory": "Henüz test geçmişi yok",
     "loadError": "Profil verisi yüklenemedi",
-    "editProfile": "Profili Düzenle"
+    "editProfile": "Profili Düzenle",
+    "brainPoints": "Beyin Puanı",
+    "neuralCoins": "Neural Coin",
+    "dailyStats": "Günlük İstatistikler",
+    "accuracy": "Doğruluk",
+    "longestStreak": "En Uzun Seri"
   },
   "history": {
     "notFound": "Sonuç bulunamadı"
+  },
+  "badges": {
+    "title": "Rozetler",
+    "unlocked": "Rozet Kazanıldı!",
+    "locked": "Kilitli",
+    "earned": "{{date}} tarihinde kazanıldı"
+  },
+  "daily": {
+    "title": "Günlük Beyin Testi",
+    "todayChallenge": "Bugünün Meydan Okuması",
+    "alreadyDone": "Bugün zaten cevapladınız!",
+    "comeBackTomorrow": "Daha fazlası için yarın gelin",
+    "peopleAttempted": "{{count}} kişi bugün denedi",
+    "gotItRight": "%{{percent}} doğru cevapladı",
+    "correct": "Doğru!",
+    "incorrect": "Yanlış",
+    "pointsEarned": "+{{points}} Beyin Puanı",
+    "coinsEarned": "+{{coins}} Neural Coin",
+    "streakDays": "{{count}} günlük seri",
+    "solveNow": "Şimdi Çöz",
+    "dailyComplete": "Günlük Tamamlandı!",
+    "noChallenge": "Bugün meydan okuma yok"
   }
 }

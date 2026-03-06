@@ -110,9 +110,36 @@
     "language": "Sprache",
     "noHistory": "Noch kein Testverlauf",
     "loadError": "Daten konnten nicht geladen werden",
-    "editProfile": "Profil bearbeiten"
+    "editProfile": "Profil bearbeiten",
+    "brainPoints": "Gehirnpunkte",
+    "neuralCoins": "Neural Coins",
+    "dailyStats": "Tägliche Statistik",
+    "accuracy": "Genauigkeit",
+    "longestStreak": "Längste Serie"
   },
   "history": {
     "notFound": "Ergebnis nicht gefunden"
+  },
+  "badges": {
+    "title": "Abzeichen",
+    "unlocked": "Abzeichen freigeschaltet!",
+    "locked": "Gesperrt",
+    "earned": "Erhalten am {{date}}"
+  },
+  "daily": {
+    "title": "Tägliche Gehirnaufgabe",
+    "todayChallenge": "Heutige Aufgabe",
+    "alreadyDone": "Du hast heute schon geantwortet!",
+    "comeBackTomorrow": "Komm morgen für mehr zurück",
+    "peopleAttempted": "{{count}} Personen haben heute versucht",
+    "gotItRight": "{{percent}}% haben richtig geantwortet",
+    "correct": "Richtig!",
+    "incorrect": "Falsch",
+    "pointsEarned": "+{{points}} Gehirnpunkte",
+    "coinsEarned": "+{{coins}} Neural Coins",
+    "streakDays": "{{count}} Tage Serie",
+    "solveNow": "Jetzt Lösen",
+    "dailyComplete": "Tagesaufgabe Erledigt!",
+    "noChallenge": "Heute keine Aufgabe verfügbar"
   }
 }

@@ -110,9 +110,36 @@
     "language": "Langue",
     "noHistory": "Pas d'historique de tests",
     "loadError": "Impossible de charger les données",
-    "editProfile": "Modifier le profil"
+    "editProfile": "Modifier le profil",
+    "brainPoints": "Points Cérébraux",
+    "neuralCoins": "Neural Coins",
+    "dailyStats": "Statistiques Quotidiennes",
+    "accuracy": "Précision",
+    "longestStreak": "Meilleure Série"
   },
   "history": {
     "notFound": "Résultat introuvable"
+  },
+  "badges": {
+    "title": "Badges",
+    "unlocked": "Badge Débloqué !",
+    "locked": "Verrouillé",
+    "earned": "Obtenu le {{date}}"
+  },
+  "daily": {
+    "title": "Défi Cérébral Quotidien",
+    "todayChallenge": "Défi du Jour",
+    "alreadyDone": "Vous avez déjà répondu aujourd'hui !",
+    "comeBackTomorrow": "Revenez demain pour plus",
+    "peopleAttempted": "{{count}} personnes ont essayé aujourd'hui",
+    "gotItRight": "{{percent}}% ont trouvé la bonne réponse",
+    "correct": "Correct !",
+    "incorrect": "Incorrect",
+    "pointsEarned": "+{{points}} Points Cérébraux",
+    "coinsEarned": "+{{coins}} Neural Coins",
+    "streakDays": "{{count}} jours de série",
+    "solveNow": "Résoudre",
+    "dailyComplete": "Défi Quotidien Terminé !",
+    "noChallenge": "Pas de défi disponible aujourd'hui"
   }
 }

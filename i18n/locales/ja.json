@@ -110,9 +110,36 @@
     "language": "言語",
     "noHistory": "テスト履歴がありません",
     "loadError": "データを読み込めませんでした",
-    "editProfile": "プロフィールを編集"
+    "editProfile": "プロフィールを編集",
+    "brainPoints": "ブレインポイント",
+    "neuralCoins": "Neural Coins",
+    "dailyStats": "デイリー統計",
+    "accuracy": "正答率",
+    "longestStreak": "最長連続"
   },
   "history": {
     "notFound": "結果が見つかりません"
+  },
+  "badges": {
+    "title": "バッジ",
+    "unlocked": "バッジ獲得！",
+    "locked": "ロック中",
+    "earned": "{{date}} に獲得"
+  },
+  "daily": {
+    "title": "毎日の脳トレ",
+    "todayChallenge": "今日のチャレンジ",
+    "alreadyDone": "今日はすでに回答済みです！",
+    "comeBackTomorrow": "明日また来てください",
+    "peopleAttempted": "{{count}}人が今日挑戦しました",
+    "gotItRight": "{{percent}}%が正解しました",
+    "correct": "正解！",
+    "incorrect": "不正解",
+    "pointsEarned": "+{{points}} ブレインポイント",
+    "coinsEarned": "+{{coins}} Neural Coins",
+    "streakDays": "{{count}}日連続",
+    "solveNow": "今すぐ挑戦",
+    "dailyComplete": "デイリー完了！",
+    "noChallenge": "今日のチャレンジはありません"
   }
 }

@@ -110,9 +110,36 @@
     "language": "Idioma",
     "noHistory": "Sin historial de tests",
     "loadError": "No se pudieron cargar los datos",
-    "editProfile": "Editar perfil"
+    "editProfile": "Editar perfil",
+    "brainPoints": "Puntos Cerebrales",
+    "neuralCoins": "Neural Coins",
+    "dailyStats": "Estadísticas Diarias",
+    "accuracy": "Precisión",
+    "longestStreak": "Mejor Racha"
   },
   "history": {
     "notFound": "Resultado no encontrado"
+  },
+  "badges": {
+    "title": "Insignias",
+    "unlocked": "¡Insignia desbloqueada!",
+    "locked": "Bloqueada",
+    "earned": "Obtenida el {{date}}"
+  },
+  "daily": {
+    "title": "Reto Cerebral Diario",
+    "todayChallenge": "Reto de Hoy",
+    "alreadyDone": "¡Ya respondiste hoy!",
+    "comeBackTomorrow": "Vuelve mañana para más",
+    "peopleAttempted": "{{count}} personas lo intentaron hoy",
+    "gotItRight": "{{percent}}% acertaron",
+    "correct": "¡Correcto!",
+    "incorrect": "Incorrecto",
+    "pointsEarned": "+{{points}} Puntos Cerebrales",
+    "coinsEarned": "+{{coins}} Neural Coins",
+    "streakDays": "{{count}} días de racha",
+    "solveNow": "Resolver Ahora",
+    "dailyComplete": "¡Diario Completado!",
+    "noChallenge": "No hay reto disponible hoy"
   }
 }

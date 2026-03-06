@@ -110,9 +110,36 @@
     "language": "语言",
     "noHistory": "还没有测试历史",
     "loadError": "无法加载个人资料",
-    "editProfile": "编辑个人资料"
+    "editProfile": "编辑个人资料",
+    "brainPoints": "脑力积分",
+    "neuralCoins": "Neural币",
+    "dailyStats": "每日统计",
+    "accuracy": "正确率",
+    "longestStreak": "最长连续"
   },
   "history": {
     "notFound": "未找到结果"
+  },
+  "badges": {
+    "title": "徽章",
+    "unlocked": "获得徽章！",
+    "locked": "未解锁",
+    "earned": "{{date}} 获得"
+  },
+  "daily": {
+    "title": "每日脑力挑战",
+    "todayChallenge": "今日挑战",
+    "alreadyDone": "今天已经回答过了！",
+    "comeBackTomorrow": "明天再来挑战更多",
+    "peopleAttempted": "{{count}} 人今天已挑战",
+    "gotItRight": "{{percent}}% 答对了",
+    "correct": "正确！",
+    "incorrect": "错误",
+    "pointsEarned": "+{{points}} 脑力积分",
+    "coinsEarned": "+{{coins}} Neural币",
+    "streakDays": "连续 {{count}} 天",
+    "solveNow": "立即挑战",
+    "dailyComplete": "今日完成！",
+    "noChallenge": "今天没有挑战"
   }
 }

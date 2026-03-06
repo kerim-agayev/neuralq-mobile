@@ -110,9 +110,36 @@
     "language": "اللغة",
     "noHistory": "لا يوجد سجل اختبارات",
     "loadError": "تعذر تحميل البيانات",
-    "editProfile": "تعديل الملف الشخصي"
+    "editProfile": "تعديل الملف الشخصي",
+    "brainPoints": "نقاط الدماغ",
+    "neuralCoins": "عملات Neural",
+    "dailyStats": "إحصائيات يومية",
+    "accuracy": "الدقة",
+    "longestStreak": "أطول سلسلة"
   },
   "history": {
     "notFound": "النتيجة غير موجودة"
+  },
+  "badges": {
+    "title": "الشارات",
+    "unlocked": "تم فتح شارة!",
+    "locked": "مقفلة",
+    "earned": "حصلت عليها في {{date}}"
+  },
+  "daily": {
+    "title": "تحدي الدماغ اليومي",
+    "todayChallenge": "تحدي اليوم",
+    "alreadyDone": "لقد أجبت اليوم بالفعل!",
+    "comeBackTomorrow": "عد غداً للمزيد",
+    "peopleAttempted": "{{count}} شخص حاولوا اليوم",
+    "gotItRight": "{{percent}}% أجابوا بشكل صحيح",
+    "correct": "صحيح!",
+    "incorrect": "خطأ",
+    "pointsEarned": "+{{points}} نقاط دماغ",
+    "coinsEarned": "+{{coins}} عملات Neural",
+    "streakDays": "سلسلة {{count}} يوم",
+    "solveNow": "حل الآن",
+    "dailyComplete": "اكتمل التحدي اليومي!",
+    "noChallenge": "لا يوجد تحدي متاح اليوم"
   }
 }
