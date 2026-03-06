@@ -6,7 +6,7 @@ const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http://192.168.100.37:3000';
 
 const api = axios.create({
   baseURL: `${API_URL}/api`,
-  timeout: 15000,
+  timeout: 30000,
   headers: { 'Content-Type': 'application/json' },
 });
 
