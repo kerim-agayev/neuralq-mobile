@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useThemeColors } from '../../theme';
@@ -7,6 +7,7 @@ import { useSettingsStore } from '../../store/settings.store';
 import { useAuthStore } from '../../store/auth.store';
 import { LANGUAGES } from '../../constants/languages';
 import i18n from '../../i18n';
+import LanguagePickerModal from './LanguagePickerModal';
 
 export default function SettingsSection() {
   const colors = useThemeColors();
@@ -14,18 +15,16 @@ export default function SettingsSection() {
   const router = useRouter();
   const { theme, setTheme, language, setLanguage } = useSettingsStore();
   const logout = useAuthStore((s) => s.logout);
+  const [langModalVisible, setLangModalVisible] = useState(false);
 
   const handleThemeToggle = () => {
     setTheme(theme === 'cyberpunk' ? 'clean' : 'cyberpunk');
   };
 
-  const handleLanguageCycle = () => {
-    const currentIdx = LANGUAGES.findIndex((l) => l.value === language);
-    const nextIdx = (currentIdx + 1) % LANGUAGES.length;
-    const nextLang = LANGUAGES[nextIdx].value;
-    setLanguage(nextLang);
-    // 'other' has no locale — show English UI
-    i18n.changeLanguage(nextLang === 'other' ? 'en' : nextLang);
+  const handleLanguageSelect = (lang: string) => {
+    setLanguage(lang);
+    i18n.changeLanguage(lang === 'other' ? 'en' : lang);
+    setLangModalVisible(false);
   };
 
   const handleLogout = () => {
@@ -67,7 +66,7 @@ export default function SettingsSection() {
       {/* Language */}
       <TouchableOpacity
         style={[styles.row, { backgroundColor: colors.surface, borderColor: colors.border }]}
-        onPress={handleLanguageCycle}
+        onPress={() => setLangModalVisible(true)}
         activeOpacity={0.7}
       >
         <Text style={[styles.rowLabel, { color: colors.text }]}>
@@ -80,6 +79,14 @@ export default function SettingsSection() {
           </Text>
         </View>
       </TouchableOpacity>
+
+      {/* Language picker modal */}
+      <LanguagePickerModal
+        visible={langModalVisible}
+        selectedLanguage={language}
+        onSelect={handleLanguageSelect}
+        onClose={() => setLangModalVisible(false)}
+      />
 
       {/* Logout */}
       <TouchableOpacity
