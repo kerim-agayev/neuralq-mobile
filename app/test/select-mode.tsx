@@ -78,7 +78,7 @@ export default function SelectModeScreen() {
             >
               {t('test.arcade')}
             </Text>
-            <Text style={[styles.modeDesc, { color: colors.textSecondary }]}>
+            <Text style={[styles.modeDesc, { color: colors.textSecondary }]} numberOfLines={2} adjustsFontSizeToFit minimumFontScale={0.7}>
               {t('test.arcadeDesc')}
             </Text>
           </Card>
@@ -99,7 +99,7 @@ export default function SelectModeScreen() {
             >
               {t('test.fullAnalysis')}
             </Text>
-            <Text style={[styles.modeDesc, { color: colors.textSecondary }]}>
+            <Text style={[styles.modeDesc, { color: colors.textSecondary }]} numberOfLines={2} adjustsFontSizeToFit minimumFontScale={0.7}>
               {t('test.fullAnalysisDesc')}
             </Text>
           </Card>

@@ -68,10 +68,10 @@ export default function DailyChallengeCard({ streak, refreshTrigger, onRefreshNe
       <View style={[styles.card, styles.cardDone, { backgroundColor: colors.surface, borderColor: colors.primary }]}>
         <Text style={styles.emoji}>{isCorrect ? '\u2705' : '\u274C'}</Text>
         <View style={styles.content}>
-          <Text style={[styles.title, { color: colors.text }]}>
+          <Text style={[styles.title, { color: colors.text }]} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
             {t('daily.dailyComplete')}
           </Text>
-          <Text style={[styles.sub, { color: colors.textDim }]}>
+          <Text style={[styles.sub, { color: colors.textDim }]} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
             {t('daily.gotItRight', { percent: correctPercent })}
           </Text>
         </View>
@@ -92,15 +92,15 @@ export default function DailyChallengeCard({ streak, refreshTrigger, onRefreshNe
     >
       <Text style={styles.emoji}>{'\uD83E\uDDE0'}</Text>
       <View style={styles.content}>
-        <Text style={[styles.title, { color: colors.text }]}>
+        <Text style={[styles.title, { color: colors.text }]} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
           {t('daily.title')}
         </Text>
-        <Text style={[styles.sub, { color: colors.textDim }]}>
+        <Text style={[styles.sub, { color: colors.textDim }]} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
           {t('daily.peopleAttempted', { count: daily.totalAttempts })}
         </Text>
       </View>
       <View style={[styles.solveBtn, { backgroundColor: colors.primaryDim }]}>
-        <Text style={[styles.solveBtnText, { color: colors.primary }]}>
+        <Text style={[styles.solveBtnText, { color: colors.primary }]} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
           {t('daily.solveNow')}
         </Text>
       </View>
@@ -130,11 +130,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontSize: 15,
+    fontSize: 13,
     fontWeight: '700',
   },
   sub: {
-    fontSize: 12,
+    fontSize: 11,
     marginTop: 2,
   },
   streakBadge: {

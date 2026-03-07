@@ -84,7 +84,12 @@ export default function CategoryBreakdown({ result, verbalSkipped }: CategoryBre
             <Text style={styles.emoji}>{cat.emoji}</Text>
             <View style={styles.info}>
               <View style={styles.labelRow}>
-                <Text style={[styles.label, { color: colors.text }]}>
+                <Text
+                  style={[styles.label, { color: colors.text }]}
+                  numberOfLines={1}
+                  adjustsFontSizeToFit
+                  minimumFontScale={0.6}
+                >
                   {cat.label}
                 </Text>
                 <Text style={[styles.percentile, { color: colors.textDim }]}>
@@ -110,10 +115,20 @@ export default function CategoryBreakdown({ result, verbalSkipped }: CategoryBre
             <Text style={styles.emoji}>{cat.emoji}</Text>
             <View style={styles.info}>
               <View style={styles.labelRow}>
-                <Text style={[styles.label, { color: colors.textDim }]}>
+                <Text
+                  style={[styles.label, { color: colors.textDim }]}
+                  numberOfLines={1}
+                  adjustsFontSizeToFit
+                  minimumFontScale={0.6}
+                >
                   {cat.label}
                 </Text>
-                <Text style={[styles.naLabel, { color: colors.textDim }]}>
+                <Text
+                  style={[styles.naLabel, { color: colors.textDim }]}
+                  numberOfLines={1}
+                  adjustsFontSizeToFit
+                  minimumFontScale={0.7}
+                >
                   {t('result.notAvailable')}
                 </Text>
               </View>
@@ -159,11 +174,13 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   label: {
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: '600',
+    flex: 1,
+    marginRight: 8,
   },
   percentile: {
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: '500',
   },
   naLabel: {

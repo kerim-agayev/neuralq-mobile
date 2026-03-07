@@ -53,7 +53,7 @@ export default function SettingsSection() {
         onPress={handleThemeToggle}
         activeOpacity={0.7}
       >
-        <Text style={[styles.rowLabel, { color: colors.text }]}>
+        <Text style={[styles.rowLabel, { color: colors.text }]} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
           🎨 {t('profile.theme')}
         </Text>
         <View style={[styles.badge, { backgroundColor: colors.primaryDim }]}>
@@ -69,7 +69,7 @@ export default function SettingsSection() {
         onPress={() => setLangModalVisible(true)}
         activeOpacity={0.7}
       >
-        <Text style={[styles.rowLabel, { color: colors.text }]}>
+        <Text style={[styles.rowLabel, { color: colors.text }]} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
           🌐 {t('profile.language')}
         </Text>
         <View style={[styles.badge, { backgroundColor: colors.primaryDim }]}>
@@ -94,7 +94,7 @@ export default function SettingsSection() {
         onPress={handleLogout}
         activeOpacity={0.7}
       >
-        <Text style={[styles.rowLabel, { color: colors.error }]}>
+        <Text style={[styles.rowLabel, { color: colors.error }]} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
           🚪 {t('auth.logout')}
         </Text>
       </TouchableOpacity>
@@ -125,8 +125,10 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   rowLabel: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '600',
+    flex: 1,
+    marginRight: 8,
   },
   badge: {
     paddingHorizontal: 10,

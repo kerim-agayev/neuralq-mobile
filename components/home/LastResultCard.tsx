@@ -51,6 +51,8 @@ export default function LastResultCard({ result }: LastResultCardProps) {
             <Text
               style={[styles.celebrityName, { color: colors.text }]}
               numberOfLines={1}
+              adjustsFontSizeToFit
+              minimumFontScale={0.7}
             >
               {celebrity.label}
             </Text>
@@ -70,7 +72,12 @@ export default function LastResultCard({ result }: LastResultCardProps) {
           .filter((cat) => cat.score != null && cat.score > 0)
           .map((cat) => (
             <View key={cat.label} style={styles.catRow}>
-              <Text style={[styles.catLabel, { color: colors.textDim }]}>
+              <Text
+                style={[styles.catLabel, { color: colors.textDim }]}
+                numberOfLines={1}
+                adjustsFontSizeToFit
+                minimumFontScale={0.6}
+              >
                 {cat.label}
               </Text>
               <View style={[styles.barBg, { backgroundColor: colors.border }]}>
@@ -97,7 +104,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   emptyTitle: {
-    fontSize: 15,
+    fontSize: 13,
     fontWeight: '600',
     textAlign: 'center',
     marginBottom: 4,
@@ -123,7 +130,7 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   iqScore: {
-    fontSize: 42,
+    fontSize: 36,
     fontWeight: '800',
     letterSpacing: 1,
   },

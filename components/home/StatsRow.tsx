@@ -43,10 +43,20 @@ export default function StatsRow({ testsCompleted, streak, coins, brainPoints, g
         ]}
       >
         <Text style={[styles.emoji, isSmall && { fontSize: 14 }]}>{stat.emoji}</Text>
-        <Text style={[styles.value, { color: colors.primary }, isSmall && { fontSize: 15 }]}>
+        <Text
+          style={[styles.value, { color: colors.primary }, isSmall && { fontSize: 13 }]}
+          numberOfLines={1}
+          adjustsFontSizeToFit
+          minimumFontScale={0.7}
+        >
           {stat.value}
         </Text>
-        <Text style={[styles.label, { color: colors.textDim }]} numberOfLines={1}>
+        <Text
+          style={[styles.label, { color: colors.textDim }]}
+          numberOfLines={1}
+          adjustsFontSizeToFit
+          minimumFontScale={0.7}
+        >
           {stat.label}
         </Text>
       </View>
@@ -101,7 +111,7 @@ const styles = StyleSheet.create({
     marginBottom: 3,
   },
   value: {
-    fontSize: 17,
+    fontSize: 15,
     fontWeight: '700',
   },
   label: {

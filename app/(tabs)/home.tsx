@@ -130,7 +130,12 @@ export default function HomeScreen() {
       {/* Header */}
       <View style={styles.header}>
         <NeonText size={26}>NeuralQ</NeonText>
-        <Text style={[styles.welcome, { color: colors.textSecondary }]}>
+        <Text
+          style={[styles.welcome, { color: colors.textSecondary }]}
+          numberOfLines={1}
+          adjustsFontSizeToFit
+          minimumFontScale={0.7}
+        >
           {t('home.welcome')}, {displayName}!
         </Text>
       </View>
@@ -169,7 +174,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   welcome: {
-    fontSize: 15,
+    fontSize: 13,
     marginTop: 8,
   },
 });

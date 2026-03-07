@@ -107,10 +107,20 @@ export default function ProfileHeader({ user }: ProfileHeaderProps) {
       </View>
 
       {/* Name + email */}
-      <Text style={[styles.name, { color: colors.text }]}>
+      <Text
+        style={[styles.name, { color: colors.text }]}
+        numberOfLines={1}
+        adjustsFontSizeToFit
+        minimumFontScale={0.7}
+      >
         {user.displayName || user.username}
       </Text>
-      <Text style={[styles.email, { color: colors.textSecondary }]}>
+      <Text
+        style={[styles.email, { color: colors.textSecondary }]}
+        numberOfLines={1}
+        adjustsFontSizeToFit
+        minimumFontScale={0.7}
+      >
         {user.email}
       </Text>
 
@@ -174,12 +184,31 @@ export default function ProfileHeader({ user }: ProfileHeaderProps) {
         <View style={[styles.modalOverlay, { paddingTop: insets.top }]}>
           <View style={[styles.modalContent, { backgroundColor: colors.background, borderColor: colors.border }]}>
             <View style={styles.modalHeader}>
-              <TouchableOpacity onPress={() => { setShowEdit(false); setShowCountryPicker(false); }}>
-                <Text style={{ color: colors.textSecondary, fontSize: 15 }}>{t('common.cancel')}</Text>
+              <TouchableOpacity style={styles.modalHeaderBtn} onPress={() => { setShowEdit(false); setShowCountryPicker(false); }}>
+                <Text
+                  style={{ color: colors.textSecondary, fontSize: 14 }}
+                  numberOfLines={1}
+                  adjustsFontSizeToFit
+                  minimumFontScale={0.6}
+                >
+                  {t('common.cancel')}
+                </Text>
               </TouchableOpacity>
-              <Text style={[styles.modalTitle, { color: colors.text }]}>{t('profile.editProfile')}</Text>
-              <TouchableOpacity onPress={handleSave} disabled={saving}>
-                <Text style={{ color: colors.primary, fontSize: 15, fontWeight: '700', opacity: saving ? 0.5 : 1 }}>
+              <Text
+                style={[styles.modalTitle, { color: colors.text }]}
+                numberOfLines={1}
+                adjustsFontSizeToFit
+                minimumFontScale={0.6}
+              >
+                {t('profile.editProfile')}
+              </Text>
+              <TouchableOpacity style={[styles.modalHeaderBtn, { alignItems: 'flex-end' }]} onPress={handleSave} disabled={saving}>
+                <Text
+                  style={{ color: colors.primary, fontSize: 14, fontWeight: '700', opacity: saving ? 0.5 : 1 }}
+                  numberOfLines={1}
+                  adjustsFontSizeToFit
+                  minimumFontScale={0.6}
+                >
                   {t('common.save')}
                 </Text>
               </TouchableOpacity>
@@ -256,7 +285,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   name: {
-    fontSize: 20,
+    fontSize: 17,
     fontWeight: '700',
     marginBottom: 4,
   },
@@ -330,9 +359,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 24,
   },
+  modalHeaderBtn: {
+    minWidth: 50,
+  },
   modalTitle: {
-    fontSize: 17,
+    flex: 1,
+    fontSize: 15,
     fontWeight: '700',
+    textAlign: 'center',
+    marginHorizontal: 8,
   },
   fieldLabel: {
     fontSize: 13,

@@ -75,7 +75,12 @@ export default function IQReveal({ iqScore }: IQRevealProps) {
         },
       ]}
     >
-      <Text style={[styles.label, { color: colors.textSecondary }]}>
+      <Text
+        style={[styles.label, { color: colors.textSecondary }]}
+        numberOfLines={1}
+        adjustsFontSizeToFit
+        minimumFontScale={0.7}
+      >
         {t('result.yourIQ')}
       </Text>
       <View
@@ -116,7 +121,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   label: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: '600',
     textTransform: 'uppercase',
     letterSpacing: 2,

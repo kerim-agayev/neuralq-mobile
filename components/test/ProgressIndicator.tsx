@@ -19,12 +19,22 @@ export default function ProgressIndicator({
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.counter, { color: colors.primary }]}>
+      <Text
+        style={[styles.counter, { color: colors.primary }]}
+        numberOfLines={1}
+        adjustsFontSizeToFit
+        minimumFontScale={0.7}
+      >
         {t('test.question')} {current} {t('test.of')} {total}
       </Text>
       {category && (
         <View style={[styles.badge, { backgroundColor: colors.primaryDim }]}>
-          <Text style={[styles.badgeText, { color: colors.primary }]}>
+          <Text
+            style={[styles.badgeText, { color: colors.primary }]}
+            numberOfLines={1}
+            adjustsFontSizeToFit
+            minimumFontScale={0.7}
+          >
             {category}
           </Text>
         </View>
@@ -40,9 +50,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   counter: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: '700',
     letterSpacing: 0.5,
+    flex: 1,
+    marginRight: 8,
   },
   badge: {
     paddingHorizontal: 10,

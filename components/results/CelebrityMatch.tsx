@@ -16,7 +16,12 @@ export default function CelebrityMatchComponent({ iqScore }: CelebrityMatchProps
 
   return (
     <Card variant="elevated" style={styles.card}>
-      <Text style={[styles.label, { color: colors.textSecondary }]}>
+      <Text
+        style={[styles.label, { color: colors.textSecondary }]}
+        numberOfLines={1}
+        adjustsFontSizeToFit
+        minimumFontScale={0.7}
+      >
         {t('result.celebrityMatch')}
       </Text>
       <Text style={styles.emoji}>{celebrity.emoji}</Text>
@@ -30,6 +35,9 @@ export default function CelebrityMatchComponent({ iqScore }: CelebrityMatchProps
             textShadowRadius: 8,
           },
         ]}
+        numberOfLines={1}
+        adjustsFontSizeToFit
+        minimumFontScale={0.6}
       >
         {celebrity.label}
       </Text>
@@ -54,7 +62,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   name: {
-    fontSize: 20,
+    fontSize: 17,
     fontWeight: '700',
     letterSpacing: 0.5,
   },

@@ -16,7 +16,12 @@ export default function CognitiveAge({ cognitiveAge }: CognitiveAgeProps) {
 
   return (
     <Card variant="default" style={styles.card}>
-      <Text style={[styles.label, { color: colors.textSecondary }]}>
+      <Text
+        style={[styles.label, { color: colors.textSecondary }]}
+        numberOfLines={1}
+        adjustsFontSizeToFit
+        minimumFontScale={0.7}
+      >
         {t('result.cognitiveAge')}
       </Text>
       <View style={styles.row}>
@@ -51,11 +56,11 @@ const styles = StyleSheet.create({
     fontSize: 22,
   },
   age: {
-    fontSize: 36,
+    fontSize: 30,
     fontWeight: '800',
   },
   years: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: '500',
   },
 });

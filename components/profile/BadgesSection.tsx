@@ -53,6 +53,8 @@ export default function BadgesSection({ earnedBadges }: BadgesSectionProps) {
                   { color: earned ? colors.text : colors.textDim },
                 ]}
                 numberOfLines={1}
+                adjustsFontSizeToFit
+                minimumFontScale={0.7}
               >
                 {info.title}
               </Text>
@@ -78,7 +80,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   title: {
-    fontSize: 17,
+    fontSize: 15,
     fontWeight: '700',
     marginBottom: 12,
   },

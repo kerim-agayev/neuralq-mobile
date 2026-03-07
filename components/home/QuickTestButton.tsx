@@ -94,7 +94,14 @@ export default function QuickTestButton({ onPress }: QuickTestButtonProps) {
           ]}
         >
           <Text style={[styles.brain, { fontSize: btnSize * 0.27 }]}>🧠</Text>
-          <Text style={[styles.label, { fontSize: btnSize * 0.08 }]}>{t('home.startTest')}</Text>
+          <Text
+            style={[styles.label, { fontSize: btnSize * 0.08 }]}
+            numberOfLines={1}
+            adjustsFontSizeToFit
+            minimumFontScale={0.6}
+          >
+            {t('home.startTest')}
+          </Text>
         </TouchableOpacity>
       </Animated.View>
     </View>
