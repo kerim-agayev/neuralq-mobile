@@ -15,7 +15,7 @@ import { useTestStore } from '../../store/test.store';
 import { useTest } from '../../hooks/useTest';
 import { useTimer } from '../../hooks/useTimer';
 import { useHaptic } from '../../hooks/useHaptic';
-import { LoadingSpinner } from '../../components/ui';
+import { BrainLoader } from '../../components/ui';
 import QuestionCard from '../../components/test/QuestionCard';
 import MixedOptions from '../../components/test/MixedOptions';
 import TimerBar from '../../components/test/TimerBar';
@@ -160,16 +160,7 @@ export default function TestSessionScreen() {
 
   // Guard: no questions loaded
   if (!question || !isActive) {
-    return (
-      <View
-        style={[
-          styles.container,
-          { backgroundColor: colors.background, paddingTop: insets.top },
-        ]}
-      >
-        <LoadingSpinner text={t('common.loading')} />
-      </View>
-    );
+    return <BrainLoader message={t('common.loading')} />;
   }
 
   return (
@@ -235,11 +226,7 @@ export default function TestSessionScreen() {
       <AnswerFeedback isCorrect={feedbackCorrect} visible={feedbackVisible} />
 
       {/* Loading overlay for completion */}
-      {loading && (
-        <View style={[styles.loadingOverlay, { backgroundColor: colors.background + 'EE' }]}>
-          <LoadingSpinner text={t('test.submitting')} fullScreen={false} />
-        </View>
-      )}
+      {loading && <BrainLoader message={t('test.submitting')} overlay />}
     </View>
   );
 }
@@ -270,11 +257,5 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingBottom: 20,
-  },
-  loadingOverlay: {
-    ...StyleSheet.absoluteFillObject,
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 20,
   },
 });

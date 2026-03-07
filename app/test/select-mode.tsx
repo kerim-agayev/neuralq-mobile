@@ -4,7 +4,7 @@ import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { useThemeColors } from '../../theme';
 import { useTest } from '../../hooks/useTest';
-import { NeonText, Card, LoadingSpinner } from '../../components/ui';
+import { NeonText, Card, BrainLoader } from '../../components/ui';
 import { TestMode } from '../../types';
 
 export default function SelectModeScreen() {
@@ -22,20 +22,7 @@ export default function SelectModeScreen() {
   };
 
   if (loading) {
-    return (
-      <View
-        style={[
-          styles.container,
-          {
-            backgroundColor: colors.background,
-            paddingTop: insets.top,
-            paddingBottom: insets.bottom,
-          },
-        ]}
-      >
-        <LoadingSpinner text={t('test.preparingQuestions')} />
-      </View>
-    );
+    return <BrainLoader message={t('test.preparingQuestions')} />;
   }
 
   return (

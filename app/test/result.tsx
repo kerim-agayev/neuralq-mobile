@@ -7,7 +7,7 @@ import Toast from 'react-native-toast-message';
 import { useThemeColors } from '../../theme';
 import { testService } from '../../services/test.service';
 import { useTestStore } from '../../store/test.store';
-import { LoadingSpinner } from '../../components/ui';
+import { BrainLoader } from '../../components/ui';
 import IQReveal from '../../components/results/IQReveal';
 import SpiderChart from '../../components/results/SpiderChart';
 import CelebrityMatchComponent from '../../components/results/CelebrityMatch';
@@ -58,16 +58,7 @@ export default function ResultScreen() {
   }, [sessionId]);
 
   if (loading) {
-    return (
-      <View
-        style={[
-          styles.loadingContainer,
-          { backgroundColor: colors.background, paddingTop: insets.top },
-        ]}
-      >
-        <LoadingSpinner text={t('result.calculating')} />
-      </View>
-    );
+    return <BrainLoader message={t('result.calculating')} />;
   }
 
   if (!result) {

@@ -3,4 +3,5 @@ export { default as Card } from './Card';
 export { default as GradientBackground } from './GradientBackground';
 export { default as NeonText } from './NeonText';
 export { default as LoadingSpinner } from './LoadingSpinner';
+export { default as BrainLoader } from './BrainLoader';
 export { default as Skeleton, HomeSkeleton, LeaderboardSkeleton, ProfileSkeleton } from './Skeleton';
