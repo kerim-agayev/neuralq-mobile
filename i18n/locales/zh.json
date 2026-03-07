@@ -91,7 +91,12 @@
     "percentile": "百分位",
     "calculating": "正在计算结果...",
     "loadError": "无法加载结果",
-    "categoriesSkipped": "{{count}} ge lei bie bu shi yong yu ci ce shi"
+    "categoriesSkipped": "{{count}} ge lei bie bu shi yong yu ci ce shi",
+    "spatialShort": "空间",
+    "logicShort": "逻辑",
+    "verbalShort": "语言",
+    "memoryShort": "记忆",
+    "speedShort": "速度"
   },
   "leaderboard": {
     "title": "排行榜",
@@ -144,5 +149,12 @@
     "solveNow": "立即挑战",
     "dailyComplete": "今日完成！",
     "noChallenge": "今天没有挑战"
+  },
+  "stats": {
+    "tests": "测试",
+    "streak": "连续",
+    "bp": "脑分",
+    "nc": "神币",
+    "rank": "排名"
   }
 }

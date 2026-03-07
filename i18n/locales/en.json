@@ -91,7 +91,12 @@
     "iqScore": "IQ Score",
     "downloadCertificate": "Download Certificate",
     "certificateError": "Could not download certificate",
-    "categoriesSkipped": "{{count}} category not available for this test"
+    "categoriesSkipped": "{{count}} category not available for this test",
+    "spatialShort": "Spat.",
+    "logicShort": "Logic",
+    "verbalShort": "Verb.",
+    "memoryShort": "Mem.",
+    "speedShort": "Speed"
   },
   "leaderboard": {
     "title": "Leaderboard",
@@ -144,5 +149,12 @@
   },
   "history": {
     "notFound": "Result not found"
+  },
+  "stats": {
+    "tests": "Tests",
+    "streak": "Streak",
+    "bp": "BP",
+    "nc": "NC",
+    "rank": "Rank"
   }
 }

@@ -91,7 +91,12 @@
     "percentile": "percentil",
     "calculating": "Calculando seus resultados...",
     "loadError": "Não foi possível carregar os resultados",
-    "categoriesSkipped": "{{count}} categoria indisponivel para este teste"
+    "categoriesSkipped": "{{count}} categoria indisponivel para este teste",
+    "spatialShort": "Espac",
+    "logicShort": "Lóg.",
+    "verbalShort": "Verb.",
+    "memoryShort": "Mem.",
+    "speedShort": "Vel."
   },
   "leaderboard": {
     "title": "Classificação",
@@ -144,5 +149,12 @@
     "solveNow": "Resolver Agora",
     "dailyComplete": "Diário Completo!",
     "noChallenge": "Nenhum desafio disponível hoje"
+  },
+  "stats": {
+    "tests": "Testes",
+    "streak": "Série",
+    "bp": "PC",
+    "nc": "NC",
+    "rank": "Rank"
   }
 }

@@ -91,7 +91,12 @@
     "percentile": "Perzentil",
     "calculating": "Deine Ergebnisse werden berechnet...",
     "loadError": "Ergebnisse konnten nicht geladen werden",
-    "categoriesSkipped": "{{count}} Kategorie nicht verfuegbar fuer diesen Test"
+    "categoriesSkipped": "{{count}} Kategorie nicht verfuegbar fuer diesen Test",
+    "spatialShort": "Räum.",
+    "logicShort": "Logik",
+    "verbalShort": "Verb.",
+    "memoryShort": "Ged.",
+    "speedShort": "Tempo"
   },
   "leaderboard": {
     "title": "Rangliste",
@@ -144,5 +149,12 @@
     "solveNow": "Jetzt Lösen",
     "dailyComplete": "Tagesaufgabe Erledigt!",
     "noChallenge": "Heute keine Aufgabe verfügbar"
+  },
+  "stats": {
+    "tests": "Tests",
+    "streak": "Serie",
+    "bp": "GP",
+    "nc": "NM",
+    "rank": "Rang"
   }
 }

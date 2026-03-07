@@ -91,7 +91,12 @@
     "percentile": "백분위",
     "calculating": "결과를 계산하고 있습니다...",
     "loadError": "결과를 불러올 수 없습니다",
-    "categoriesSkipped": "{{count}} gae kaetegori ga i testeu e sayong bul ga"
+    "categoriesSkipped": "{{count}} gae kaetegori ga i testeu e sayong bul ga",
+    "spatialShort": "공간",
+    "logicShort": "논리",
+    "verbalShort": "언어",
+    "memoryShort": "기억",
+    "speedShort": "속도"
   },
   "leaderboard": {
     "title": "리더보드",
@@ -144,5 +149,12 @@
     "solveNow": "지금 풀기",
     "dailyComplete": "일일 완료!",
     "noChallenge": "오늘은 챌린지가 없습니다"
+  },
+  "stats": {
+    "tests": "테스트",
+    "streak": "연속",
+    "bp": "BP",
+    "nc": "NC",
+    "rank": "순위"
   }
 }

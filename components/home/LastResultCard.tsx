@@ -63,15 +63,15 @@ export default function LastResultCard({ result }: LastResultCardProps) {
       {/* Mini category bars — only show categories that have data */}
       <View style={styles.categories}>
         {[
-          { label: t('result.spatial'), score: result.spatialPercentile },
-          { label: t('result.logic'), score: result.logicPercentile },
-          { label: t('result.verbal'), score: result.verbalPercentile },
-          { label: t('result.memory'), score: result.memoryPercentile },
-          { label: t('result.speed'), score: result.speedPercentile },
+          { key: 'spatial', label: t('result.spatialShort'), score: result.spatialPercentile },
+          { key: 'logic', label: t('result.logicShort'), score: result.logicPercentile },
+          { key: 'verbal', label: t('result.verbalShort'), score: result.verbalPercentile },
+          { key: 'memory', label: t('result.memoryShort'), score: result.memoryPercentile },
+          { key: 'speed', label: t('result.speedShort'), score: result.speedPercentile },
         ]
           .filter((cat) => cat.score != null && cat.score > 0)
           .map((cat) => (
-            <View key={cat.label} style={styles.catRow}>
+            <View key={cat.key} style={styles.catRow}>
               <Text
                 style={[styles.catLabel, { color: colors.textDim }]}
                 numberOfLines={1}

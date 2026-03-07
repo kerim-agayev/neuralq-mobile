@@ -91,7 +91,12 @@
     "percentile": "процентиль",
     "calculating": "Подсчёт результатов...",
     "loadError": "Не удалось загрузить результаты",
-    "categoriesSkipped": "{{count}} kategoriya nedostupna dlya etogo testa"
+    "categoriesSkipped": "{{count}} kategoriya nedostupna dlya etogo testa",
+    "spatialShort": "Прос.",
+    "logicShort": "Логик",
+    "verbalShort": "Верб.",
+    "memoryShort": "Пам.",
+    "speedShort": "Скор."
   },
   "leaderboard": {
     "title": "Рейтинг",
@@ -144,5 +149,12 @@
     "solveNow": "Решить",
     "dailyComplete": "Задание выполнено!",
     "noChallenge": "Сегодня нет задания"
+  },
+  "stats": {
+    "tests": "Тесты",
+    "streak": "Серия",
+    "bp": "ОМ",
+    "nc": "НМ",
+    "rank": "Ранг"
   }
 }

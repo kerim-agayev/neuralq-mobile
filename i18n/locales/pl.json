@@ -91,7 +91,12 @@
     "percentile": "percentyl",
     "calculating": "Obliczanie wyników...",
     "loadError": "Nie udało się załadować wyników",
-    "categoriesSkipped": "{{count}} kategoria niedostepna dla tego testu"
+    "categoriesSkipped": "{{count}} kategoria niedostepna dla tego testu",
+    "spatialShort": "Prz.",
+    "logicShort": "Logik",
+    "verbalShort": "Werb.",
+    "memoryShort": "Pam.",
+    "speedShort": "Szyb."
   },
   "leaderboard": {
     "title": "Ranking",
@@ -144,5 +149,12 @@
     "solveNow": "Rozwiąż Teraz",
     "dailyComplete": "Dzienne Ukończone!",
     "noChallenge": "Brak wyzwania na dziś"
+  },
+  "stats": {
+    "tests": "Testy",
+    "streak": "Seria",
+    "bp": "PU",
+    "nc": "NM",
+    "rank": "Ranga"
   }
 }

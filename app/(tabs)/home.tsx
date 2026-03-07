@@ -28,7 +28,7 @@ export default function HomeScreen() {
   const router = useRouter();
   const { t } = useTranslation();
   const user = useAuthStore((s) => s.user);
-  const displayName = user?.displayName || user?.username || 'User';
+  const displayName = user?.displayName || user?.username || '';
 
   const [lastResult, setLastResult] = useState<TestResult | null>(null);
   const [testsCount, setTestsCount] = useState(0);
@@ -136,7 +136,7 @@ export default function HomeScreen() {
           adjustsFontSizeToFit
           minimumFontScale={0.7}
         >
-          {t('home.welcome')}, {displayName}!
+          {t('home.welcome')}{displayName ? `, ${displayName}` : ''}!
         </Text>
       </View>
 

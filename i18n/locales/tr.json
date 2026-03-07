@@ -91,7 +91,12 @@
     "percentile": "yüzdelik",
     "calculating": "Sonuçlarınız hesaplanıyor...",
     "loadError": "Sonuçlar yüklenemedi",
-    "categoriesSkipped": "{{count}} kategori bu test icin mevcut degil"
+    "categoriesSkipped": "{{count}} kategori bu test icin mevcut degil",
+    "spatialShort": "Uzay.",
+    "logicShort": "Mant.",
+    "verbalShort": "Sözel",
+    "memoryShort": "Haf.",
+    "speedShort": "Hız"
   },
   "leaderboard": {
     "title": "Sıralama",
@@ -144,5 +149,12 @@
     "solveNow": "Şimdi Çöz",
     "dailyComplete": "Günlük Tamamlandı!",
     "noChallenge": "Bugün meydan okuma yok"
+  },
+  "stats": {
+    "tests": "Test",
+    "streak": "Seri",
+    "bp": "BP",
+    "nc": "NC",
+    "rank": "Sıra"
   }
 }

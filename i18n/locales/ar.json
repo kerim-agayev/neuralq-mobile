@@ -91,7 +91,12 @@
     "percentile": "المئوي",
     "calculating": "جاري حساب نتائجك...",
     "loadError": "تعذر تحميل النتائج",
-    "categoriesSkipped": "{{count}} fi'a ghayr mutaha li-hadha al-ikhtbar"
+    "categoriesSkipped": "{{count}} fi'a ghayr mutaha li-hadha al-ikhtbar",
+    "spatialShort": "مكان",
+    "logicShort": "منطق",
+    "verbalShort": "لفظ",
+    "memoryShort": "ذاكر",
+    "speedShort": "سرعة"
   },
   "leaderboard": {
     "title": "لوحة المتصدرين",
@@ -144,5 +149,12 @@
     "solveNow": "حل الآن",
     "dailyComplete": "اكتمل التحدي اليومي!",
     "noChallenge": "لا يوجد تحدي متاح اليوم"
+  },
+  "stats": {
+    "tests": "اختبار",
+    "streak": "سلسلة",
+    "bp": "نقاط",
+    "nc": "عملة",
+    "rank": "ترتيب"
   }
 }

@@ -91,7 +91,12 @@
     "percentile": "प्रतिशत",
     "calculating": "आपके परिणाम की गणना हो रही है...",
     "loadError": "परिणाम लोड नहीं हो सके",
-    "categoriesSkipped": "{{count}} shrenee is pariksha ke lie uplabdh nahin"
+    "categoriesSkipped": "{{count}} shrenee is pariksha ke lie uplabdh nahin",
+    "spatialShort": "स्थान",
+    "logicShort": "तर्क",
+    "verbalShort": "मौख.",
+    "memoryShort": "स्मृ.",
+    "speedShort": "गति"
   },
   "leaderboard": {
     "title": "लीडरबोर्ड",
@@ -144,5 +149,12 @@
     "solveNow": "अभी हल करें",
     "dailyComplete": "दैनिक पूर्ण!",
     "noChallenge": "आज कोई चुनौती उपलब्ध नहीं"
+  },
+  "stats": {
+    "tests": "टेस्ट",
+    "streak": "स्ट्रीक",
+    "bp": "BP",
+    "nc": "NC",
+    "rank": "रैंक"
   }
 }

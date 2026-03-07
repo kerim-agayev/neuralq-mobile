@@ -91,7 +91,12 @@
     "percentile": "percentil",
     "calculating": "Calculando tus resultados...",
     "loadError": "No se pudieron cargar los resultados",
-    "categoriesSkipped": "{{count}} categoria no disponible para esta prueba"
+    "categoriesSkipped": "{{count}} categoria no disponible para esta prueba",
+    "spatialShort": "Espac",
+    "logicShort": "Lóg.",
+    "verbalShort": "Verb.",
+    "memoryShort": "Mem.",
+    "speedShort": "Vel."
   },
   "leaderboard": {
     "title": "Clasificación",
@@ -144,5 +149,12 @@
     "solveNow": "Resolver Ahora",
     "dailyComplete": "¡Diario Completado!",
     "noChallenge": "No hay reto disponible hoy"
+  },
+  "stats": {
+    "tests": "Tests",
+    "streak": "Racha",
+    "bp": "PC",
+    "nc": "NC",
+    "rank": "Rango"
   }
 }

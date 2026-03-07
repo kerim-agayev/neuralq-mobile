@@ -18,11 +18,11 @@ export default function StatsRow({ testsCompleted, streak, coins, brainPoints, g
   const isSmall = width < 380;
 
   const stats = [
-    { emoji: '📝', value: testsCompleted, label: 'Tests' },
-    { emoji: '🔥', value: streak, label: 'Streak' },
-    { emoji: '🧠', value: brainPoints, label: 'BP' },
-    { emoji: '🪙', value: coins, label: 'NC' },
-    { emoji: '🏆', value: globalRank ?? '—', label: 'Rank' },
+    { key: 'tests', emoji: '📝', value: testsCompleted, label: t('stats.tests') },
+    { key: 'streak', emoji: '🔥', value: streak, label: t('stats.streak') },
+    { key: 'bp', emoji: '🧠', value: brainPoints, label: t('stats.bp') },
+    { key: 'nc', emoji: '🪙', value: coins, label: t('stats.nc') },
+    { key: 'rank', emoji: '🏆', value: globalRank ?? '—', label: t('stats.rank') },
   ];
 
   const boxWidth = isSmall ? 72 : undefined;
@@ -30,7 +30,7 @@ export default function StatsRow({ testsCompleted, streak, coins, brainPoints, g
   const renderBoxes = () =>
     stats.map((stat, i) => (
       <View
-        key={stat.label}
+        key={stat.key}
         style={[
           styles.statBox,
           {

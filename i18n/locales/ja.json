@@ -91,7 +91,12 @@
     "percentile": "パーセンタイル",
     "calculating": "結果を計算中...",
     "loadError": "結果を読み込めませんでした",
-    "categoriesSkipped": "{{count}} kategorii ga kono tesuto de wa riyou dekimasen"
+    "categoriesSkipped": "{{count}} kategorii ga kono tesuto de wa riyou dekimasen",
+    "spatialShort": "空間",
+    "logicShort": "論理",
+    "verbalShort": "言語",
+    "memoryShort": "記憶",
+    "speedShort": "速度"
   },
   "leaderboard": {
     "title": "ランキング",
@@ -144,5 +149,12 @@
     "solveNow": "今すぐ挑戦",
     "dailyComplete": "デイリー完了！",
     "noChallenge": "今日のチャレンジはありません"
+  },
+  "stats": {
+    "tests": "テスト",
+    "streak": "連続",
+    "bp": "BP",
+    "nc": "NC",
+    "rank": "順位"
   }
 }

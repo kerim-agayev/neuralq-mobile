@@ -91,7 +91,12 @@
     "percentile": "faiz",
     "calculating": "Nəticələriniz hesablanır...",
     "loadError": "Nəticələr yüklənmədi",
-    "categoriesSkipped": "{{count}} kateqoriya bu test ucun movcud deyil"
+    "categoriesSkipped": "{{count}} kateqoriya bu test ucun movcud deyil",
+    "spatialShort": "Məkan",
+    "logicShort": "Mənt.",
+    "verbalShort": "Şifah",
+    "memoryShort": "Yad.",
+    "speedShort": "Sürət"
   },
   "leaderboard": {
     "title": "Sıralama",
@@ -144,5 +149,12 @@
     "solveNow": "İndi Həll Et",
     "dailyComplete": "Gündəlik Tamamlandı!",
     "noChallenge": "Bu gün çağırış yoxdur"
+  },
+  "stats": {
+    "tests": "Test",
+    "streak": "Seri",
+    "bp": "BP",
+    "nc": "NC",
+    "rank": "Sıra"
   }
 }
