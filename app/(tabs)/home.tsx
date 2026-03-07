@@ -8,7 +8,7 @@ import {
   Alert,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useRouter } from 'expo-router';
+import { useRouter, useFocusEffect } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { useThemeColors } from '../../theme';
 import { useAuthStore } from '../../store/auth.store';
@@ -35,6 +35,7 @@ export default function HomeScreen() {
   const [globalRank, setGlobalRank] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
+  const [refreshCount, setRefreshCount] = useState(0);
 
   const fetchData = useCallback(async () => {
     try {
@@ -56,9 +57,12 @@ export default function HomeScreen() {
     }
   }, []);
 
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+  useFocusEffect(
+    useCallback(() => {
+      fetchData();
+      setRefreshCount((c) => c + 1);
+    }, [fetchData]),
+  );
 
   // Check for incomplete test session backup
   useEffect(() => {
@@ -96,6 +100,7 @@ export default function HomeScreen() {
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
     await fetchData();
+    setRefreshCount((c) => c + 1);
     setRefreshing(false);
   }, [fetchData]);
 
@@ -143,7 +148,7 @@ export default function HomeScreen() {
       <QuickTestButton onPress={handleStartTest} />
 
       {/* Daily Challenge Card */}
-      <DailyChallengeCard streak={user?.currentStreak ?? 0} />
+      <DailyChallengeCard streak={user?.currentStreak ?? 0} refreshTrigger={refreshCount} />
 
       {/* Last Result Card */}
       <LastResultCard result={lastResult} />

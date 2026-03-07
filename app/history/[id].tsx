@@ -3,6 +3,7 @@ import { View, ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-nati
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useTranslation } from 'react-i18next';
+import Toast from 'react-native-toast-message';
 import { useThemeColors } from '../../theme';
 import { testService } from '../../services/test.service';
 import { LoadingSpinner } from '../../components/ui';
@@ -31,7 +32,12 @@ export default function HistoryDetailScreen() {
         const found = history.find((r) => r.id === id);
         if (found) setResult(found);
       })
-      .catch(() => {})
+      .catch((err: any) => {
+        Toast.show({
+          type: 'error',
+          text1: err.response?.data?.error || t('errors.general'),
+        });
+      })
       .finally(() => setLoading(false));
   }, [id]);
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
@@ -8,10 +8,11 @@ import { DailyChallenge } from '../../types';
 
 interface DailyChallengeCardProps {
   streak: number;
+  refreshTrigger?: number;
   onRefreshNeeded?: () => void;
 }
 
-export default function DailyChallengeCard({ streak, onRefreshNeeded }: DailyChallengeCardProps) {
+export default function DailyChallengeCard({ streak, refreshTrigger, onRefreshNeeded }: DailyChallengeCardProps) {
   const colors = useThemeColors();
   const router = useRouter();
   const { t } = useTranslation();
@@ -19,18 +20,21 @@ export default function DailyChallengeCard({ streak, onRefreshNeeded }: DailyCha
   const [daily, setDaily] = useState<DailyChallenge | null>(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const data = await dailyService.getToday();
-        setDaily(data);
-      } catch {
-        // No daily challenge available
-      } finally {
-        setLoading(false);
-      }
-    })();
+  const fetchDaily = useCallback(async () => {
+    try {
+      setLoading(true);
+      const data = await dailyService.getToday();
+      setDaily(data);
+    } catch {
+      // No daily challenge available
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    fetchDaily();
+  }, [fetchDaily, refreshTrigger]);
 
   if (loading) {
     return (

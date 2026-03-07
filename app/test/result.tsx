@@ -3,6 +3,7 @@ import { View, ScrollView, StyleSheet, Text } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useTranslation } from 'react-i18next';
+import Toast from 'react-native-toast-message';
 import { useThemeColors } from '../../theme';
 import { testService } from '../../services/test.service';
 import { useTestStore } from '../../store/test.store';
@@ -46,7 +47,12 @@ export default function ResultScreen() {
           .then((history) => {
             if (history.length > 0) setResult(history[0]);
           })
-          .catch(() => {});
+          .catch((err: any) => {
+            Toast.show({
+              type: 'error',
+              text1: err.response?.data?.error || t('result.loadError'),
+            });
+          });
       })
       .finally(() => setLoading(false));
   }, [sessionId]);
