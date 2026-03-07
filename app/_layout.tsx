@@ -3,6 +3,7 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StyleSheet, View, ActivityIndicator } from 'react-native';
 import Toast from 'react-native-toast-message';
 import ErrorBoundary from '../components/ErrorBoundary';
@@ -43,15 +44,17 @@ export default function RootLayout() {
   }
 
   return (
-    <ErrorBoundary>
-      <GestureHandlerRootView style={styles.root}>
-        <QueryClientProvider client={queryClient}>
-          <StatusBar style={theme === 'cyberpunk' ? 'light' : 'dark'} />
-          <Stack screenOptions={{ headerShown: false, animation: 'fade' }} />
-          <Toast />
-        </QueryClientProvider>
-      </GestureHandlerRootView>
-    </ErrorBoundary>
+    <SafeAreaProvider>
+      <ErrorBoundary>
+        <GestureHandlerRootView style={styles.root}>
+          <QueryClientProvider client={queryClient}>
+            <StatusBar style={theme === 'cyberpunk' ? 'light' : 'dark'} />
+            <Stack screenOptions={{ headerShown: false, animation: 'fade' }} />
+            <Toast />
+          </QueryClientProvider>
+        </GestureHandlerRootView>
+      </ErrorBoundary>
+    </SafeAreaProvider>
   );
 }
 

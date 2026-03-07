@@ -20,7 +20,9 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#0a0a0f"
-      }
+      },
+      "navigationBarColor": "#0a0a0f",
+      "navigationBarStyle": "dark"
     },
     "web": {
       "bundler": "metro",
