@@ -42,5 +42,22 @@ export function useAuth() {
     }
   };
 
-  return { login, register, loading, error, clearError: () => setError(null) };
+  const googleLogin = async (idToken: string) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const data = await authService.googleAuth(idToken);
+      await setAuth(data);
+      return true;
+    } catch (err: any) {
+      const msg =
+        err.response?.data?.error || 'Google sign-in failed';
+      setError(msg);
+      return false;
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { login, register, googleLogin, loading, error, clearError: () => setError(null) };
 }

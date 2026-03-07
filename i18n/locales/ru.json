@@ -28,7 +28,9 @@
     "registerError": "Регистрация не удалась",
     "logoutConfirm": "Вы уверены, что хотите выйти?",
     "selectCountry": "Выберите страну",
-    "searchCountry": "Поиск страны..."
+    "searchCountry": "Поиск страны...",
+    "continueWithGoogle": "Продолжить с Google",
+    "googleError": "Ошибка входа через Google"
   },
   "onboarding": {
     "slide1Title": "Узнайте свой IQ",

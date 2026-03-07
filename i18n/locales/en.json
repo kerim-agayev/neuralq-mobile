@@ -28,7 +28,9 @@
     "registerError": "Registration failed",
     "logoutConfirm": "Are you sure you want to log out?",
     "selectCountry": "Select your country",
-    "searchCountry": "Search country..."
+    "searchCountry": "Search country...",
+    "continueWithGoogle": "Continue with Google",
+    "googleError": "Google sign-in failed"
   },
   "onboarding": {
     "slide1Title": "Discover Your IQ",

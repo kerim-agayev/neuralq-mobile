@@ -28,7 +28,9 @@
     "registerError": "Registrazione fallita",
     "logoutConfirm": "Sei sicuro di voler uscire?",
     "selectCountry": "Seleziona il tuo paese",
-    "searchCountry": "Cerca paese..."
+    "searchCountry": "Cerca paese...",
+    "continueWithGoogle": "Continua con Google",
+    "googleError": "Accesso Google fallito"
   },
   "onboarding": {
     "slide1Title": "Scopri il tuo QI",

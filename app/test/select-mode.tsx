@@ -70,7 +70,12 @@ export default function SelectModeScreen() {
         >
           <Card variant="elevated" style={styles.modeCard}>
             <Text style={styles.modeEmoji}>🎮</Text>
-            <Text style={[styles.modeTitle, { color: colors.primary }]}>
+            <Text
+              style={[styles.modeTitle, { color: colors.primary }]}
+              numberOfLines={1}
+              adjustsFontSizeToFit
+              minimumFontScale={0.7}
+            >
               {t('test.arcade')}
             </Text>
             <Text style={[styles.modeDesc, { color: colors.textSecondary }]}>
@@ -86,7 +91,12 @@ export default function SelectModeScreen() {
         >
           <Card variant="elevated" style={styles.modeCard}>
             <Text style={styles.modeEmoji}>🧬</Text>
-            <Text style={[styles.modeTitle, { color: colors.secondary }]}>
+            <Text
+              style={[styles.modeTitle, { color: colors.secondary }]}
+              numberOfLines={1}
+              adjustsFontSizeToFit
+              minimumFontScale={0.7}
+            >
               {t('test.fullAnalysis')}
             </Text>
             <Text style={[styles.modeDesc, { color: colors.textSecondary }]}>
@@ -132,6 +142,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '700',
     letterSpacing: 1,
+    textAlign: 'center',
     marginBottom: 6,
   },
   modeDesc: {

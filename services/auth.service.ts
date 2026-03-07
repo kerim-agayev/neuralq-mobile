@@ -21,4 +21,9 @@ export const authService = {
     const { data } = await api.patch<ApiResponse<User>>('/auth/me', input);
     return data.data;
   },
+
+  googleAuth: async (idToken: string): Promise<AuthResponse> => {
+    const { data } = await api.post<ApiResponse<AuthResponse>>('/auth/google', { idToken });
+    return data.data;
+  },
 };

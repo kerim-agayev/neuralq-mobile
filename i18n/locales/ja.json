@@ -28,7 +28,9 @@
     "registerError": "登録に失敗しました",
     "logoutConfirm": "本当にログアウトしますか？",
     "selectCountry": "国を選択",
-    "searchCountry": "国を検索..."
+    "searchCountry": "国を検索...",
+    "continueWithGoogle": "Googleで続行",
+    "googleError": "Googleログインに失敗しました"
   },
   "onboarding": {
     "slide1Title": "IQを発見しよう",

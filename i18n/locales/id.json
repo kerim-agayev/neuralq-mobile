@@ -28,7 +28,9 @@
     "registerError": "Pendaftaran gagal",
     "logoutConfirm": "Yakin ingin keluar?",
     "selectCountry": "Pilih negaramu",
-    "searchCountry": "Cari negara..."
+    "searchCountry": "Cari negara...",
+    "continueWithGoogle": "Lanjutkan dengan Google",
+    "googleError": "Login Google gagal"
   },
   "onboarding": {
     "slide1Title": "Temukan IQ Anda",

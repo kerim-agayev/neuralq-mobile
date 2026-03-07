@@ -94,6 +94,7 @@ export default function LastResultCard({ result }: LastResultCardProps) {
 const styles = StyleSheet.create({
   card: {
     marginHorizontal: 20,
+    marginTop: 16,
   },
   emptyTitle: {
     fontSize: 15,

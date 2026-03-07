@@ -19,10 +19,10 @@ export default function StatsRow({ testsCompleted, streak, coins, brainPoints, g
 
   const stats = [
     { emoji: '📝', value: testsCompleted, label: 'Tests' },
-    { emoji: '🔥', value: streak, label: t('home.streak') },
+    { emoji: '🔥', value: streak, label: 'Streak' },
     { emoji: '🧠', value: brainPoints, label: 'BP' },
-    { emoji: '🪙', value: coins, label: t('home.coins') },
-    { emoji: '🏆', value: globalRank ?? '—', label: t('result.globalRank') },
+    { emoji: '🪙', value: coins, label: 'NC' },
+    { emoji: '🏆', value: globalRank ?? '—', label: 'Rank' },
   ];
 
   const boxWidth = isSmall ? 72 : undefined;

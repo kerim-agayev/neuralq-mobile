@@ -28,7 +28,9 @@
     "registerError": "Rejestracja nie powiodła się",
     "logoutConfirm": "Czy na pewno chcesz się wylogować?",
     "selectCountry": "Wybierz swój kraj",
-    "searchCountry": "Szukaj kraju..."
+    "searchCountry": "Szukaj kraju...",
+    "continueWithGoogle": "Kontynuuj z Google",
+    "googleError": "Logowanie Google nie powiodło się"
   },
   "onboarding": {
     "slide1Title": "Odkryj swoje IQ",

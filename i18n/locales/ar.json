@@ -28,7 +28,9 @@
     "registerError": "فشل التسجيل",
     "logoutConfirm": "هل أنت متأكد من تسجيل الخروج?",
     "selectCountry": "اختر بلدك",
-    "searchCountry": "ابحث عن بلد..."
+    "searchCountry": "ابحث عن بلد...",
+    "continueWithGoogle": "المتابعة مع Google",
+    "googleError": "فشل تسجيل الدخول بـ Google"
   },
   "onboarding": {
     "slide1Title": "اكتشف معدل ذكائك",

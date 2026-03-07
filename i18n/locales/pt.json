@@ -28,7 +28,9 @@
     "registerError": "Falha no cadastro",
     "logoutConfirm": "Tem certeza de que deseja sair?",
     "selectCountry": "Selecione seu país",
-    "searchCountry": "Buscar país..."
+    "searchCountry": "Buscar país...",
+    "continueWithGoogle": "Continuar com Google",
+    "googleError": "Falha no login com Google"
   },
   "onboarding": {
     "slide1Title": "Descubra seu QI",

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -8,12 +8,15 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  ActivityIndicator,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
+import Toast from 'react-native-toast-message';
 import { useThemeColors } from '../../theme';
 import { useAuth } from '../../hooks/useAuth';
+import { useGoogleAuth } from '../../services/google-auth.service';
 import { Button, NeonText } from '../../components/ui';
 
 export default function LoginScreen() {
@@ -21,17 +24,42 @@ export default function LoginScreen() {
   const { t } = useTranslation();
   const colors = useThemeColors();
   const insets = useSafeAreaInsets();
-  const { login, loading, error } = useAuth();
+  const { login, googleLogin, loading, error } = useAuth();
+  const { request, response, promptAsync } = useGoogleAuth();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
 
   const handleLogin = async () => {
     if (!email.trim() || !password.trim()) return;
     const success = await login({ email: email.trim(), password });
     if (success) {
       router.replace('/(tabs)/home');
+    }
+  };
+
+  useEffect(() => {
+    if (response?.type === 'success') {
+      const idToken = response.params?.id_token;
+      if (idToken) {
+        handleGoogleLogin(idToken);
+      }
+    }
+  }, [response]);
+
+  const handleGoogleLogin = async (idToken: string) => {
+    setGoogleLoading(true);
+    try {
+      const success = await googleLogin(idToken);
+      if (success) {
+        router.replace('/(tabs)/home');
+      }
+    } catch {
+      Toast.show({ type: 'error', text1: t('auth.googleError') });
+    } finally {
+      setGoogleLoading(false);
     }
   };
 
@@ -125,6 +153,32 @@ export default function LoginScreen() {
             style={styles.button}
           />
 
+          {/* OR Divider */}
+          <View style={styles.divider}>
+            <View style={[styles.dividerLine, { backgroundColor: colors.border }]} />
+            <Text style={[styles.orText, { color: colors.textDim }]}>OR</Text>
+            <View style={[styles.dividerLine, { backgroundColor: colors.border }]} />
+          </View>
+
+          {/* Google Sign-In */}
+          <TouchableOpacity
+            style={[styles.googleButton, { borderColor: colors.border }]}
+            onPress={() => promptAsync()}
+            disabled={!request || googleLoading}
+            activeOpacity={0.7}
+          >
+            {googleLoading ? (
+              <ActivityIndicator size="small" color="#4285F4" />
+            ) : (
+              <>
+                <Text style={styles.googleIcon}>G</Text>
+                <Text style={[styles.googleText, { color: colors.text }]}>
+                  {t('auth.continueWithGoogle')}
+                </Text>
+              </>
+            )}
+          </TouchableOpacity>
+
           <TouchableOpacity
             onPress={() => router.push('/(auth)/register')}
             style={styles.switchLink}
@@ -201,6 +255,38 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 8,
+  },
+  divider: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 4,
+  },
+  dividerLine: {
+    flex: 1,
+    height: 1,
+  },
+  orText: {
+    marginHorizontal: 12,
+    fontSize: 13,
+    fontWeight: '600',
+  },
+  googleButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingVertical: 14,
+    gap: 10,
+  },
+  googleIcon: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: '#4285F4',
+  },
+  googleText: {
+    fontSize: 16,
+    fontWeight: '500',
   },
   switchLink: {
     alignItems: 'center',

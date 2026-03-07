@@ -28,7 +28,9 @@
     "registerError": "Error en el registro",
     "logoutConfirm": "¿Estás seguro de que deseas cerrar sesión?",
     "selectCountry": "Selecciona tu país",
-    "searchCountry": "Buscar país..."
+    "searchCountry": "Buscar país...",
+    "continueWithGoogle": "Continuar con Google",
+    "googleError": "Error al iniciar sesión con Google"
   },
   "onboarding": {
     "slide1Title": "Descubre tu IQ",

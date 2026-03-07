@@ -18,6 +18,12 @@ export interface User {
   longestStreak: number;
   badges: Badge[];
   themePreference: string;
+  authProvider?: 'LOCAL' | 'GOOGLE';
+  googleId?: string | null;
+  appleId?: string | null;
+  emailVerified?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface LoginInput {

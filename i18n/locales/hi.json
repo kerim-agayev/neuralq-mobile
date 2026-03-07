@@ -28,7 +28,9 @@
     "registerError": "पंजीकरण विफल",
     "logoutConfirm": "क्या आप लॉग आउट करना चाहते हैं?",
     "selectCountry": "अपना देश चुनें",
-    "searchCountry": "देश खोजें..."
+    "searchCountry": "देश खोजें...",
+    "continueWithGoogle": "Google से जारी रखें",
+    "googleError": "Google साइन-इन विफल"
   },
   "onboarding": {
     "slide1Title": "अपना IQ जानें",

@@ -28,7 +28,9 @@
     "registerError": "Registrierung fehlgeschlagen",
     "logoutConfirm": "Möchten Sie sich wirklich abmelden?",
     "selectCountry": "Wähle dein Land",
-    "searchCountry": "Land suchen..."
+    "searchCountry": "Land suchen...",
+    "continueWithGoogle": "Mit Google fortfahren",
+    "googleError": "Google-Anmeldung fehlgeschlagen"
   },
   "onboarding": {
     "slide1Title": "Entdecke deinen IQ",

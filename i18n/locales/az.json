@@ -28,7 +28,9 @@
     "registerError": "Qeydiyyat uğursuz oldu",
     "logoutConfirm": "Çıxış etmək istədiyinizə əminsiniz?",
     "selectCountry": "Ölkənizi seçin",
-    "searchCountry": "Ölkə axtar..."
+    "searchCountry": "Ölkə axtar...",
+    "continueWithGoogle": "Google ilə davam et",
+    "googleError": "Google girişi uğursuz oldu"
   },
   "onboarding": {
     "slide1Title": "IQ-nizi Kəşf Edin",

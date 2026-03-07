@@ -28,7 +28,9 @@
     "registerError": "注册失败",
     "logoutConfirm": "确定要退出吗？",
     "selectCountry": "选择你的国家",
-    "searchCountry": "搜索国家..."
+    "searchCountry": "搜索国家...",
+    "continueWithGoogle": "使用Google继续",
+    "googleError": "Google登录失败"
   },
   "onboarding": {
     "slide1Title": "发现你的IQ",

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -10,12 +10,15 @@ import {
   ScrollView,
   Modal,
   FlatList,
+  ActivityIndicator,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
+import Toast from 'react-native-toast-message';
 import { useThemeColors } from '../../theme';
 import { useAuth } from '../../hooks/useAuth';
+import { useGoogleAuth } from '../../services/google-auth.service';
 import { useSettingsStore } from '../../store/settings.store';
 import { COUNTRIES, Country } from '../../constants/countries';
 import { Button, NeonText } from '../../components/ui';
@@ -25,8 +28,10 @@ export default function RegisterScreen() {
   const { t } = useTranslation();
   const colors = useThemeColors();
   const insets = useSafeAreaInsets();
-  const { register, loading, error } = useAuth();
+  const { register, googleLogin, loading, error } = useAuth();
+  const { request, response, promptAsync } = useGoogleAuth();
   const language = useSettingsStore((s) => s.language);
+  const [googleLoading, setGoogleLoading] = useState(false);
 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -55,14 +60,37 @@ export default function RegisterScreen() {
       password,
       age: age ? parseInt(age, 10) : undefined,
       country,
-      language,
+      language: language === 'other' ? 'en' : language,
     });
     if (success) {
       router.replace('/(tabs)/home');
     }
   };
 
-  const isFormValid = username.trim() && email.trim() && password.trim() && password.length >= 6;
+  useEffect(() => {
+    if (response?.type === 'success') {
+      const idToken = response.params?.id_token;
+      if (idToken) {
+        handleGoogleSignUp(idToken);
+      }
+    }
+  }, [response]);
+
+  const handleGoogleSignUp = async (idToken: string) => {
+    setGoogleLoading(true);
+    try {
+      const success = await googleLogin(idToken);
+      if (success) {
+        router.replace('/(tabs)/home');
+      }
+    } catch {
+      Toast.show({ type: 'error', text1: t('auth.googleError') });
+    } finally {
+      setGoogleLoading(false);
+    }
+  };
+
+  const isFormValid = username.trim() && email.trim() && password.trim() && password.length >= 8;
 
   const renderCountryItem = ({ item }: { item: Country }) => (
     <TouchableOpacity
@@ -171,7 +199,7 @@ export default function RegisterScreen() {
                     borderColor: colors.border,
                   },
                 ]}
-                placeholder="Min 6 characters"
+                placeholder="Min 8 characters"
                 placeholderTextColor={colors.textDim}
                 value={password}
                 onChangeText={setPassword}
@@ -250,6 +278,32 @@ export default function RegisterScreen() {
             size="lg"
             style={styles.button}
           />
+
+          {/* OR Divider */}
+          <View style={styles.divider}>
+            <View style={[styles.dividerLine, { backgroundColor: colors.border }]} />
+            <Text style={[styles.orText, { color: colors.textDim }]}>OR</Text>
+            <View style={[styles.dividerLine, { backgroundColor: colors.border }]} />
+          </View>
+
+          {/* Google Sign-Up */}
+          <TouchableOpacity
+            style={[styles.googleButton, { borderColor: colors.border }]}
+            onPress={() => promptAsync()}
+            disabled={!request || googleLoading}
+            activeOpacity={0.7}
+          >
+            {googleLoading ? (
+              <ActivityIndicator size="small" color="#4285F4" />
+            ) : (
+              <>
+                <Text style={styles.googleIcon}>G</Text>
+                <Text style={[styles.googleText, { color: colors.text }]}>
+                  {t('auth.continueWithGoogle')}
+                </Text>
+              </>
+            )}
+          </TouchableOpacity>
 
           <TouchableOpacity
             onPress={() => router.push('/(auth)/login')}
@@ -384,6 +438,38 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 8,
+  },
+  divider: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 4,
+  },
+  dividerLine: {
+    flex: 1,
+    height: 1,
+  },
+  orText: {
+    marginHorizontal: 12,
+    fontSize: 13,
+    fontWeight: '600',
+  },
+  googleButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingVertical: 14,
+    gap: 10,
+  },
+  googleIcon: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: '#4285F4',
+  },
+  googleText: {
+    fontSize: 16,
+    fontWeight: '500',
   },
   switchLink: {
     alignItems: 'center',

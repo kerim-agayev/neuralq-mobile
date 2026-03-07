@@ -28,7 +28,9 @@
     "registerError": "L'inscription a échoué",
     "logoutConfirm": "Êtes-vous sûr de vouloir vous déconnecter ?",
     "selectCountry": "Sélectionnez votre pays",
-    "searchCountry": "Rechercher un pays..."
+    "searchCountry": "Rechercher un pays...",
+    "continueWithGoogle": "Continuer avec Google",
+    "googleError": "Échec de la connexion Google"
   },
   "onboarding": {
     "slide1Title": "Découvrez votre QI",

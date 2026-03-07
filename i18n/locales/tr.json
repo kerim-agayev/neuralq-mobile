@@ -28,7 +28,9 @@
     "registerError": "Kayıt başarısız oldu",
     "logoutConfirm": "Çıkış yapmak istediğinize emin misiniz?",
     "selectCountry": "Ülkenizi seçin",
-    "searchCountry": "Ülke ara..."
+    "searchCountry": "Ülke ara...",
+    "continueWithGoogle": "Google ile devam et",
+    "googleError": "Google girişi başarısız"
   },
   "onboarding": {
     "slide1Title": "IQ'nizi Keşfedin",

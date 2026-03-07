@@ -5,6 +5,7 @@ import {
   Text,
   StyleSheet,
   Animated,
+  useWindowDimensions,
 } from 'react-native';
 import { useThemeColors } from '../../theme';
 
@@ -20,6 +21,7 @@ export default function LoadingSpinner({
   fullScreen = true,
 }: LoadingSpinnerProps) {
   const colors = useThemeColors();
+  const { width } = useWindowDimensions();
   const pulseAnim = useRef(new Animated.Value(0.6)).current;
   const glowAnim = useRef(new Animated.Value(0)).current;
 
@@ -99,6 +101,7 @@ export default function LoadingSpinner({
             styles.text,
             {
               color: colors.primary,
+              fontSize: Math.min(15, width * 0.04),
               textShadowColor: colors.primary,
               textShadowOffset: { width: 0, height: 0 },
               textShadowRadius: 8,
@@ -135,6 +138,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.5,
     shadowRadius: 15,
@@ -149,5 +153,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '600',
     letterSpacing: 1,
+    textAlign: 'center',
+    paddingHorizontal: 32,
   },
 });

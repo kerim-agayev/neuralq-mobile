@@ -195,7 +195,9 @@ export default function TestSessionScreen() {
       {/* Timer bar */}
       <View style={styles.timerWrap}>
         <TimerBar progress={timer.progress} />
-        <Text style={[styles.timeText, { color: colors.textDim }]}>
+        <Text style={[styles.timeText, {
+          color: timer.progress > 0.5 ? colors.success : timer.progress > 0.25 ? colors.warning : colors.error,
+        }]}>
           {Math.ceil(timer.remaining)}s
         </Text>
       </View>
@@ -252,9 +254,9 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   timeText: {
-    fontSize: 12,
-    fontWeight: '600',
-    minWidth: 30,
+    fontSize: 14,
+    fontWeight: '700',
+    minWidth: 32,
     textAlign: 'right',
   },
   scrollArea: {
